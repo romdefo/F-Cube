@@ -4,10 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Routes
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
+var eventRouter = require('./routes/event');
+var articleRouter = require('./routes/article');
+//var models = require('./routes/index');
 
+// Models
+var mongoose = require('./models/connection');
+
+// Express Session
+//var session = require("express-session")
 var app = express();
+// app.use(
+//   session({
+//     secret: 'a4f8071f-c873-4447-8ee2',
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +38,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'reactapp/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
+app.use('/event', eventRouter);
+app.use('/article', articleRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,101 @@
+var express = require('express');
+var router = express.Router();
+
+var uid2 = require('uid2')
+var bcrypt = require('bcrypt');
+
+var adminModel = require('../models/admins');
+
+// SIGN UP
+router.post('/sign-up', async function(req,res,next){
+
+  var error = []
+  var result = false
+  var saveAdmin = null
+  var token = null
+
+  const data = await adminModel.findOne({
+    email: req.body.email
+  })
+
+  if(data != null){
+    error.push('utilisateur déjà présent')
+  }
+
+  if(req.body.name == ''
+  || req.body.email == ''
+  || req.body.password == ''
+  ){
+    error.push('champs vides')
+  }
+
+
+  if(error.length == 0){
+
+    var hash = bcrypt.hashSync(req.body.password, 10);
+    var newAdmin = new adminModel({
+      name: req.body.name,
+      surname: req.body.surname,
+      email: req.body.email,
+      password: hash,
+      telephone: req.body.tel,
+      token: uid2(32)
+    })
+  
+    saveAdmin = await newAdmin.save()
+  
+    
+    if(saveAdmin){
+      result = true
+      token = saveAdmin.token
+    }
+  }
+  
+
+  res.json({result, saveAdmin, error, token})
+})
+
+// SIGN IN
+router.post('/sign-in', async function(req,res,next){
+
+  var result = false
+  var admin = null
+  var error = []
+  var token = null
+  
+  if(req.body.email == ''
+  || req.body.password == ''
+  ){
+    error.push('champs vides')
+  }
+
+  if(error.length == 0){
+    admin = await adminModel.findOne({
+      email: req.body.email,
+    })
+  
+    
+    if(admin){
+      if(bcrypt.compareSync(req.body.password, admin.password)){
+        result = true
+        token = admin.token
+      } else {
+        result = false
+        error.push('mot de passe incorrect')
+      }
+      
+    } else {
+      error.push('email incorrect')
+    }
+  }
+  
+
+  res.json({result, admin, error, token})
+
+
+})
+
+module.exports = router;
+
+
+
