@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './screens/Home';
-import Student from './screens/Student';
+import Student from './screens/student/Student';
 import Insertion from './screens/Insertion';
 import Volunteer from './screens/Volunteer';
 import Act from './screens/Act';
