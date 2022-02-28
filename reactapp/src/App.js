@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/decouvrir-l-association" component={Discover} />
+        {/* <Route path="/decouvrir-l-association" component={Discover} /> */}
         <Route path="/espace-eleves" component={Student} />
         <Route path="/espace-insertion" component={Insertion} />
         <Route path="/espace-benevole" component={Volunteer} />
