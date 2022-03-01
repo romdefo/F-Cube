@@ -9,10 +9,10 @@ var adminModel = require('../models/admins');
 // SIGN UP
 router.post('/sign-up', async function(req,res,next){
 
-  var error = []
-  var result = false
-  var saveAdmin = null
-  var token = null
+  var error = [];
+  var result = false;
+  var saveAdmin = null;
+  var token = null;
 
   const data = await adminModel.findOne({
     email: req.body.email
