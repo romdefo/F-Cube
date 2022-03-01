@@ -1,0 +1,15 @@
+/* Button J'agis */
+.act {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background-color: #BE0128;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px #BE0128;
+    size: 24px;
+    padding: 10px;
+    font-weight: bold;
+}
