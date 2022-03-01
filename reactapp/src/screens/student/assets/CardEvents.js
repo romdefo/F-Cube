@@ -40,7 +40,7 @@ import {Grid,Button} from '@mui/material'
     
        return (
 <Grid item xs={12} md={4} style={mystyle.leftPanel}>
-    <Grid style={mystyle.opacityBlock} >
+    <Grid item style={mystyle.opacityBlock} >
         <span style = {mystyle.date}>{date}</span>
         <div style= {{display:'flex', flexDirection:'column', alignItems:'center'}}>
         <h2 style={{  fontWeight: "500" }}>{title}</h2>
