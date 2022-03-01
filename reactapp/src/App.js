@@ -4,7 +4,12 @@ import Home from './screens/Home';
 import Student from './screens/student/Student';
 import Insertion from './screens/Insertion';
 import Volunteer from './screens/Volunteer';
+<<<<<<< HEAD
 import Act from './screens/Act';
+=======
+import Discover from './screens/Discover';
+//import Nav from './components/Nav'
+>>>>>>> discover
 
 function App() {
   return (

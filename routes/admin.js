@@ -9,10 +9,10 @@ var adminModel = require('../models/admins');
 // SIGN UP
 router.post('/sign-up', async function (req, res, next) {
 
-  var error = []
-  var result = false
-  var saveAdmin = null
-  var token = null
+  var error = [];
+  var result = false;
+  var saveAdmin = null;
+  var token = null;
 
   var emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
