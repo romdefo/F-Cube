@@ -3,16 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@emotion/react": "^11.8.1",
-    "@emotion/styled": "^11.8.1",
-=======
     "@date-io/date-fns": "^2.13.1",
     "@date-io/dayjs": "^2.13.1",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/lab": "^5.0.0-alpha.70",
->>>>>>> student
     "@mui/material": "^5.4.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
