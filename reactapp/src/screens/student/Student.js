@@ -13,6 +13,7 @@ const Student = () => {
 
   return (
     <div className='Student'>
+      <Navbar nav={["Accueil", "Qui sommes-nous ?", "Blog", "Contact"]} />
 
       <div className='news'>
         <h1>Actualités</h1>
@@ -53,7 +54,7 @@ const Student = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'bottom',
           height: '60%',
-          boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)"
+          boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.48)",
         }}>
           <div style={{
             height: "100%",
