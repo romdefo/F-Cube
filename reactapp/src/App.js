@@ -5,6 +5,7 @@ import Student from './screens/student/Student';
 import Insertion from './screens/Insertion';
 import Volunteer from './screens/Volunteer';
 import Act from './screens/Act';
+import Admin from './screens/Admin'
 import Discover from './screens/discover/Discover';
 //import Nav from './components/Nav'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/espace-insertion" component={Insertion} />
         <Route path="/espace-benevole" component={Volunteer} />
         <Route path="/j-agis" component={Act} />
+        <Route path="/admin" component={Admin} />
       </Switch>
     </Router>
   );
