@@ -3,27 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@emotion/react": "^11.8.1",
-    "@emotion/styled": "^11.8.1",
-=======
     "@date-io/date-fns": "^2.13.1",
     "@date-io/dayjs": "^2.13.1",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.4.4",
     "@mui/lab": "^5.0.0-alpha.70",
->>>>>>> student
     "@mui/material": "^5.4.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
     "date-fns": "^2.28.0",
+    "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.5",
+    "react-map-gl": "^7.0.7",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
+    "react-scroll": "^1.8.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
