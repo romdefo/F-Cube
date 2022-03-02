@@ -1,28 +1,16 @@
 import React from 'react';
 
 import Navbar from '../../components/Navbar';
-import Cards from '../../components/Card';
+import Footer from '../../components/Footer';
+import Action from './Action';
+import Histoire from './Histoire';
+import Team from './Team';
 
 import '../../stylesheets/App.css'
+import './Discover.css'
 import '../../stylesheets/Separator.css'
 
 import {Grid, Button} from '@mui/material';
-
-const mystyle = {
-    background: {
-        backgroundColor:'#99C2C0',
-        height: '100vh'
-    },
-    image: {
-        height: '10vh'
-    },
-    text: {
-        color: "#004636",
-        display: "flex",
-        justifyContent: "center",
-        weight: "500"
-    }
-}
 
 
 export default function Discover() {
@@ -34,70 +22,49 @@ export default function Discover() {
             {/* Navbar */}
             <Navbar nav={nav}/>
 
-            {/* Section1 */}
-            <Grid id={nav[0]}>
-                <Grid item xs={12} className='jumbotron-image' mb={5}>
-                    <Grid xs={12} className='jumbotron-opacity'>
-                        <h1>
-                            Nos actions
-                        </h1>
-                    </Grid>
+            {/* Section Actions */}
+            <Grid container id={nav[0]} className='page'>
+                <Grid item xs={12} className='page-content' mb={5}>
+                    <h1>Nos actions</h1> 
                 </Grid>
 
-                
-                <Grid item xs={12} mb={5}>
-                    <Grid container spacing={4} display="flex" justifyContent="center">
-                        <Grid item display="flex" justifyContent="center">
-                            <Cards 
-                                cardID="scolarite"
-                                img="./images/scolarite.jpeg"
-                                imgDesc="scolarite"
-                                title="Accopagnement à la scolarité"
-                                content="Lorem Ipsum"
-                                button1="En savoir plus"/>
-                        </Grid>
-                    </Grid>
+                <Grid item xs={12} className='page-content'>
+                    <Action/>
                 </Grid>
-
-                <Grid item xs={12} style={mystyle.text}>
+                    
+                <Grid item xs={12}>
                     <Grid>
                         Pour en savoir plus, visiter notre <Button variant='contained'> Blog </Button>
                     </Grid>
                 </Grid>
-
             </Grid>
 
-            <Grid id={nav[1]}>
-                <Grid item xs={12} style={mystyle.leftPanel} mb={5}>
-                    <Grid xs={12} style={mystyle.opacityBlock}>
-                        <h1>
-                            Nos actions
-                        </h1>
-                    </Grid>
-                </Grid>
+            <div className='separator'></div>
 
-                
-                <Grid item xs={12} mb={5}>
-                    <Grid container spacing={4} display="flex" justifyContent="center">
-                        <Grid item display="flex" justifyContent="center">
-                            <Cards 
-                                cardID="scolarite"
-                                img="./images/scolarite.jpeg"
-                                imgDesc="scolarite"
-                                title="Accopagnement à la scolarité"
-                                content="Lorem Ipsum"
-                                button1="En savoir plus"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
+            {/* Section Histoire*/}
+            <Grid container className='page'>
 
-                <Grid item xs={12} style={mystyle.text}>
-                    <Grid>
-                        Pour en savoir plus, visiter notre <Button variant='contained'> Blog </Button>
-                    </Grid>
+                <Grid item xs={12} className='page-content'>
+                    <Histoire/>
                 </Grid>
-
             </Grid>
+
+            <div className='separator'></div>
+
+            {/* Section Equipe */}
+            <Grid container className='page'>
+
+                <Grid item xs={12} className='page-content' mb={5}>
+                    <h1>Notre équipe</h1> 
+                </Grid>
+
+                <Grid item xs={12} className='page-content'>
+                    <Team/>
+                </Grid>
+            </Grid>
+
+            {/* Footer */}
+            {/* <Footer/> */}
 
         </div>       
 

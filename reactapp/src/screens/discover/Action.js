@@ -1,29 +1,37 @@
 import React from 'react';
 
-import Navbar from '../../components/Navbar';
-import Cards from '../../components/Card';
+import Cards from '../../components/Cards';
 
-import '../../stylesheets/App.css'
-import '../../stylesheets/Separator.css'
+import {Grid} from '@mui/material';
 
-import {Grid, Button} from '@mui/material';
+export default function Action() {
 
-export default function Action(props) {
+    let cardList = [
+        {id: "scolarite", img: "../images/discover/scolarite.jpeg", imgDesc:"accompagnement-scolarité", 
+        title:"Accompagnement à la scolarité", 
+        content: "Amener les enfants et les jeunes, à (re)construire une relation positive à l’école et au savoir",
+        button1: "En savoir plus"},
+        {id: "scolarite", img: "../images/discover/scolarite.jpeg", imgDesc:"accompagnement-scolarité", 
+        title:"Accompagnement à la scolarité", 
+        content: "Amener les enfants et les jeunes, à (re)construire une relation positive à l’école et au savoir",
+        button1: "En savoir plus"},
+        {id: "scolarite", img: "../images/discover/scolarite.jpeg", imgDesc:"accompagnement-scolarité", 
+        title:"Accompagnement à la scolarité", 
+        content: "Amener les enfants et les jeunes, à (re)construire une relation positive à l’école et au savoir",
+        button1: "En savoir plus"},
+    ]
 
     return (
-        <Grid item xs={12} mb={5}>
-            <Grid container spacing={4} display="flex" justifyContent="center">
-                <Grid item display="flex" justifyContent="center">
-                    <Cards 
-                        cardID="scolarite"
-                        img="./images/scolarite.jpeg"
-                        imgDesc="scolarite"
-                        title="Accopagnement à la scolarité"
-                        content="Lorem Ipsum"
-                        button1="En savoir plus"/>
-                </Grid>
-            </Grid>
+        <Grid item xs={12} className='cards'>
+            {cardList.map(card => {
+                return <Cards 
+                    cardID={card.id}
+                    img={card.img}
+                    imgDesc={card.imgDesc}
+                    title={card.title}
+                    content={card.content}
+                    button1={card.button1}/>
+            })}
         </Grid>
     );
-    
 }
