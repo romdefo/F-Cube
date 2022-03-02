@@ -7,7 +7,6 @@ import '../stylesheets/Nav.css'
 import '../stylesheets/Buttons.css'
 import '../stylesheets/App.css'
 
-
 export default function Navbar(props) {
 
     //Toggle menu and responsive

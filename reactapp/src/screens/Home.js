@@ -1,79 +1,60 @@
 import React from 'react';
-import { Grid, Button } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Navbar from ".//../components/Navbar";
 
 import '../stylesheets/App.css'
 import '../stylesheets/Buttons.css'
 
 export default function Home() {
     return (
-        <Grid container style={mystyle.all}>
-            <Grid item xs={12} md={6} style={mystyle.leftPanel}>
+        <>
+            <Navbar nav={["Accueil", "Qui sommes-nous ?", "Blog", "Contact"]} />
+            <Grid container style={mystyle.all}>
                 <Grid style={mystyle.opacityBlock}>
-                    <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 180 }} />
-                    <h2 style={{ width: "60%", fontWeight: "600" }}>Notre association accompagne dans la durée les enfants, les jeunes et aussi les adultes afin qu’ils prennnent leur place de citoyens.</h2>
-                    <button variant="contained" className='button-discover'><Link to="/decouvrir-l-association" style={{ textDecoration: 'none', color: "white" }}>Découvrir l'association</Link></button>
+                    <Grid item xs={12} md={6} style={mystyle.panel}>
+                        <h1 style={{ fontSize: 55 }}>EGDO</h1>
+                        {/* <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 180 }} /> */}
+                        <h2 style={{ color: "white", width: "60%", fontWeight: "500" }}>L'association des Enfants de la Goutte d'or accompagne dans la durée les enfants, les jeunes mais aussi les adultes afin qu’ils prennnent leur place de citoyens.</h2>
+                    </Grid>
+                    <Grid item xs={12} md={6} style={mystyle.panel}>
+                        <Link className="button-main" to="/espace-eleve">Espace Elève</Link>
+                        <Link className='button-main' to="/espace-insertion">Espace Insertion</Link>
+                        <Link className='button-main' to="/espace-benevole">Espace Bénévole</Link>
+                    </Grid>
                 </Grid>
+                <Link className='button-discover' to="/decouvrir-l-association">Découvrir l'association</Link>
             </Grid>
-            <Grid item xs={12} md={6} style={mystyle.rightPanel}>
-                <p style={{ color: "white", maxWidth: "60%", fontSize: 40, fontWeight: "500" }}>Les Enfants de la Goutte d'or</p>
-                <Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}><button variant="contained" className='button-main'>Espace Elève</button></Link>
-                <Link to="/espace-insertion" style={{ textDecoration: 'none', color: "#004636" }}><button variant="contained" className='button-main'>Espace Insertion</button></Link>
-                <Link to="/espace-benevole" style={{ textDecoration: 'none', color: "#004636" }}><button variant="contained" className='button-main'>Espace Benevole</button></Link>
-            </Grid>
-        </Grid>
+        </>
     )
 }
 
 const mystyle = {
     all: {
-        fontFamily: "IBM Plex Sans, sans-serif",
-        backgroundColor: "#98c2c0",
-        textAlign: "center"
-    },
-    leftPanel: {
-        height: "100vh",
-        backgroundImage: `url("../images/image-accueil.jpg")`,
+        height: "75vh",
+        backgroundImage: `url("../images/blue-pencils.jpg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)"
+        boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)",
+        fontFamily: "IBM Plex Sans, sans-serif",
+        color: "white",
+        backgroundColor: "#98c2c0",
+        textAlign: "center"
     },
     opacityBlock: {
         padding: 40,
         paddingBottom: 60,
         display: "flex",
-        flexDirection: "column",
         justifyContent: "space-around",
         alignItems: "center",
         height: "100%",
-        backgroundColor: "rgba(243, 243, 243, 0.7)",
-        color: "#004636"
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
-    rightPanel: {
-        padding: 40,
-        paddingBottom: 60,
+    panel: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
         alignItems: "center",
-        minHeight: "100vh",
-    },
-    // buttonDiscover: {
-    //     filter: "drop-shadow(5px 4px 4px rgba(0, 0, 0, 0.2))",
-    //     borderRadius: 10,
-    //     backgroundColor: "#ED0132",
-    //     fontFamily: "IBM Plex Sans, sans-serif",
-    //     fontSize: 25,
-    //     textTransform: 'none',
-    // },
-    // buttonRight: {
-    //     minWidth: 220,
-    //     height: 60,
-    //     filter: "drop-shadow(0px 4px 4px #004636)",
-    //     backgroundColor: "white",
-    //     borderRadius: 10,
-    //     fontFamily: "IBM Plex Sans, sans-serif",
-    //     fontSize: 21,
-    //     textTransform: 'none',
-    // }
+        height: "100%"
+    }
 }
