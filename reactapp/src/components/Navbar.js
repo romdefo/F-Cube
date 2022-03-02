@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import '../stylesheets/Nav.css'
 import '../stylesheets/Buttons.css'
+import '../stylesheets/App.css'
 
 
 export default function Navbar(props) {
@@ -63,7 +64,7 @@ export default function Navbar(props) {
                         })
                     }
                     <li className="nav-item">
-                        <button className="act">J'agis</button>   
+                        <button className="act-button">J'agis</button>   
                     </li>
                 </ul>       
            )}

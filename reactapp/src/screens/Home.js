@@ -2,6 +2,9 @@ import React from 'react';
 import { Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+import '../stylesheets/App.css'
+import '../stylesheets/Buttons.css'
+
 export default function Home() {
     return (
         <Grid container style={mystyle.all}>
@@ -9,14 +12,22 @@ export default function Home() {
                 <Grid style={mystyle.opacityBlock}>
                     <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 180 }} />
                     <h2 style={{ width: "60%", fontWeight: "600" }}>Notre association accompagne dans la durée les enfants, les jeunes et aussi les adultes afin qu’ils prennnent leur place de citoyens.</h2>
-                    <Button variant="contained" style={mystyle.buttonDiscover}><Link to="/decouvrir-l-association" style={{ textDecoration: 'none', color: "white" }}>Découvrir l'association</Link></Button>
+                    <button variant="contained" className='button-discover'><Link to="/decouvrir-l-association" style={{ textDecoration: 'none', color: "white" }}>Découvrir l'association</Link></button>
                 </Grid>
             </Grid>
             <Grid item xs={12} md={6} style={mystyle.rightPanel}>
                 <p style={{ color: "white", maxWidth: "60%", fontSize: 40, fontWeight: "500" }}>Les Enfants de la Goutte d'or</p>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}>Espace Elève</Link></Button>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-insertion" style={{ textDecoration: 'none', color: "#004636" }}>Espace Insertion</Link></Button>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-benevole" style={{ textDecoration: 'none', color: "#004636" }}>Espace Bénévole</Link></Button>
+                <button variant="contained" className='button-main'><Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}>Espace Elève</Link></button>
+                <button variant="contained" className='button-main'>
+                    <Link to="/espace-insertion" style={{ textDecoration: 'none', color: "#004636" }}>
+                        Espace Insertion
+                    </Link>
+                </button>
+                <button variant="contained" className='button-main'>
+                    <Link to="/espace-benevole" style={{ textDecoration: 'none', color: "#004636" }}>
+                        Espace Bénévole
+                    </Link>
+                </button>
             </Grid>
         </Grid>
     )
@@ -55,22 +66,22 @@ const mystyle = {
         alignItems: "center",
         minHeight: "100vh",
     },
-    buttonDiscover: {
-        filter: "drop-shadow(5px 4px 4px rgba(0, 0, 0, 0.2))",
-        borderRadius: 10,
-        backgroundColor: "#ED0132",
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontSize: 25,
-        textTransform: 'none',
-    },
-    buttonRight: {
-        minWidth: 220,
-        height: 60,
-        filter: "drop-shadow(0px 4px 4px #004636)",
-        backgroundColor: "white",
-        borderRadius: 10,
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontSize: 21,
-        textTransform: 'none',
-    }
+    // buttonDiscover: {
+    //     filter: "drop-shadow(5px 4px 4px rgba(0, 0, 0, 0.2))",
+    //     borderRadius: 10,
+    //     backgroundColor: "#ED0132",
+    //     fontFamily: "IBM Plex Sans, sans-serif",
+    //     fontSize: 25,
+    //     textTransform: 'none',
+    // },
+    // buttonRight: {
+    //     minWidth: 220,
+    //     height: 60,
+    //     filter: "drop-shadow(0px 4px 4px #004636)",
+    //     backgroundColor: "white",
+    //     borderRadius: 10,
+    //     fontFamily: "IBM Plex Sans, sans-serif",
+    //     fontSize: 21,
+    //     textTransform: 'none',
+    // }
 }
