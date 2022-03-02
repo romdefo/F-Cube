@@ -6,19 +6,25 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import { CardActionArea, Grid } from '@mui/material';
 
+// Unique Key
+import uuid from 'react-uuid'
+
 
 export default function FootballCard({img,category,terrain,adress,coachs }) {
 
   const catNames= category.map ((el,i )=>`${el.cat} `)
+
   const hoursContainer= category.map((el,i )=> {
-  //  const trainingDays= el.trainingDays.map(d=> {
-  //     return ( <div> <h6>{d.day}</h6>
-  //     <h6>{d.hour}</h6></div>)
-  //   })
+   const trainingDays= el.trainingDays.map((d,i)=> {
+      return ( <div key={uuid()} style={{textAlign:'center',marginBottom:'auto'}}> 
+      <h6 style={{fontWeight:'bold'}}>{d.day}</h6>
+      <h6>{d.hour}</h6></div>)
+    })
 
     return( 
-      <div  style={myStyle.divHours} key={i} >
-        <h4>{el.cat}</h4>
+      <div  style={myStyle.divHours} key={uuid()} >
+        <h4 style={{fontWeight:'bold',marginBottom:'auto'}}>{el.cat}</h4>
+        {trainingDays}
      </div>
   )})
 
@@ -27,7 +33,7 @@ export default function FootballCard({img,category,terrain,adress,coachs }) {
       alt={el}
       src={`./student/imgs/${el}.jpg`}
       sx={{ width: 56, height: 56 }}
-    />
+      key={uuid()}/>
   })
   
   

@@ -8,11 +8,13 @@ import Calendar from './assets/Calendar'
 import BasicTabs from './assets/Tabs'
 
 
+
 const Student = () => {
   return (
     
     
     <div className='Student'>
+    
         
          <div className='news'>
             <h1>Actualités</h1>
