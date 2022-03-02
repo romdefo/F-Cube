@@ -5,13 +5,15 @@ import Student from './screens/student/Student';
 import Insertion from './screens/Insertion';
 import Volunteer from './screens/Volunteer';
 import Act from './screens/Act';
+import Discover from './screens/discover/Discover';
+//import Nav from './components/Nav'
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/decouvrir-l-association" component={Discover} /> */}
+        <Route path="/decouvrir-l-association" component={Discover} />
         <Route path="/espace-eleve" component={Student} />
         <Route path="/espace-insertion" component={Insertion} />
         <Route path="/espace-benevole" component={Volunteer} />
