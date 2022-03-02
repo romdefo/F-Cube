@@ -35,7 +35,7 @@ export default function Navbar(props) {
             {(toggleMenu || screenWidth > 500) && (
                 <ul className="nav-items">
                     {!toggleMenu && (
-                        <li className="nav-item">
+                        <li >
                             <img
                             src="./images/egdo_logo.png"
                             className="nav-logo"
@@ -46,15 +46,16 @@ export default function Navbar(props) {
                     
                     {navList.map(nav => {
                         return (
-                            <li className="nav-item"> 
+                            <li > 
                                 <Link 
-                                    activeClass="active"
+                                    // activeClass="active"
                                     to={nav}
                                     spy={true}
                                     smooth={true}
                                     offset={-70}
                                     duration={500}
                                     onClick={toggleNav}
+                                    className="nav-item"
                                     >
                                         {nav}
                                 </Link>
