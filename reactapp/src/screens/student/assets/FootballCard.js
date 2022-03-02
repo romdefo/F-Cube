@@ -12,7 +12,10 @@ import uuid from 'react-uuid'
 
 export default function FootballCard({img,category,terrain,adress,coachs }) {
 
-  const catNames= category.map ((el,i )=>`${el.cat} `)
+  const catNames= category.map ((el,i )=>`${el.cat}`)
+  
+ 
+ 
 
   const hoursContainer= category.map((el,i )=> {
    const trainingDays= el.trainingDays.map((d,i)=> {
@@ -51,7 +54,7 @@ export default function FootballCard({img,category,terrain,adress,coachs }) {
 
 
           <Typography style = {myStyle.categoryName} gutterBottom variant="h5" component="div">
-            {catNames}
+            {catNames.join(' / ')}
           </Typography>
 
           <Typography variant="body" style={{fontWeight:'bold'}} display='flex' justifyContent='center'>
