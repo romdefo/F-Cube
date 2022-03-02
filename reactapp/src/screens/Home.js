@@ -14,9 +14,9 @@ export default function Home() {
             </Grid>
             <Grid item xs={12} md={6} style={mystyle.rightPanel}>
                 <p style={{ color: "white", maxWidth: "60%", fontSize: 40, fontWeight: "500" }}>Les Enfants de la Goutte d'or</p>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}>Espace Elève</Link></Button>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-insertion" style={{ textDecoration: 'none', color: "#004636" }}>Espace Insertion</Link></Button>
-                <Button variant="contained" style={mystyle.buttonRight}><Link to="/espace-benevole" style={{ textDecoration: 'none', color: "#004636" }}>Espace Bénévole</Link></Button>
+                <Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}><Button variant="contained" style={mystyle.buttonRight}>Espace Elève</Button></Link>
+                <Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}><Button variant="contained" style={mystyle.buttonRight}>Espace Elève</Button></Link>
+                <Link to="/espace-eleve" style={{ textDecoration: 'none', color: "#004636" }}><Button variant="contained" style={mystyle.buttonRight}>Espace Elève</Button></Link>
             </Grid>
         </Grid>
     )
