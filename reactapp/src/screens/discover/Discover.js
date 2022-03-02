@@ -1,40 +1,17 @@
 import React from 'react';
 
-import Navbar from '../components/Navbar';
-import Cards from '../components/Card';
+import Navbar from '../../components/Navbar';
+import Cards from '../../components/Card';
+
+import '../../stylesheets/App.css'
+import '../../stylesheets/Separator.css'
 
 import {Grid, Button} from '@mui/material';
 
 const mystyle = {
-    leftPanel: {
-        height: "10vh",
-        minWidth:'300px',
-        backgroundImage: `url(./images/background.jpg)`,
-        backgroundPosition:'center',
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-    },
-    opacityBlock: {
-        //position:'relative',
-        display: "flex",
-        flexDirection: "column",
-        //justifyContent: "space-around",
-        alignItems: "center",
-        height: "10vh",
-        backgroundColor: "rgba(243, 243, 243, 0.59)",
-        color: "#004636"
-    },
     background: {
         backgroundColor:'#99C2C0',
         height: '100vh'
-    },
-    nav: {
-        height: '10vh',
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        // backgroundColor:'#FFFFFF' ,
-        color: "#004636"
     },
     image: {
         height: '10vh'
@@ -59,8 +36,8 @@ export default function Discover() {
 
             {/* Section1 */}
             <Grid id={nav[0]}>
-                <Grid item xs={12} style={mystyle.leftPanel} mb={5}>
-                    <Grid xs={12} style={mystyle.opacityBlock}>
+                <Grid item xs={12} className='jumbotron-image' mb={5}>
+                    <Grid xs={12} className='jumbotron-opacity'>
                         <h1>
                             Nos actions
                         </h1>
