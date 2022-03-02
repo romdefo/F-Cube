@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Typography, Button, CardMedia, CardContent, CardActions, Card} from '@mui/material';
 
 
+
 export default function Cards(props) {
+
+    useEffect(() => {
+     //console.log(props.img)
+     console.log(2+2)
+      
+    }, [])
     return(
-        <Card sx={{ maxWidth: 345, width: "80%"}} id={props.cardID}>
+        <Card className='card' id={props.cardID}>
             <CardMedia
                 component="img"
                 height="140"
                 image={props.img}
                 alt={props.imgDesc}
             />
+            
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {props.title}

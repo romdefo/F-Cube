@@ -1,5 +1,5 @@
 .nav {
-    background-color:  #99C2C0;
+    background-color:  #007AAA;
     position: sticky;
     top: 0px;
     width: 100%;
@@ -21,19 +21,45 @@
 }
 
 .nav-item {
-    color: #004636;
+    color: #FFFFFF;
     margin-left: 2rem;
     margin-right: 2rem;
-}
-
-.nav-item:hover {
-    color: black;
+    display: inline;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
     cursor: pointer;
+    font-weight: bold;
+    /* background-color: purple; */
 }
 
-.nav-item > .active {
-    border-bottom: 1px solid #333;
+.nav-item:after {
+    color: #FFFFFF;
+    content: "";
+    position: absolute; 
+    z-index: -1;
+    right: 0;
+    width: 0;
+    bottom: -5px;
+    background: #FFFFFF;
+    height: 2px;
+    transition-property: width;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
 }
+
+.nav-item:hover:after,
+.nav-item:focus:after,
+.nav-item:active:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+/* .nav-item > .active {
+    border-bottom: 1px solid #333;
+} */
 
 .btn {
     display: none;
@@ -61,6 +87,24 @@
         text-align: center;
         margin-right: 0px;
         padding: 10px 0;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+        display: block;
+    }
+
+    .nav-item:after {
+        color: #FFFFFF;
+        content: "";
+    }
+
+    .nav-item:hover:after,
+    .nav-item:focus:after,
+    .nav-item:active:after {
+        left: 0;
+        right: auto;
+        width: 100%;
+        color: #FFFFFF;
     }
     .btn {
         display: block;
