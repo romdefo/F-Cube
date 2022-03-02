@@ -2,10 +2,7 @@
     margin:0;
     padding:0;
 }
-.Student{
-    width:100%;
-    min-height:100vh;   
-}
+
 .news {
     height:100vh;
     display:flex;
@@ -31,16 +28,19 @@
 
 
 .football {
-    min-height:100vh;
+  
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.inscription{
-    width:100%;
-    height:100%;
-    background-color: red;
+.football-info {
+   
+    display:flex;
+    height:100vh;
+
 }
+
+
 
