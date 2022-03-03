@@ -2,6 +2,10 @@
   font-family: IBM Plex Sans, sans-serif;
 }
 
+body {
+  background-color: #80CCEA;
+}
+
 .App {
   text-align: center;
 }
@@ -40,6 +44,7 @@
     transform: rotate(360deg);
   }
 }
+
 
 
 

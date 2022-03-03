@@ -54,7 +54,7 @@
     left: 0;
     right: auto;
     width: 100%;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 /* .nav-item > .active {

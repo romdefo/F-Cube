@@ -5,54 +5,69 @@ import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
 import Team from './Team';
+import CarouselComponent from './Caroussel';
 
 import '../../stylesheets/App.css'
-import './Discover.css'
 import '../../stylesheets/Separator.css'
+import '../../stylesheets/Buttons.css'
+import './Discover.css'
 
-import {Grid, Button} from '@mui/material';
+import {Container, Grid, createTheme, ThemeProvider} from '@mui/material';
 
+const theme = createTheme();
 
 export default function Discover() {
 
-    const nav = ["Accueil", "Qui-sommes-nous?", "Blog", "Contact"];
+    const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe", "Blog", "Contact"];
     return (
-        <div>
+    
+        <ThemeProvider theme={theme} >     
 
             {/* Navbar */}
-            <Navbar nav={nav}/>
-
+            <Navbar nav={nav}/> 
+            
             {/* Section Actions */}
-            <Grid container id={nav[0]} className='page'>
-                <Grid item xs={12} className='page-content' mb={5}>
-                    <h1>Nos actions</h1> 
+            <Container maxWidth="xl">
+                <Grid container justifyContent="center" alignItems="center" mt={5}>
+                    <Grid item  mb={5} sx={{color:'#003D55'}}>
+                        <h1>Nos actions</h1> 
+                    </Grid>
                 </Grid>
+            
 
-                <Grid item xs={12} className='page-content'>
+                <Grid container justifyContent="center" alignItems="center">
                     <Action/>
                 </Grid>
                     
-                <Grid item xs={12}>
-                    <Grid>
-                        Pour en savoir plus, visiter notre <Button variant='contained'> Blog </Button>
-                    </Grid>
+                <Grid container  justifyContent="center" alignItems="center" mt={5} spacing={4}>
+                        <Grid item>
+                            <h2>
+                                Pour en savoir plus, visiter notre 
+                            </h2>
+                        </Grid>
+                        <Grid item>
+                            <button className='act-button'> Blog </button>  
+                        </Grid>
                 </Grid>
-            </Grid>
+
+            </Container>
+
+
 
             <div className='separator'></div>
 
             {/* Section Histoire*/}
-            <Grid container className='page'>
+            <Container sx={{bgcolor:"#80CCEA"}}>
 
-                <Grid item xs={12} className='page-content'>
+                <Grid container>
                     <Histoire/>
                 </Grid>
-            </Grid>
+            </Container>
 
             <div className='separator'></div>
 
             {/* Section Equipe */}
-            <Grid container className='page'>
+            <Grid container id={nav[2]} className='page'>
 
                 <Grid item xs={12} className='page-content' mb={5}>
                     <h1>Notre équipe</h1> 
@@ -63,9 +78,11 @@ export default function Discover() {
                 </Grid>
             </Grid>
 
-            {/* Footer */}
-            {/* <Footer/> */}
 
-        </div>       
+        </ThemeProvider>
+
+
+            // {/* Footer */}
+            // {/* <Footer/> */}   
 
      ); }

@@ -1,16 +1,17 @@
-.cards {
+.card {
+    background-color: #003D55;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    text-align: center;
 }
-
 
 .page {
     height: 100vh;
     justify-content: center;
     align-items: flex-start;
-    /* padding: 0; */
     text-align: center;
     background-color: #80CCEA;
 }
@@ -42,16 +43,13 @@ button {
 .tabs {
     justify-content: flex-start;
     margin-bottom: 50px;
+    border-bottom: 3px solid #007AAA;
 }
 
 .tabs-content {
     display: flex;
     justify-content: flex-start;
     width: 70%;
-}
-
-p {
-    width: 50%;
 }
 
 .img-histoire {
@@ -64,4 +62,28 @@ p {
     width: 100%;
     height: 10px;
     background-color: #FFFFFF;
+}
+
+.container {
+    background-color: #80CCEA;
+    width: 100vw;
+}
+
+h1 {
+  color: #003D55;
+  font-weight: 900;
+  font-size: 36px;
+}
+
+h2 {
+  color: #003D55;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.MuiCard-root.same-height {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

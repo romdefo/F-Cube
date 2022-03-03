@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 
+import {Grid} from '@mui/material';
+
 
 
 export default function Histoire() {
@@ -19,7 +21,7 @@ export default function Histoire() {
     activeTab==false && setColor("#80CCEA")
 
     return (
-        <div className="histoire">
+        <Grid item>
             <div className="tabs">
                 <button id="histoireAsso" onClick={() => changeTab("histoireAsso")}>
                     Notre histoire
@@ -44,6 +46,6 @@ export default function Histoire() {
                     </div>
                 }
             
-        </div>
+        </Grid>
     );
 }
