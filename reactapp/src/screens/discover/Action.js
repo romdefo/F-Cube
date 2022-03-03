@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 
 import Cards from '../../components/Cards';
 
-import {Grid} from '@mui/material';
-import { Carousel } from 'antd';
+// import {Grid} from '@mui/material';
+import {CardGroup } from 'reactstrap';
 
 export default function Action() {
 
@@ -22,17 +22,10 @@ export default function Action() {
         button1: "En savoir plus"},
     ]
 
-    const contentStyle = {
-        height: '160px',
-        color: '#fff',
-        lineHeight: '160px',
-        textAlign: 'center',
-        background: '#364d79',
-    };
 
     return (
+        <CardGroup>
 
-        <Carousel autoplay>
             {cardList.map((card,index) => {
                 return (
                     <Cards 
@@ -44,11 +37,9 @@ export default function Action() {
                         content={card.content}
                         button={card.button1}/>
                     )
-                }
-                )
+                })
             }
-        </Carousel>
-    
-         
+        </CardGroup>
+        
     );
 }

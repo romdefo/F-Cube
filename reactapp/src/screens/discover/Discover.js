@@ -5,50 +5,51 @@ import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
 import Team from './Team';
-import CarouselComponent from './Caroussel';
+
 
 import '../../stylesheets/App.css'
 import '../../stylesheets/Separator.css'
 import '../../stylesheets/Buttons.css'
 import './Discover.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Container, Grid, createTheme, ThemeProvider} from '@mui/material';
+import {Container, Row, Col} from 'reactstrap';
 
-const theme = createTheme();
+// const theme = createTheme();
 
 export default function Discover() {
 
     const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe", "Blog", "Contact"];
     return (
     
-        <ThemeProvider theme={theme} >     
+        <>     
 
             {/* Navbar */}
             <Navbar nav={nav}/> 
             
             {/* Section Actions */}
-            <Container maxWidth="xl">
-                <Grid container justifyContent="center" alignItems="center" mt={5}>
-                    <Grid item  mb={5} sx={{color:'#003D55'}}>
+            <Container className='section'>
+                <Row justifyContent="center" alignItems="center" mt={5} className='test3'>
+                    {/* <Grid item  mb={5} sx={{color:'#003D55'}}> */}
                         <h1>Nos actions</h1> 
-                    </Grid>
-                </Grid>
+                    {/* </Grid> */}
+                </Row>
             
 
-                <Grid container justifyContent="center" alignItems="center">
+                <Row  justifyContent="center" alignItems="center" spacing={8} className='test2'>
                     <Action/>
-                </Grid>
+                </Row>
                     
-                <Grid container  justifyContent="center" alignItems="center" mt={5} spacing={4}>
-                        <Grid item>
+                <Row container  justifyContent="center" alignItems="center" mt={5} spacing={4}>
+                        <Col >
                             <h2>
                                 Pour en savoir plus, visiter notre 
                             </h2>
-                        </Grid>
-                        <Grid item>
+                        </Col>
+                        <Col>
                             <button className='act-button'> Blog </button>  
-                        </Grid>
-                </Grid>
+                        </Col>
+                </Row>
 
             </Container>
 
@@ -57,32 +58,35 @@ export default function Discover() {
             <div className='separator'></div>
 
             {/* Section Histoire*/}
-            <Container sx={{bgcolor:"#80CCEA"}}>
+            <Container >
 
-                <Grid container>
+                <Row container>
                     <Histoire/>
-                </Grid>
+                </Row>
             </Container>
 
             <div className='separator'></div>
 
             {/* Section Equipe */}
-            <Grid container id={nav[2]} className='page'>
+            <Container  id={nav[2]} >
 
-                <Grid item xs={12} className='page-content' mb={5}>
-                    <h1>Notre équipe</h1> 
-                </Grid>
+                <Row  mb={5} justifyContent="center">
+                    <Col>
+                    <h1 className='title-section'>Notre équipe</h1> 
+                    </Col>
+                </Row>
 
-                <Grid item xs={12} className='page-content'>
+                <Row>
                     <Team/>
-                </Grid>
-            </Grid>
+                </Row>
+            </Container>
+
+             {/* Footer */}
+            {/* <Footer/>    */}
+
+        </>
 
 
-        </ThemeProvider>
-
-
-            // {/* Footer */}
-            // {/* <Footer/> */}   
+           
 
      ); }

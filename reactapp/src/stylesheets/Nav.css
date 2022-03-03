@@ -4,6 +4,7 @@
     top: 0px;
     width: 100%;
     display: flex;
+    z-index: 6;
   }
   
 .nav-logo {

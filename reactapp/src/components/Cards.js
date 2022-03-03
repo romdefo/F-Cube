@@ -1,50 +1,43 @@
 import React, { useEffect } from 'react';
-import {Typography, Button, CardMedia, CardContent, CardActions, Card} from '@mui/material';
+// import {Typography, Button, CardMedia, CardContent, CardActions, Card, Grid} from '@mui/material';
+ import { Button, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
-
+// import { Card } from 'antd';
+// const { Meta } = Card;
 
 export default function Cards(props) {
     return( 
-            <Card 
-                className="card"
-                key={props.key}
-                sx={{
-                    bgcolor:"#003D55",
-                    color:"#FFF",
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:"center",
-                    alignItems:"center"
-                }}
-                >
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={props.img}
+        // <Card
+        //     hoverable
+        //     style={{ width: 240 }}
+        //     cover={<img alt="example" src={props.img} />}
+        // >
+        //     <Meta title={props.title} description={props.content} alt={props.imgDesc} />
+        // </Card>
+            <Card className="card" key={props.key}>
+                <CardImg
+                    src={props.img}
                     alt={props.imgDesc}
+                    top
+                    width="100%"
                 />
                 
-                <CardContent 
+                <CardBody 
                     sx={{
                     bgcolor:"#003D55",
                     color:"#FFF",
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:"center",
-                    alignItems:"center"
+                    //flexGrow: 1
                 }}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <CardTitle>
                         {props.title}
-                    </Typography>
-                    <Typography variant="body2">
+                    </CardTitle>
+                    <CardText >
                         {props.content}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">{props.button1}</Button>
-                    {/* <Button size="small">{props.button2}</Button> */}
-                </CardActions>
+                    </CardText>
+                </CardBody>
+                <Button size="small">{props.button}</Button>
             </Card>
+    
     )
     
 }
