@@ -1,4 +1,9 @@
+import React, { useEffect } from 'react'
 import { Grid, Button } from '@mui/material'
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 function CardEvents({ img, title, desc, date, selectEvent }) {
     const mystyle = {
@@ -34,8 +39,21 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
         }
     }
 
+    useEffect(() => {
+    
+        const aosAnime =  () => {
+          AOS.init(
+            {duration : 2000}
+          );
+          AOS.refresh();
+        }
+    
+        aosAnime()
+      }, [])
+
     return (
-        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+        <Grid item xs={12} md={4} style={mystyle.leftPanel} 
+        data-aos="zoom-in">
             <Grid item style={mystyle.opacityBlock} >
                 <span style={mystyle.date}>{date}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

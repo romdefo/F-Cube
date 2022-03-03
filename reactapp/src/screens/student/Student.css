@@ -3,7 +3,9 @@
     padding:0;
 }
 
-.news {
+
+
+.news-student {
     height:100vh;
     display:flex;
     flex-direction: column;
@@ -19,12 +21,7 @@
     align-items: center;
 }
 
-.upcoming-events{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width:100%;
-}
+
 
 
 .football {
@@ -33,14 +30,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height:100vh;
 }
 
-.football-info {
-   
+
+
+
+.taekwondo {
+  
     display:flex;
-    height:100vh;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    margin-bottom: 1rem;
 }
+
 
 
 

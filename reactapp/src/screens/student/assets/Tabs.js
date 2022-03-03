@@ -53,7 +53,7 @@ export default function BasicTabs() {
   return (
 
    
-        <Box sx={{ width: '100%' }}  >
+        <Box sx={{ width: '100%', diplay:'block'}}  >
          <Box sx={{ maxWidth: 600, bgcolor: 'background.paper'}} style={{marginLeft:'auto', marginRight:'auto'}} >
          <Tabs
             value={value}
@@ -73,10 +73,10 @@ export default function BasicTabs() {
 
         <div  style = {myStyle.trainingCards}>
 
-            
             <FootballCard
             terrain= 'Gymnase Doudeauville'
-            adress= '82,rue Doudeauville 75018 Paris'
+            adress= '82,rue Doudeauville'
+            city='75018 Paris'
             img='u9foot'
             trainingDay='Mercredi'
             category= {[{cat:'U7',trainingDays:[{day:'Mercredi',hour:'16h15'}]}, {cat:'U8',trainingDays:[{day:'Mercredi',hour:'17h15'}]}, {cat:'U9',trainingDays:[{day:'Mercredi',hour:'18h15'}]}]}
@@ -85,7 +85,8 @@ export default function BasicTabs() {
 
             <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='U10_TOURNOI_217'
             category= {[{cat:'U10 / U11',trainingDays:[{day:'Mercredi',hour:'16h00'}]}]}
             coachs = {['Bangaly_Souareu10-u11','coach_u8-u9-u10']}
@@ -101,7 +102,8 @@ export default function BasicTabs() {
         <div  style = {myStyle.trainingCards}>
         <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='u12-u13'
             category= {[{cat:'U12',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h15'}, {day:'Mercredi',hour:'De 17h30 à 19h15'}]}, {cat:'U13',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h15'}, {day:'Mercredi',hour:'De 17h30 à 19h15'}, {day:'Jeudi',hour:'De 17h45 à 19h15'}]}]}
             coachs = {['Mendy_Jacques-u12']}
@@ -114,10 +116,11 @@ export default function BasicTabs() {
         <div  style = {myStyle.trainingCards}>
         <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='u14-u15'
             category= {[{cat:'U14',trainingDays:[{day:'Lundi',hour:'De 17h45 à 19h30'}]}, {cat:'U15',trainingDays:[{day:'Lundi',hour:'De 17h45 à 19h30'}, {day:'Jeudi',hour:'De 17h45 à 19h30'}, {day:'Vendredi',hour:'De 17h45 à 19h30'}]}]}
-            coachs = {['Bangaly_Souareu10-u11','coach_u8-u9-u10']}
+            coachs = {['Chafai_Aitsaid-u7-u8-u14-u15']}
             />
             </div>
         </TabPanel>
@@ -126,10 +129,11 @@ export default function BasicTabs() {
         <div  style = {myStyle.trainingCards}>
         <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='u16-17'
             category= {[{cat:'U16',trainingDays:[{day:'Vendredi',hour:'18h00'}]}, {cat:'U17',trainingDays:[{day:'Mercredi',hour:'De 18h30 à 20h30'}, {day:'Vendredi',hour:'De 18h30 à 20h30'}]}]}
-            coachs = {['Bangaly_Souareu10-u11','coach_u8-u9-u10']}
+            coachs = {['Nasser_Hamici-17f']}
             />
             </div>
         </TabPanel>
@@ -139,7 +143,8 @@ export default function BasicTabs() {
         <div  style = {myStyle.trainingCards}>
         <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='u12f'
             category= {[{cat:'U12 / U13',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h30'}, {day:'Jeudi',hour:'De 17h45 à 19h30'}]}, 
                       ]}
@@ -148,7 +153,8 @@ export default function BasicTabs() {
 
 <FootballCard
             terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney 75018 Paris'
+            adress= '56, boulevard de Ney'
+            city='75018 Paris'
             img='sectionf'
             category= {[    {cat:'U15',trainingDays:[{day:'Mercredi',hour:'De 17h30 à 19h30'}]},
             {cat:'U16',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h30'},{day:'Jeudi',hour:'De 17h45 à 19h30'}]} 
@@ -161,10 +167,6 @@ export default function BasicTabs() {
 
         </TabPanel>
 
-        
-    
-
-
         </Box>
    
   );
@@ -174,6 +176,8 @@ const myStyle = {
     trainingCards:{
         display:'flex',
         flexWrap:'wrap',
-        justifyContent:'center'  
+        justifyContent:'center',
+       
+         
     },
   }

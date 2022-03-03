@@ -10,7 +10,7 @@ import { CardActionArea, Grid } from '@mui/material';
 import uuid from 'react-uuid'
 
 
-export default function FootballCard({img,category,terrain,adress,coachs }) {
+export default function FootballCard({img,category,terrain,adress,coachs,city,sport }) {
 
   const catNames= category.map ((el,i )=>`${el.cat}`)
   
@@ -26,23 +26,25 @@ export default function FootballCard({img,category,terrain,adress,coachs }) {
 
     return( 
       <div  style={myStyle.divHours} key={uuid()} >
-        <h4 style={{fontWeight:'bold',marginBottom:'auto'}}>{el.cat}</h4>
+     {sport!=='tkw'&& <h4 style={{fontWeight:'bold',marginBottom:'auto'}}>{el.cat}</h4>}
         {trainingDays}
      </div>
   )})
 
-  const coach = coachs.map(el=> {
+     
+  const coach =  coachs.map(el=> {
       return <Avatar
       alt={el}
       src={`./student/imgs/${el}.jpg`}
       sx={{ width: 56, height: 56 }}
       key={uuid()}/>
   })
+
   
   
   return (
-  <Grid item xs={12} md={4} style={{margin:'1rem'}}>
-    <Card  >
+  <Grid item xs={12} md={3} style={{margin:'1rem'}}>
+    <Card >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -54,7 +56,7 @@ export default function FootballCard({img,category,terrain,adress,coachs }) {
 
 
           <Typography style = {myStyle.categoryName} gutterBottom variant="h5" component="div">
-            {catNames.join(' / ')}
+         {catNames.join(' / ')}
           </Typography>
 
           <Typography variant="body" style={{fontWeight:'bold'}} display='flex' justifyContent='center'>
@@ -67,16 +69,23 @@ export default function FootballCard({img,category,terrain,adress,coachs }) {
           <Typography variant="body"  display='flex' justifyContent='center'>
             {adress}
           </Typography>
+
+          <Typography variant="body"  display='flex' justifyContent='center'>
+            {city}
+          </Typography>
       
           <Typography variant="body2" display='flex' justifyContent='center'>
           {hoursContainer}
           </Typography>
+          {coachs.length>0?
           <Typography variant="body2" style={{fontWeight:'bold'}} display='flex' flexDirection='column' alignItems='center'>
             Entraineurs
           <Typography variant="body2" display='flex' justifyContent='center'>
-          {coach}
+          {coach }
           </Typography>
+          
           </Typography>
+          : null}
           
         </CardContent>
       </CardActionArea>

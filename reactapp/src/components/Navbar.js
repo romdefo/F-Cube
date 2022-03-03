@@ -68,7 +68,7 @@ export default function Navbar(props) {
                     </li>
                 </ul>       
            )}
-           <FontAwesomeIcon className="btn" icon={faBars} onClick={toggleNav}/>
+           <FontAwesomeIcon className="menu-btn"  icon={faBars} onClick={toggleNav}/>
 
       </nav>
     );
