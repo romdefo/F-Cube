@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Discover} />
         <Route path="/decouvrir-l-association" component={Discover} />
         <Route path="/espace-eleve" component={Student} />
         <Route path="/espace-insertion" component={Insertion} />

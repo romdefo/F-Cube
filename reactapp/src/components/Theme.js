@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 import { grey, deepPurple, amber } from '@mui/material/colors';
-import { palette } from '@mui/material';
+
 
 const theme = createTheme({
   palette: {
@@ -18,6 +18,8 @@ const theme = createTheme({
     }
   },
 });
+
+const { breakpoints, typography: { pxToRem } } = theme
 
 theme.props = {
   MuiButton: {
@@ -40,11 +42,23 @@ theme.components = {
         styleOverrides: {
             h2: {
                 color:'#003D55',
-                fontWeight: 700,
+                fontWeight: 900,
+                
+                fontSize: "5rem",
+               [breakpoints.down("xs")]: {
+                  fontSize: "2rem",
+                  fontWeight: 500
+                }
             },
             h4: {
               color: theme.palette.primary.main,
-              textAlign: 'center'
+              textAlign: 'center',
+              fontSize: "2rem",
+               [breakpoints.down("xs")]: {
+                  fontSize: "1rem",
+                  fontWeight: 100
+                }
+
             },
             body2: {
               color: theme.palette.primary.main,

@@ -3,33 +3,28 @@ import React, {useEffect, useState} from "react";
 import {Box, Grid, Tab} from '@mui/material';
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { createTheme, ThemeProvider } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Histoire() {
-    // const [color, setColor] = useState('#007AAA')
-    // const [activeTab, setActiveTab] = useState(true)
-    // const [tab, setTab] = useState("histoireAsso")
 
-
-    //   const handleChange = (event, newValue) => {
-    //     setValue(newValue);
-    //   };
-
-//     let changeTab = (value) => {  
-//         setTab(value)
-//         setActiveTab(!activeTab)
-//     }
-
-//     activeTab==false && setColor("#80CCEA")
-
-//     return (
-//          const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
 
 const [value, setValue] = React.useState('1');
 const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    
+    const aosAnime =  () => {
+      AOS.init(
+        {duration : 1000}
+      );
+      AOS.refresh();
+    }
+
+    aosAnime()
+  }, [value])
 
   return (
         <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -39,12 +34,12 @@ const handleChange = (event, newValue) => {
                     <Tab label="Notre Histoire" value="1"
                      //className="tabs"
                      />
-                    <Tab label="Le quartier de la goutte d'or" value="2" />
+                    <Tab label="La goutte d'or" value="2" />
                 </TabList>
                 </Box>
                 <TabPanel value="1">
                     <Grid container direction="row" justifyContent="space-around" alignItems="center" xs={12} spacing={2}>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} data-aos="flip-left">
                             <img src="../images/discover/histoire.jpeg" className="img-fluid"/>
                         </Grid>
                         <Grid item xs={12} md={6} >
@@ -56,7 +51,7 @@ const handleChange = (event, newValue) => {
                 </TabPanel>
                 <TabPanel value="2">
                     <Grid container direction="row" justifyContent="space-around" alignItems="center" xs={12} spacing={2}>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} data-aos="flip-left">
                             <img src="../images/discover/goutte_dor.jpeg" className="img-fluid"/>
                         </Grid>
                         <Grid item xs={12} md={6} >
