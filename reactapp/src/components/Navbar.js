@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import {Link, animateScroll as scroll } from "react-scroll";
+import Linked from '@mui/material/Link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -64,7 +65,13 @@ export default function Navbar(props) {
                         })
                     }
                     <li className="nav-item">
-                        <button className="act-button">J'agis</button>   
+                        <Linked 
+                        href='/j-agis'
+                        component='button'
+                        variant='body2'
+                        className="act-button">
+                            J'agis
+                        </Linked>   
                     </li>
                 </ul>       
            )}

@@ -1,15 +1,25 @@
 import React from 'react';
-import { Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
-import Navbar from ".//../components/Navbar";
+import { Grid, Button, Box, Container } from '@mui/material';
+// import { Link } from 'react-router-dom';
+import Link from '@mui/material/Link';
 
 import '../stylesheets/App.css'
 import '../stylesheets/Buttons.css'
 
 export default function Home() {
     return (
+        // <Container maxWidth='xl'>
+        //      <Box sx={{
+        //         width: '100vw',
+        //         height: 300,
+        //         backgroundImage: 'url(../../images/blue-pencilsjpg)',
+        //         }}
+        //     >
+
+        // </Box>
+        // </Container>
+       
         <>
-            <Navbar nav={["Accueil", "Qui sommes-nous ?", "Blog", "Contact"]} />
             <Grid container style={mystyle.all}>
                 <Grid style={mystyle.opacityBlock}>
                     <Grid item xs={12} md={6} style={mystyle.panel}>
@@ -21,6 +31,17 @@ export default function Home() {
                         <Link className="button-main" to="/espace-eleve">Espace Elève</Link>
                         <Link className='button-main' to="/espace-insertion">Espace Insertion</Link>
                         <Link className='button-main' to="/espace-benevole">Espace Bénévole</Link>
+                        <Link
+                            href='/espace-eleve'
+                            variant="body2"
+                            underline='none'
+                            >
+                                <Button variant='contained' color='secondary'> Espace Elève</Button>
+                           
+                            </Link>
+                        {/* <Link className="button-main" to="/espace-eleve">Espace Elève</Link>
+                        <Link className='button-main' to="/espace-insertion">Espace Insertion</Link>
+                        <Link className='button-main' to="/espace-benevole">Espace Bénévole</Link> */}
                     </Grid>
                 </Grid>
                 <Link className='button-discover' to="/decouvrir-l-association">Découvrir l'association</Link>
