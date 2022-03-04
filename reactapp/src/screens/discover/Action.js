@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 
 import Cards from '../../components/Cards';
 
-// import {Grid} from '@mui/material';
-import {CardGroup } from 'reactstrap';
+import { Grid } from '@mui/material';
 
 export default function Action() {
 
@@ -22,12 +21,10 @@ export default function Action() {
         button1: "En savoir plus"},
     ]
 
-
     return (
-        <CardGroup>
-
-            {cardList.map((card,index) => {
-                return (
+        cardList.map((card,index) => {
+            return (
+                <Grid item xs={12} sm={6} md={4} >
                     <Cards 
                         key={index}
                         cardID={card.id}
@@ -36,10 +33,8 @@ export default function Action() {
                         title={card.title}
                         content={card.content}
                         button={card.button1}/>
-                    )
-                })
-            }
-        </CardGroup>
-        
+                </Grid>
+                )
+            })  
     );
 }
