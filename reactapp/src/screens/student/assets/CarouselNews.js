@@ -5,26 +5,14 @@ import {Grid} from '@mui/material'
 
 
 const CarouselNews = () => {
- const myStyle = {
-   carouselNews: {
- minHeight:'100vh',
- display:'flex',
- justifyContent:'center',
- alignItems:'center'
- },
- carouselText: {
-  backgroundColor:'rgb(0,0,0,0.8)',
-  alignSelf:'center'
 
- }
- }
   return (
     <Grid container xs={12} style={myStyle.carouselNews}>
    
-
+   
      <Grid item xs={12} md={8} >
     <Carousel  controls={false}  >
-       
+   
 
         <Carousel.Item >
             <img
@@ -63,3 +51,18 @@ const CarouselNews = () => {
 }
 
 export default CarouselNews
+
+const myStyle = {
+  carouselNews: {
+minHeight:'100vh',
+display:'flex',
+justifyContent:'center',
+alignItems:'center',
+
+},
+carouselText: {
+ backgroundColor:'rgb(0,0,0,0.8)',
+ alignSelf:'center'
+},
+
+}
