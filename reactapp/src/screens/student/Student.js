@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import './Student.css';
 import CarouselNews from './assets/CarouselNews';
 import Footer from ".//../../components/Footer";
-import Navbar from ".//../../components/Navbar";
+import Navbar2 from ".//../../components/Navbar2";
 import { Grid, Button, ButtonGroup } from '@mui/material'
 
 import CardEvents from './assets/CardEvents'
@@ -33,9 +33,10 @@ const Student = () => {
   return (
     <div className='Student' style = {myStyle.studentContainer}>
      
-      <Navbar nav={["Accueil", "Football", "Taekwondo", "Contact"]} />
+      <Navbar2 nav={["Accueil", "Football", "Taekwondo", "Contact"]} />
         
-        <CarouselNews />
+        
+        <CarouselNews/>
     
 
       <div className='sorties'>
@@ -187,6 +188,7 @@ const myStyle = {
     backgroundRepeat:'no-repeat',
     backgroundAttachment: 'fixed'
   },
+ 
   upcomingEvents: {
     display:'flex',
     flexWrap: 'wrap',

@@ -59,26 +59,28 @@ export default function SportCard({img,category,terrain,adress,coachs,city,sport
          {catNames.join(' / ')}
           </Typography>
 
-          <Typography variant="body" style={{fontWeight:'bold'}} display='flex' justifyContent='center'>
-            Adresse
-          </Typography>
-          <Typography variant="body"  display='flex' justifyContent='center'>
-            {terrain}
-          </Typography>
-
-          <Typography variant="body"  display='flex' justifyContent='center'>
-            {adress}
-          </Typography>
-
-          <Typography variant="body"  display='flex' justifyContent='center'>
-            {city}
-          </Typography>
-      
           <Typography variant="body2" display='flex' justifyContent='center'>
           {hoursContainer}
           </Typography>
+
+          <Typography variant="body"  display='flex' justifyContent='center'>
+            Adresse
+          </Typography>
+          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
+            {terrain}
+          </Typography>
+
+          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
+            {adress}
+          </Typography>
+
+          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
+            {city}
+          </Typography>
+      
+         
           {coachs.length>0?
-          <Typography variant="body2" style={{fontWeight:'bold'}} display='flex' flexDirection='column' alignItems='center'>
+          <Typography variant="body2"  display='flex' flexDirection='column' alignItems='center' sx={{ fontWeight: 'bold' }}>
             Entraineurs
           <Typography variant="body2" display='flex' justifyContent='center'>
           {coach }
