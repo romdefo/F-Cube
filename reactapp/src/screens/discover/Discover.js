@@ -24,9 +24,7 @@ export default function Discover() {
         <ThemeProvider theme={theme}>     
 
             {/* Navbar */}
-            <Navbar 
-            nav={nav}
-            /> 
+            <Navbar nav={nav}/> 
 
             {/* Home page */}
             <div id={nav[0]}>
