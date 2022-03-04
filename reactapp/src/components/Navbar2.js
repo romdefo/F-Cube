@@ -35,7 +35,7 @@ const Navbar = (props) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link
-            href={pages[0]}
+            href='/'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <img
@@ -91,16 +91,22 @@ const Navbar = (props) => {
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            mr={7}
           >
+            <Link 
+              href="/"
+              ml={2}>
               <img
                 src="./images/egdo_logo.png"
                 className="img-fluid"
                 alt="Logo."
                 />
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent:'center', alignItems:'center'}} >
             {pages.map((page) => (
               <Link
+                href={`#${page}`}
                 key={page}
                 underline='none'
                 onClick={handleCloseNavMenu}
