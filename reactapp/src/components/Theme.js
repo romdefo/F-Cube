@@ -21,7 +21,7 @@ const theme = createTheme({
 
 theme.props = {
   MuiButton: {
-    disableElevation: true,
+    //disableElevation: true,
   },
   MuiInputLabel: {
     shrink: true,
@@ -42,8 +42,13 @@ theme.components = {
                 color:'#003D55',
                 fontWeight: 700,
             },
+            h4: {
+              color: theme.palette.primary.main,
+              textAlign: 'center'
+            },
             body2: {
-              color: theme.palette.primary.main
+              color: theme.palette.primary.main,
+              textAlign: 'center'
             }
         }       
     },
@@ -67,16 +72,17 @@ theme.components = {
           textTransform: 'none',
         },
         containedPrimary: {
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.main,
-            color: theme.palette.primary,
+          '&:hover': {
+              backgroundColor: theme.palette.secondary.main,
+              color: theme.palette.primary,
         },
         },
         containedSecondary: {
           fontWeight: 700,
           backgroundColor: theme.palette.secondary.main,
-          color: theme.palette.primary,
+          color: theme.palette.primary.main,
           underline: 'none',
+          borderRadius: '10px'
         },
       }
     },
@@ -106,7 +112,7 @@ theme.components = {
               color: '#FFFFFF'},
           '&:hover': {
             color: theme.palette.infos.main,
-            transform: 'scale(1.5)',
+            // transform: 'scale(1.5)',
           }
         }
 
