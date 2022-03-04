@@ -40,10 +40,6 @@ export default function ModalEvent() {
   const [email, setEmail] = useState ('')
   const [telephone, setTelephone] = useState ('')
 
-
-  
-  
-
   return (
     <div>
 
@@ -56,10 +52,15 @@ export default function ModalEvent() {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-        <FontAwesomeIcon  icon={faRectangleXmark} size='lg' style={{position:'absolute', right:'1rem',top:'1rem', cursor:'pointer'}}
+        <FontAwesomeIcon  icon={faRectangleXmark} size='lg' style={{position:'absolute',color:'#3FA2B0', right:'1rem',top:'1rem', cursor:'pointer'}}
          onClick = {()=> {closeModalHandler()}}/>
+
+        <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+            <h6>Participer à la sortie</h6>
+        </Typography>
+
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Nom" variant="outlined" 
+          <TextField id="outlined-basic" label="Nom" variant="outlined" color='info'
           onChange= {(e)=> setName(e.target.value)} />
           </Typography>
 

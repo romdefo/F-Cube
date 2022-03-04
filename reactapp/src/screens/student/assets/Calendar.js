@@ -18,8 +18,8 @@ export default function Calendar() {
   console.log(dateFr)
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns} locale={fr}>
-          <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
+    <LocalizationProvider dateAdapter={AdapterDateFns} locale={fr} >
+          <CalendarPicker color='secondary' date={date} onChange={(newDate) => setDate(newDate)} />
     </LocalizationProvider>
   );
 }

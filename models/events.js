@@ -10,12 +10,12 @@ var userSchema = mongoose.Schema({
 
 var eventSchema = mongoose.Schema({
     date: Date,
+    type: String,
     title: String,
     address: String,
-    content: String, 
-    img: String,
-    isInsertion: Boolean,
-    users: userSchema
+    maxNumberOfPeople: Number,
+    description: String,
+    users: [userSchema]
 });
 
 var eventModel = mongoose.model('events', eventSchema);
