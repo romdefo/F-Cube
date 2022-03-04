@@ -16,11 +16,12 @@ router.post('/add-event', async function (req, res, next) {
     error.push('Un même événement est déjà présent à cette date.')
   }
 
-  if (req.body.title == ''
-    || req.body.img == ''
-    || req.body.content == ''
-    || req.body.author == ''
-    || req.body.category == ''
+  if (req.body.date == ''
+    || req.body.type == ''
+    || req.body.title == ''
+    || req.body.address == ''
+    || req.body.maxNumberOfPeople == ''
+    || req.body.description == ''
   ) {
     error.push('Certains champs sont vides !')
   }
@@ -31,8 +32,8 @@ router.post('/add-event', async function (req, res, next) {
       type: req.body.type,
       title: req.body.title,
       address: req.body.address,
-      description: req.body.description,
-      img: req.body.img,
+      maxNumberOfPeople: req.body.maxNumberOfPeople,
+      description: req.body.description
     })
 
     saveEvent = await newEvent.save()

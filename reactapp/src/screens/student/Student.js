@@ -3,11 +3,11 @@ import './Student.css';
 import CarouselNews from './assets/CarouselNews';
 import Footer from ".//../../components/Footer";
 import Navbar from ".//../../components/Navbar";
-import { Grid, Button, ButtonGroup } from '@mui/material'
+import { Grid, Button, ButtonGroup } from '@mui/material';
 
-import CardEvents from './assets/CardEvents'
-import Calendar from './assets/Calendar'
-import BasicTabs from './assets/Tabs'
+import CardEvents from './assets/CardEvents';
+import Calendar from './assets/Calendar';
+import BasicTabs from './assets/Tabs';
 
 const Student = () => {
 

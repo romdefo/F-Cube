@@ -13,8 +13,8 @@ var eventSchema = mongoose.Schema({
     type: String,
     title: String,
     address: String,
+    maxNumberOfPeople: Number,
     description: String,
-    img: String,
     users: userSchema
 });
 

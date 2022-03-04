@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+
+// Token à stocker dans le store une fois que l'admin s'est connecté
+import { connect } from 'react-redux';
+
 import { Grid, TextField, Modal, Box, FormControl, FormLabel, RadioGroup, Radio, FormControlLabel } from '@mui/material';
 import { Facebook } from "@mui/icons-material";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -9,7 +13,7 @@ import "../stylesheets/Buttons.css"
 import "../stylesheets/Footer.css"
 import "../stylesheets/Modal.css"
 
-export default function Footer() {
+function Footer(props) {
     // Icone EGDO sur la Map
     let EGDOIcon = L.icon({
         iconUrl: "../images/egdo-logo.png",
@@ -30,9 +34,18 @@ export default function Footer() {
     const [password, setPassword] = useState("");
 
     // Gérer le login de l'administrateur
-    const [isLogin, setIsLogin] = useState(false);
+    const [loginSuccessful, setLoginSuccessful] = useState(false);
+    const [alreadyLoggedIn, setAlreadyLoggedIn] = useState(false);
 
     const closeContactModal = () => { setContactModalOpen(false); setReceiver(""); setObject(""); setContent("") };
+
+    const handleLogin = async () => {
+        if (props.admin === "") {
+            setAdminModalOpen(true)
+        } else {
+            setAlreadyLoggedIn(true);
+        }
+    };
 
     const closeAdminModal = async () => {
         const adminAttempt = { email: email, password: password };
@@ -42,11 +55,16 @@ export default function Footer() {
             body: JSON.stringify(adminAttempt),
         });
         res = await res.json();
-        if (res.result) { setIsLogin(true) };
+
+        if (res.result) {
+            console.log(res);
+            props.onPopulate(res.token, res.admin.firstName);
+            setLoginSuccessful(true);
+        };
         setAdminModalOpen(false); setEmail(""); setPassword("");
     };
 
-    if (isLogin) {
+    if (loginSuccessful || alreadyLoggedIn) {
         return (<Redirect to='/admin' />);
     } else {
         return (
@@ -80,7 +98,7 @@ export default function Footer() {
                                 </div>
                             </Grid>
 
-                            {/* Panel de droite du premier footer, avec la carte dedans */}
+                            {/* Panel de droite du premier footer, avec la map dedans */}
                             <Grid item xs={12} md={6} className="footer-panel">
                                 <div className="footer-panel-content">
                                     <MapContainer className="map-container" center={[48.887270, 2.354730]} zoom={14}>
@@ -112,9 +130,10 @@ export default function Footer() {
 
                     {/* Panel tout à gauche avec le logo et les credentials */}
                     <Grid item xs={12} md={4} className="footer-panel">
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
                             <div>
-                                <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 80, paddingBottom: 10 }} /></div>
+                                <img src="../images/egdo-logo.png" alt="logo de l'association" className="egdo-logo" />
+                            </div>
                             <div className="EGDO-credentials">
                                 <p style={{ fontWeight: 600 }}>Les Enfants de la Goutte d'or</p>
                                 <p>Association loi 1901</p>
@@ -180,7 +199,7 @@ export default function Footer() {
                             <p>NEWSLETTER</p>
                             <p>RAPPORT D'ACTIVITES</p>
                             <p>MENTIONS LEGALES</p>
-                            <p onClick={() => setAdminModalOpen(true)} className="contact-link">ESPACE ADMIN</p>
+                            <p onClick={() => handleLogin()} className="contact-link">ESPACE ADMIN</p>
 
                             {/* Modal pour se connecter, qui redirige vers la page Admin */}
                             <Modal
@@ -207,3 +226,17 @@ export default function Footer() {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return { admin: state.admin }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onPopulate: function (token, firstName) {
+            dispatch({ type: 'populate', token, firstName })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
