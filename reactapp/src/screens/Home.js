@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Button } from '@mui/material';
+import { Grid, Button, Box, Container } from '@mui/material';
 // import { Link } from 'react-router-dom';
 import Link from '@mui/material/Link';
 
@@ -8,6 +8,17 @@ import '../stylesheets/Buttons.css'
 
 export default function Home() {
     return (
+        // <Container maxWidth='xl'>
+        //      <Box sx={{
+        //         width: '100vw',
+        //         height: 300,
+        //         backgroundImage: 'url(../../images/blue-pencilsjpg)',
+        //         }}
+        //     >
+
+        // </Box>
+        // </Container>
+       
         <>
             <Grid container style={mystyle.all}>
                 <Grid style={mystyle.opacityBlock}>
