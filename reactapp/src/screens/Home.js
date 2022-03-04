@@ -3,18 +3,12 @@ import { Grid, Button, Box, Container, Typography } from '@mui/material';
 // import { Link } from 'react-router-dom';
 import Link from '@mui/material/Link';
 
-<<<<<<< HEAD
 import '../stylesheets/App.css'
 import '../stylesheets/Buttons.css'
 import '../screens/discover/Discover.css'
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-=======
-import '../stylesheets/App.css';
-import '../stylesheets/Buttons.css';
-import '../stylesheets/Home.css';
->>>>>>> romain
 
 export default function Home() {
 
@@ -30,7 +24,6 @@ export default function Home() {
     aosAnime()
   }, [])
     return (
-<<<<<<< HEAD
         <div className='home' style={mystyle.img}>
             <Box className='home' style={mystyle.opacity} sx={{display: {md:'flex', xs:'none'} }}>
 
@@ -137,37 +130,12 @@ export default function Home() {
             </Box>
         </div>
 
-=======
-        <>
-            <Navbar nav={["Accueil", "Qui sommes-nous ?", "Blog", "Contact"]} />
-            <Grid className="allHomePage">
-                <Grid container className="home-opacity-block">
-                    <Grid item xs={12} md={6} className="home-panel">
-                        <div className="first-impression">
-                            <p className="home-title">EGDO</p>
-                            <p className="home-subtitle">depuis 1978</p>
-                        </div>
-                        <div className="quick-intro">
-                            <h2 style={{ color: "white", fontWeight: "500" }}>L'association des Enfants de la Goutte d'or accompagne dans la durée les enfants, les jeunes mais aussi les adultes afin qu’ils prennnent leur place de citoyens.</h2>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={6} className="home-panel">
-                        <Link className="button-main" to="/espace-eleve">Espace Elève</Link>
-                        <Link className='button-main' to="/espace-insertion">Espace Insertion</Link>
-                        <Link className='button-main' to="/espace-benevole">Espace Bénévole</Link>
-                    </Grid>
-                </Grid>
-                {/* <Link className='button-discover' to="/decouvrir-l-association">Découvrir l'association</Link> */}
-            </Grid>
-        </>
->>>>>>> romain
     )
  }
 
-<<<<<<< HEAD
 const mystyle = {
     img: {
-        backgroundImage: `url("../images/blue-pencils.jpg")`,
+        backgroundImage: `url("/images/bgi.jpg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "95vh"
@@ -184,5 +152,3 @@ const mystyle = {
         minHeight: "95vh"
     },
 }
-=======
->>>>>>> romain
