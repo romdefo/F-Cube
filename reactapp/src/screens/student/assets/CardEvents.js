@@ -62,7 +62,7 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
                     
-                    <ModalEvent/>
+                    <ModalEvent />
                 </div>
             </Grid>
         </Grid>
