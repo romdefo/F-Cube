@@ -6,7 +6,7 @@ import Navbar from ".//../../components/Navbar";
 import { Grid, Button, ButtonGroup } from '@mui/material'
 
 import CardEvents from './assets/CardEvents'
-import FootballCard from './assets/FootballCard'
+import SportCard from './assets/SportCard'
 import Calendar from './assets/Calendar'
 import BasicTabs from './assets/Tabs'
 
@@ -129,8 +129,7 @@ const Student = () => {
             <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Body Tae Feminin</h1>
             <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
               <p style={{ color: 'white', alignSelf: 'center' }}>Le Body Taekwondo féminin est un mélange de fitness et de Taekwondo en musique.</p>
-              <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px', alignSelf: 'center' }}>Je m'inscris (A partir de 15 ans)</Button>
-
+              <a href="/student/files/inscription-tkw-f.pdf" download style={{textDecoration:'none', alignSelf: 'center'}}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
             </div>
           </div>
         </Grid>
@@ -139,7 +138,7 @@ const Student = () => {
       <Grid container xs={12} justifyContent='center'>
      
 
-      <FootballCard
+      <SportCard
             terrain= "Gymnase de la Goutte d'Or"
             adress= '12 rue de la Goutte d’Or'
             city='75018 Paris'
@@ -149,7 +148,7 @@ const Student = () => {
             sport='tkw'
             />
 
-      <FootballCard
+      <SportCard
             terrain= "Gymnase de la Goutte d'Or"
             adress= '12 rue de la Goutte d’Or'
             city='75018 Paris'
@@ -159,7 +158,7 @@ const Student = () => {
             sport='tkw'
             />
 
-      <FootballCard
+      <SportCard
             terrain= "Gymnase de la Goutte d'Or"
             adress= '12 rue de la Goutte d’Or'
             city='75018 Paris'
@@ -195,7 +194,7 @@ const myStyle = {
     width:'100%'
 },
 footballInfoContainer:{
-  backgroundImage: "url('./student/imgs/footbg.jpg')",
+  backgroundImage: "url('/student/imgs/bgfootball.jpg')",
   backgroundSize: 'cover',
   backgroundPosition: 'bottom',
   height: '60%',
