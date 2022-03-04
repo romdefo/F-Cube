@@ -10,11 +10,11 @@ var userSchema = mongoose.Schema({
 
 var eventSchema = mongoose.Schema({
     date: Date,
+    type: String,
     title: String,
     address: String,
-    content: String, 
+    description: String,
     img: String,
-    isInsertion: Boolean,
     users: userSchema
 });
 

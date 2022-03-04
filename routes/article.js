@@ -3,7 +3,6 @@ var router = express.Router();
 
 var articleModel = require('../models/articles')
 
-/* GET users listing. */
 router.post('/add-article', async function (req, res, next) {
   var error = [];
   var result = "Il ne s'est rien passé";

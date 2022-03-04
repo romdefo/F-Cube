@@ -1,10 +1,16 @@
-import React from 'react';
-import { Grid, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { Grid, TextField, Modal, Box, FormControl, FormLabel, RadioGroup, Radio, FormControlLabel } from '@mui/material';
 import { Facebook } from "@mui/icons-material";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
+import "../stylesheets/Buttons.css"
+import "../stylesheets/Footer.css"
+import "../stylesheets/Modal.css"
+
 export default function Footer() {
+    // Icone EGDO sur la Map
     let EGDOIcon = L.icon({
         iconUrl: "../images/egdo-logo.png",
         iconAnchor: [5, 55],
@@ -12,170 +18,192 @@ export default function Footer() {
         iconSize: [43, 55],
     });
 
-    return (
-        <>
-            <div style={mystyle.footerBackground}>
-                <div style={mystyle.footerOpacityBlock}>
-                    <h3 style={{ marginTop: 30 }}>Vous cherchez à nous joindre ?</h3>
-                    <div style={mystyle.footerContent}>
-                        <Grid item xs={12} md={4}>
-                            <MapContainer style={mystyle.mapContainer} center={[48.887270, 2.354730]} zoom={14}>
-                                <TileLayer
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
-                                <Marker icon={EGDOIcon} position={[48.884740, 2.352990]}>
-                                    <Popup>
-                                        <p style={mystyle.mapPopupTitle}>Le Local (Siège social)</p>
-                                        <p style={mystyle.mapPopupSubtitle}>25 rue de Chartres</p>
-                                    </Popup>
-                                </Marker>
-                                <Marker icon={EGDOIcon} position={[48.884820, 2.355250]}>
-                                    <Popup>
-                                        <p style={mystyle.mapPopupTitle}>Club de Foot</p>
-                                        <p style={mystyle.mapPopupSubtitle}>5 rue de la Charbonnière</p>
-                                    </Popup>
-                                </Marker>
-                            </MapContainer>
-                        </Grid>
-                        <Grid item xs={12} md={4} style={mystyle.footerPanel}>
-                            <div style={mystyle.footerPanelContent}>
-                                <h4>CONTACTS</h4>
-                                <div style={mystyle.contacts}>
-                                    <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-                                        <p style={{ fontWeight: 600 }}>Le Local (Siège social)</p>
-                                        <p>contact@egdo.fr</p>
-                                        <p>01 42 52 69 48</p>
-                                        <p>25 rue de Chartres</p>
-                                        <p>75018 Paris</p>
-                                    </div>
-                                    <div style={{ paddingTop: 40, borderTop: "2px solid white" }}>
-                                        <p style={{ fontWeight: 600 }}>Le club de Foot</p>
-                                        <p>footclub@egdo.fr</p>
-                                        <p>09 53 45 13 08</p>
-                                        <p>5 rue de la Charbonnière</p>
-                                        <p>75018 Paris</p>
+    // Gérer l'apparition des modaux "Nous contacter" et "Espace Admin"
+    const [contactModalOpen, setContactModalOpen] = useState(false);
+    const [adminModalOpen, setAdminModalOpen] = useState(false);
+
+    // Récupérer tous les champs de saisie
+    const [receiver, setReceiver] = useState("");
+    const [object, setObject] = useState("");
+    const [content, setContent] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    // Gérer le login de l'administrateur
+    const [isLogin, setIsLogin] = useState(false);
+
+    const closeContactModal = () => { setContactModalOpen(false); setReceiver(""); setObject(""); setContent("") };
+
+    const closeAdminModal = async () => {
+        const adminAttempt = { email: email, password: password };
+        var res = await fetch("/admin/sign-in", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(adminAttempt),
+        });
+        res = await res.json();
+        if (res.result) { setIsLogin(true) };
+        setAdminModalOpen(false); setEmail(""); setPassword("");
+    };
+
+    if (isLogin) {
+        return (<Redirect to='/admin' />);
+    } else {
+        return (
+            <>
+                {/* Le premier footer avec les infos et la carte */}
+                <div className="footer-background">
+                    <div className="footer-opacity-block">
+                        <p className="footer-banner">Vous cherchez à nous joindre ?</p>
+                        <Grid container className="footer-content">
+
+                            {/* Panel de gauche du premier footer */}
+                            <Grid item xs={12} md={6} className="footer-panel">
+                                <div className="footer-panel-content">
+                                    <h4>CONTACTS</h4>
+                                    <div>
+                                        <div style={{ paddingTop: 30, paddingBottom: 30, fontWeight: 300 }}>
+                                            <p style={{ fontWeight: 600 }}>Le Local (Siège social)</p>
+                                            <a href={"mailto:contact@egdo.fr"} className="email"><p>contact@egdo.fr</p></a>
+                                            <p>01 42 52 69 48</p>
+                                            <p>25 rue de Chartres</p>
+                                            <p>75018 Paris</p>
+                                        </div>
+                                        <div style={{ paddingTop: 40, fontWeight: 300, borderTop: "2px solid white" }}>
+                                            <p style={{ fontWeight: 600 }}>Le club de foot</p>
+                                            <a href={"mailto:footclub@egdo.fr"} className="email"><p>footclub@egdo.fr</p></a>
+                                            <p>09 53 45 13 08</p>
+                                            <p>5 rue de la Charbonnière</p>
+                                            <p>75018 Paris</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} md={4} style={mystyle.footerPanel}>
-                            <div style={mystyle.footerPanelContent}>
-                                <h4>MESSAGE</h4>
-                                <div style={{ display: "flex", flexDirection: "column", width: "60%", paddingTop: 30 }}>
-                                    <TextField id="outlined-basic" label="Nom" variant="outlined" style={mystyle.textField} />
-                                    <TextField id="outlined-basic" label="Prénom" variant="outlined" style={mystyle.textField} />
-                                    <TextField id="outlined-basic" label="Email" variant="outlined" style={mystyle.textField} />
-                                    <TextField id="outlined-basic" label="N° de téléphone" variant="outlined" style={mystyle.textField} />
-                                    <TextField id="outlined-basic" label="Message" variant="outlined" multiline rows={5} style={mystyle.textField} />
+                            </Grid>
+
+                            {/* Panel de droite du premier footer, avec la carte dedans */}
+                            <Grid item xs={12} md={6} className="footer-panel">
+                                <div className="footer-panel-content">
+                                    <MapContainer className="map-container" center={[48.887270, 2.354730]} zoom={14}>
+                                        <TileLayer
+                                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                        />
+                                        <Marker icon={EGDOIcon} position={[48.884740, 2.352990]}>
+                                            <Popup>
+                                                <p className="map-PopUp-title">Le Local (Siège social)</p>
+                                                <p className="map-PopUp-subtitle">25 rue de Chartres</p>
+                                            </Popup>
+                                        </Marker>
+                                        <Marker icon={EGDOIcon} position={[48.884820, 2.355250]}>
+                                            <Popup>
+                                                <p className="map-PopUp-title">Club de Foot</p>
+                                                <p className="map-PopUp-subtitle">5 rue de la Charbonnière</p>
+                                            </Popup>
+                                        </Marker>
+                                    </MapContainer>
                                 </div>
-                            </div>
+                            </Grid>
                         </Grid>
                     </div>
                 </div>
-            </div>
-            <div style={mystyle.footerTwo}>
-                <Grid item xs={12} md={6} style={mystyle.footerPanel}>
-                    <div style={mystyle.footerTwoPanelContent}>
-                        <div style={{ display: "flex", flexDirection: "row" }}>
-                            <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 70 }} />
+
+                {/* Le petit footer tout en bas */}
+                <Grid container className="lowest-footer">
+
+                    {/* Panel tout à gauche avec le logo et les credentials */}
+                    <Grid item xs={12} md={4} className="footer-panel">
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <div>
+                                <img src="../images/egdo-logo.png" alt="logo de l'association" style={{ width: 80, paddingBottom: 10 }} /></div>
+                            <div className="EGDO-credentials">
+                                <p style={{ fontWeight: 600 }}>Les Enfants de la Goutte d'or</p>
+                                <p>Association loi 1901</p>
+                                <p>Paris 18</p>
+                                <p>FRANCE</p>
+                            </div>
+                        </div>
+                    </Grid>
+
+                    {/* Panel du milieu avec "Nous contacter" / "Nous suivre" */}
+                    <Grid item xs={12} md={4} className="footer-panel lowest-footer-panel-middle">
+                        <div className="lowest-footer-panel-content">
+                            <p onClick={() => setContactModalOpen(true)} className="contact-link">NOUS CONTACTER</p>
+
+                            {/* Modal pour "Nous contacter", qui redirige vers une boîte mail */}
+                            <Modal
+                                open={contactModalOpen}
+                                onClose={closeContactModal}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                            >
+                                <Box className="custom-modal">
+                                    <h4>Remplissez le formulaire ci-dessous.</h4>
+                                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
+                                        <div style={{ display: "flex", flexWrap: "wrap" }}>
+                                            <FormControl>
+                                                <FormLabel id="demo-row-radio-buttons-group-label">Qui souhaitez-vous contacter ?</FormLabel>
+                                                <RadioGroup
+                                                    row
+                                                    aria-labelledby="demo-row-radio-buttons-group-label"
+                                                    name="row-radio-buttons-group"
+                                                >
+                                                    <FormControlLabel value="contact@egdo.fr" control={<Radio />} label="Le Local (siège social)" onChange={(e) => setReceiver(e.target.value)} />
+                                                    <FormControlLabel value="footclub@egdo.fr" control={<Radio />} label="Le club de foot" onChange={(e) => setReceiver(e.target.value)} />
+                                                </RadioGroup>
+                                            </FormControl>
+                                            <div className="form-input">
+                                                <TextField id="outlined-basic" label="Objet du message" variant="outlined" className="input-field" onChange={(e) => setObject(e.target.value)} value={object} />
+                                                <TextField id="outlined-basic" label="Contenu" variant="outlined" multiline rows={9} className="input-field" onChange={(e) => setContent(e.target.value)} value={content} />
+                                            </div>
+                                        </div>
+                                        <a href={`mailto:${receiver}?bcc=romain.defouilhoux@pm.me&subject=${object}&body=${content}`}><button className="button-input" onClick={closeContactModal}>Envoyer depuis mon adresse email</button></a>
+                                    </div>
+                                </Box>
+                            </Modal>
+
+                            {/* Partie "Nous suivre" */}
+                            <p style={{ fontWeight: 300, fontSize: 15, textAlign: "center" }}>ou</p>
                             <p style={{ fontWeight: 500, fontSize: 15, textAlign: "center" }}>NOUS SUIVRE</p>
+
                             <div style={{ display: "flex", justifyContent: "center" }}>
                                 <a href="https://www.facebook.com/egdo75" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><Facebook /></a>
                                 <a href="https://vimeo.com/egdo" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><img src="../images/vimeo-logo.png" alt="logo de Vimeo" style={{ width: 50 }} /></a>
                             </div>
-                        </div>
-                    </div>
-                </Grid>
-                <Grid item xs={12} md={4} style={mystyle.footerPanel}>
-                    <div style={mystyle.footerTwoPanelContent}>
-                        <p>PRESSE</p>
-                        <p>NEWSLETTER</p>
-                        <p>RAPPORT D'ACTIVITES</p>
-                        <p>MENTIONS LEGALES</p>
-                        <p>ESPACE ADMIN</p>
-                    </div>
-                </Grid>
-            </div>
-        </>
-    )
-}
 
-const mystyle = {
-    footerBackground: {
-        backgroundImage: `url("../images/blue-pencils.jpg")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-    },
-    footerOpacityBlock: {
-        height: "100%",
-        width: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.4)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontSize: 19,
-        color: "white"
-    },
-    footerContent: {
-        width: "100%",
-        paddingTop: 30,
-        minHeight: "70vh",
-        display: "flex",
-        alignItems: "flex-start",
-        lineHeight: 0.5,
-        color: "white"
-    },
-    footerPanel: {
-        height: "100%",
-        width: "100%"
-    },
-    footerPanelContent: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-    },
-    footerTwo: {
-        backgroundColor: "#F3F3F3",
-        paddingTop: 20,
-        minHeight: "18vh",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontSize: 14,
-        lineHeight: 0.5,
-        color: "black",
-    },
-    footerTwoPanelContent: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-    },
-    mapContainer: {
-        height: "400px",
-        width: "400px",
-        borderRadius: 250,
-        border: "5px solid white",
-        boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)"
-    },
-    mapPopupTitle: {
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontWeight: 600,
-        lineHeight: 1
-    },
-    mapPopupSubtitle: {
-        fontFamily: "IBM Plex Sans, sans-serif",
-        fontWeight: 500,
-        lineHeight: 1
-    },
-    textField: {
-        background: "white",
-        borderRadius: 5,
-        marginTop: 5,
-        boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)"
+                        </div>
+                    </Grid>
+
+                    {/* Dernier panel du footer avec divers liens utiles (pas encore actifs) */}
+                    <Grid item xs={12} md={4} className="footer-panel">
+                        <div className="lowest-footer-panel-content">
+                            <p>PRESSE</p>
+                            <p>NEWSLETTER</p>
+                            <p>RAPPORT D'ACTIVITES</p>
+                            <p>MENTIONS LEGALES</p>
+                            <p onClick={() => setAdminModalOpen(true)} className="contact-link">ESPACE ADMIN</p>
+
+                            {/* Modal pour se connecter, qui redirige vers la page Admin */}
+                            <Modal
+                                open={adminModalOpen}
+                                onClose={closeAdminModal}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                            >
+                                <Box className="custom-modal">
+                                    <h4>Veuillez vous connecter pour continuer.</h4>
+                                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
+                                        <div className="form-input">
+                                            <TextField id="outlined-basic" label="Votre email" variant="outlined" className="input-field" onChange={(e) => setEmail(e.target.value)} value={email} />
+                                            <TextField id="outlined-basic" label="Votre mot de passe" variant="outlined" className="input-field" onChange={(e) => setPassword(e.target.value)} value={password} />
+                                        </div>
+                                        <button className="button-input" onClick={closeAdminModal}>Accéder à l'espace admin</button>
+                                    </div>
+                                </Box>
+                            </Modal>
+                        </div>
+                    </Grid>
+                </Grid>
+            </>
+        )
     }
 }

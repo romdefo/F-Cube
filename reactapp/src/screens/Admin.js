@@ -21,13 +21,13 @@ export default function Admin() {
                         <Grid item xs={12} md={4} style={mystyle.panel}>
                             <h2><LibraryBooksIcon style={{ fontSize: 50 }} /> Blog</h2>
                             <AdminButton title="Ajouter un article" input1="Titre de l'article" input2="Catégorie de l'article" input3="Ecrivez ici le contenu de l'article." input4="Nom de l'auteur de l'article" input5="Catégorie" isNews={false} />
-                            <AdminButton title="Modifier un article" />
+                            <AdminButton title="??" />
                             <AdminButton title="Supprimer un article" input1="Titre de l'article" input2="Date de publication" />
                         </Grid>
                         <Grid item xs={12} md={4} style={mystyle.panel}>
                             <h2><EventIcon style={{ fontSize: 50 }} /> Agenda</h2>
                             <AdminButton title="Ajouter un événement" />
-                            <AdminButton title="Modifier un événement" />
+                            <AdminButton title="??" />
                             <AdminButton title="Supprimer un événement" />
                         </Grid>
                         <Grid item xs={12} md={4} style={mystyle.panel}>
