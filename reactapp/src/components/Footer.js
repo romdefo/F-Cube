@@ -181,8 +181,8 @@ function Footer(props) {
                             </Modal>
 
                             {/* Partie "Nous suivre" */}
-                            <p style={{ fontWeight: 300, fontSize: 15, textAlign: "center" }}>ou</p>
-                            <p style={{ fontWeight: 500, fontSize: 15, textAlign: "center" }}>NOUS SUIVRE</p>
+                            <p style={{ fontWeight: 300, textAlign: "center" }}>ou</p>
+                            <p style={{ fontWeight: 500, textAlign: "center" }}>NOUS SUIVRE</p>
 
                             <div style={{ display: "flex", justifyContent: "center" }}>
                                 <a href="https://www.facebook.com/egdo75" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><Facebook /></a>

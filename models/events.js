@@ -15,7 +15,7 @@ var eventSchema = mongoose.Schema({
     address: String,
     maxNumberOfPeople: Number,
     description: String,
-    users: userSchema
+    users: [userSchema]
 });
 
 var eventModel = mongoose.model('events', eventSchema);

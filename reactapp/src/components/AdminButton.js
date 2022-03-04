@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Box, TextField, FormControl, InputLabel, Select, MenuItem, Checkbox } from '@mui/material';
+import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, InputLabel, Select, MenuItem, Checkbox } from '@mui/material';
 import '../stylesheets/Modal.css';
 
 export default function AdminButton(props) {
     let eventTypes = ["Atelier C.V.", "Coaching à l'embauche", "Sortie ciné", "Sortie théâtre", "Evénement sportif", "Autre"];
+    let eventDetails = [{ label: "Le nom", mongoDB: "title" }, { label: "Le type d'événement", mongoDB: "type" }, { label: "La date", mongoDB: "date" }, { label: "Le lieu", mongoDB: "address" }, { label: "Le nombre maximal de participants", mongoDB: "maxNumberOfPeople" }, { label: "La description", mongoDB: "description" }]
 
     const [open, setOpen] = useState(false);
     const [submit, setSubmit] = useState(false);
@@ -28,11 +29,12 @@ export default function AdminButton(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [telephone, setTelephone] = useState("");
+    const [changeEvent, setChangeEvent] = useState([]);
 
     // Récupérer les éléments des collections de la BDD
     const [allArticles, setAllArticles] = useState([]);
     const [allEvents, setAllEvents] = useState([]);
-    const [allAdmins, setAllAdmins] = useState([]);
+    // const [allAdmins, setAllAdmins] = useState([]);
 
     useEffect(() => {
         async function getArticles() {
@@ -87,6 +89,26 @@ export default function AdminButton(props) {
     }
 
     async function addEvent(date, type, title, address, maxNumberOfPeople, description) {
+        const newEvent = {
+            date: date,
+            type: type,
+            title: title,
+            address: address,
+            maxNumberOfPeople: maxNumberOfPeople,
+            description: description
+        };
+        var res = await fetch("/event/add-event", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newEvent),
+        });
+        res = await res.json();
+        console.log(res);
+
+        setDate(""); setType(""); setTitle(""); setAddress(""); setMaxNumberOfPeople(30); setDescription(""); setSubmit(!submit);
+    };
+
+    async function updateEvent(date, type, title, address, maxNumberOfPeople, description) {
         const newEvent = {
             date: date,
             type: type,
@@ -217,12 +239,26 @@ export default function AdminButton(props) {
             modalShown = (
                 <div className="modal-container">
                     <div className="form-input">
-                        <h6>Quel événement souhaitez-vous modifer ?</h6>
+                        <h6 style={{ paddingTop: 4 }}>Quel événement souhaitez-vous modifer ?</h6>
                         {formToSelectEvent}
-                        <h6>Dans cet événement, que souhaitez-vous changer ?</h6>
-
                     </div>
-                    <button onClick={() => deleteEvent(title, date)} className="button-input">{props.title}</button>
+                    <div className="form-input" style={{ display: date === "" ? "none" : "" }}>
+                        <h6 style={{ marginTop: 10 }}>Dans cet événement, que souhaitez-vous changer ?</h6>
+                        <FormControl component="fieldset" style={{ display: date === "" ? "none" : "" }}>
+                            <FormGroup aria-label="position" column>
+                                {eventDetails.map((detail, i) => {
+                                    return (<FormControlLabel
+                                        value={detail.mongoDB}
+                                        control={<Checkbox />}
+                                        onChange={(e) => { e.target.checked ? setChangeEvent([...detail.mongoDB]) : setChangeEvent(changeEvent.filter(charac => charac.mongoDB !== detail.mongoDB)) }}
+                                        label={detail.label}
+                                        labelPlacement="end"
+                                    />)
+                                })}
+                            </FormGroup>
+                        </FormControl>
+                    </div>
+                    <button onClick={() => updateEvent(title, date)} className="button-input">{props.title}</button>
                 </div>)
             break;
 

@@ -61,7 +61,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    font-size: 14;
     line-height: 0.5;
     color: black
 }
@@ -72,7 +71,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    white-space: nowrap
+    white-space: nowrap;
+    font-size: 13px;
 }
 
 .EGDO-credentials {
@@ -81,6 +81,7 @@
     justify-content: center;
     padding-left:30px;
     white-space: nowrap;
+    font-size: 13px;
 }
 
 .email:link {
@@ -110,7 +111,7 @@
 }
 
 .egdo-logo {
-    width: 80px;
+    width: 70px;
 }
 
 /* Partie responsive */
