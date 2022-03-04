@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 import {Grid} from '@mui/material'
 
-import FootballCard from './FootballCard';
+import SportCard from './SportCard';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,7 +73,7 @@ export default function BasicTabs() {
 
         <div  style = {myStyle.trainingCards}>
 
-            <FootballCard
+            <SportCard
             terrain= 'Gymnase Doudeauville'
             adress= '82,rue Doudeauville'
             city='75018 Paris'
@@ -83,7 +83,7 @@ export default function BasicTabs() {
             coachs = {['Chafai_Aitsaid-u7-u8-u14-u15','coach_u8-u9-u10']}
             />
 
-            <FootballCard
+            <SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'
@@ -100,7 +100,7 @@ export default function BasicTabs() {
         <TabPanel value={value} index={1}>
 
         <div  style = {myStyle.trainingCards}>
-        <FootballCard
+        <SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'
@@ -114,7 +114,7 @@ export default function BasicTabs() {
 
         <TabPanel value={value} index={2}>
         <div  style = {myStyle.trainingCards}>
-        <FootballCard
+        <SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'
@@ -127,7 +127,7 @@ export default function BasicTabs() {
 
         <TabPanel value={value} index={3}>
         <div  style = {myStyle.trainingCards}>
-        <FootballCard
+        <SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'
@@ -141,7 +141,7 @@ export default function BasicTabs() {
         <TabPanel value={value} index={4}>
 
         <div  style = {myStyle.trainingCards}>
-        <FootballCard
+        <SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'
@@ -151,7 +151,7 @@ export default function BasicTabs() {
             coachs = {['Nasser_Hamici-17f']}
             />
 
-<FootballCard
+<SportCard
             terrain= 'Stade Porte de la Chapelle'
             adress= '56, boulevard de Ney'
             city='75018 Paris'

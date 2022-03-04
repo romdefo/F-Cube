@@ -10,7 +10,7 @@ import { CardActionArea, Grid } from '@mui/material';
 import uuid from 'react-uuid'
 
 
-export default function FootballCard({img,category,terrain,adress,coachs,city,sport }) {
+export default function SportCard({img,category,terrain,adress,coachs,city,sport }) {
 
   const catNames= category.map ((el,i )=>`${el.cat}`)
   

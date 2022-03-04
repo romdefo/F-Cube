@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
-import { Grid, Button } from '@mui/material'
+import { Grid, Button, Modal } from '@mui/material'
+
+import ModalEvent from './ModalEvent'
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,6 +41,8 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
         }
     }
 
+  
+
     useEffect(() => {
     
         const aosAnime =  () => {
@@ -60,11 +64,15 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
                     <Button variant="contained" style={mystyle.buttonDiscover}>Participer</Button>
+                    <ModalEvent/>
                 </div>
             </Grid>
         </Grid>
     )
 
+ 
 }
 
+
 export default CardEvents
+

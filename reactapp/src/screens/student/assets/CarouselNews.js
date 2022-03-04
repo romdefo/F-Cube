@@ -50,7 +50,7 @@ const CarouselNews = () => {
                 <Carousel.Caption style ={myStyle.carouselText} >
                     
                 <h3>Sortie au Parc Asterix</h3>
-                <p>Onze jeunes de l'association EGDO ont participé à l'atelier <br/> "Tous en campagne contre les discriminations".</p>
+                <p>Onze jeunes de l'association EGDO ont participés à la sortie au Parc Astrerix.</p>
               
                 </Carousel.Caption>
             
