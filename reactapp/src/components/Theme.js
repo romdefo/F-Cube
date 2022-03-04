@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 import { grey, deepPurple, amber } from '@mui/material/colors';
-import { palette } from '@mui/system';
+import { palette } from '@mui/material';
 
 const theme = createTheme({
   palette: {

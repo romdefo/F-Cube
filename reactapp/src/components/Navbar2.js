@@ -35,7 +35,7 @@ const Navbar = (props) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link
-            // href={pages[0]}
+            href={pages[0]}
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <img
@@ -76,7 +76,7 @@ const Navbar = (props) => {
             >
               {pages.map((page) => (
                   <Link 
-                //   href={`#${page}`}
+                    href={`#${page}`}
                   >
                   
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
