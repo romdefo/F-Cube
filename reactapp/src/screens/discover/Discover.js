@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar2';
 import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
@@ -24,7 +24,9 @@ export default function Discover() {
         <ThemeProvider theme={theme}>     
 
             {/* Navbar */}
-            <Navbar nav={nav}/> 
+            <Navbar 
+            nav={nav}
+            /> 
 
             {/* Home page */}
             <div id={nav[0]}>
@@ -88,7 +90,7 @@ export default function Discover() {
             </div>
 
             {/* Footer */}
-            <Footer/>   
+            {/* <Footer/>    */}
 
         </ThemeProvider>
 
