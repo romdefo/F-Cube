@@ -46,7 +46,8 @@ export default function ModalEvent() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+
+      <Button variant="contained" style={ {backgroundColor: '#3FA2B0'}} onClick={handleOpen}>Participer</Button>
       <Modal
         keepMounted
         open={open}
@@ -78,7 +79,7 @@ export default function ModalEvent() {
           </Typography>
 
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <Button variant="contained">Valider</Button>
+          <Button variant="contained" style={ {backgroundColor: '#3FA2B0'}}>Valider</Button>
           </Typography>
 
         </Box>

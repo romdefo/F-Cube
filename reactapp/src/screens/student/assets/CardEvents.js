@@ -36,9 +36,7 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
             color: '#080F5B',
             padding: '0 1rem'
         },
-        buttonDiscover: {
-            backgroundColor: '#3FA2B0'
-        }
+      
     }
 
   
@@ -63,7 +61,7 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
-                    <Button variant="contained" style={mystyle.buttonDiscover}>Participer</Button>
+                    
                     <ModalEvent/>
                 </div>
             </Grid>
