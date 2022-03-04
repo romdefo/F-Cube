@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar2';
 import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
-import theme from '../../components/Theme';
+
 import Home from '../Home';
 
 
@@ -21,7 +21,7 @@ export default function Discover() {
     const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe"];
     return (
     
-        <ThemeProvider theme={theme}>     
+        <>     
 
             {/* Navbar */}
             <Navbar nav={nav}/> 
@@ -90,7 +90,7 @@ export default function Discover() {
             {/* Footer */}
             {/* <Footer/>    */}
 
-        </ThemeProvider>
+        </>
 
 
            

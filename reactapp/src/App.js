@@ -7,10 +7,13 @@ import Volunteer from './screens/Volunteer';
 import Act from './screens/Act';
 import Admin from './screens/Admin'
 import Discover from './screens/discover/Discover';
+import theme from './components/Theme';
+import { ThemeProvider} from '@mui/material';
 //import Nav from './components/Nav'
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <Switch>
         <Route exact path="/" component={Discover} />
@@ -22,6 +25,7 @@ function App() {
         <Route path="/admin" component={Admin} />
       </Switch>
     </Router>
+    </ThemeProvider>
   );
 }
 
