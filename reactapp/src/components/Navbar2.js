@@ -13,8 +13,6 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Link from '@mui/material/Link'
 
-
-
 const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -26,7 +24,7 @@ const Navbar = (props) => {
     setAnchorElNav(null);
   };
 
-    console.log(props.nav)
+  console.log(props.nav)
 
   const pages = props.nav;
 
@@ -39,10 +37,10 @@ const Navbar = (props) => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <img
-                src="./images/egdo_logo.png"
-                className="img-fluid"
-                alt="Logo."
-                />
+              src="./images/egdo_logo.png"
+              className="img-fluid"
+              alt="Logo."
+            />
           </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -75,13 +73,13 @@ const Navbar = (props) => {
               }}
             >
               {pages.map((page) => (
-                  <Link 
-                    href={`#${page}`}
-                  >
-                  
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link
+                  href={`#${page}`}
+                >
+
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -93,27 +91,27 @@ const Navbar = (props) => {
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
             mr={7}
           >
-            <Link 
+            <Link
               href="/"
               ml={2}>
               <img
                 src="./images/egdo_logo.png"
                 className="img-fluid"
                 alt="Logo."
-                />
+              />
             </Link>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent:'center', alignItems:'center'}} >
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }} >
             {pages.map((page) => (
               <Link
                 href={`#${page}`}
                 key={page}
                 underline='none'
                 onClick={handleCloseNavMenu}
-                sx={{ 
-                    // my: 2,
-                    // color: 'white',
-                    // display: 'block',
+                sx={{
+                  // my: 2,
+                  // color: 'white',
+                  // display: 'block',
 
                 }}
                 mx={4}
@@ -122,14 +120,14 @@ const Navbar = (props) => {
               </Link>
             ))}
             <Link
-                key='act'
-                href='/j-agis'
-                underline='none'
-                ml={4}>
-                    <Button color='secondary' variant='contained'>
-                        J'agis
-                    </Button>
-                </Link>
+              key='act'
+              href='/j-agis'
+              underline='none'
+              ml={4}>
+              <Button color='secondary' variant='contained'>
+                J'agis
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Container>
