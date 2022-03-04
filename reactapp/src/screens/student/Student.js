@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Student.css';
 import CarouselNews from './assets/CarouselNews';
 import Footer from ".//../../components/Footer";
-import Navbar2 from ".//../../components/Navbar2";
+import Navbar from ".//../../components/Navbar2";
 import { Grid, Button, ButtonGroup } from '@mui/material'
 
 import CardEvents from './assets/CardEvents'
@@ -29,15 +29,14 @@ const Student = () => {
 
 
   return (
-    <div className='Student' style={myStyle.studentContainer}>
+    <>
+    <Navbar nav={["Accueil","Sorties", "Football", "Taekwondo", "Contact"]}  />
+    <div className='Student' style = {myStyle.studentContainer} id="Accueil">
+     
+        <CarouselNews />
+    
 
-      <Navbar2 nav={["Accueil", "Football", "Taekwondo", "Contact"]} />
-
-
-      <CarouselNews />
-
-
-      <div className='sorties'>
+      <div className='sorties' id="Sorties" >
         <h1>Prochaines Sorties</h1>
 
         <div style={myStyle.upcomingEvents} >
@@ -62,10 +61,12 @@ const Student = () => {
       </div>
 
 
-      <Grid container xs={12} height='100vh' className='football'>
-        <Grid item xs={11} md={8}
-          data-aos="zoom-in"
-          style={myStyle.footballInfoContainer}>
+      <Grid container xs={12} height='100vh' className='football' id="Football" >
+        <Grid 
+      
+        item xs={11} md={8}
+        data-aos="zoom-in" 
+        style={myStyle.footballInfoContainer}>
           <div
             style={myStyle.footballInfoContainer.textContainer}>
             <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '80%' }}>Football</h1>
@@ -82,7 +83,7 @@ const Student = () => {
         <BasicTabs />
       </div>
 
-      <Grid container xs={12} minHeight='100vh' className='taekwondo'>
+      <Grid container xs={12} minHeight='100vh'  className='taekwondo' id="Taekwondo">
         <Grid item xs={11} md={5} style={{
           backgroundImage: "url('./student/imgs/taekwondo.jpg')",
           backgroundSize: 'cover',
@@ -170,6 +171,8 @@ const Student = () => {
       </Grid>
       <Footer />
     </div>
+
+    </>
   )
 
 
