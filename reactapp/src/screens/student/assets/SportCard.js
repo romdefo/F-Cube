@@ -12,10 +12,9 @@ import uuid from 'react-uuid'
 
 export default function SportCard({img,category,terrain,adress,coachs,city,sport }) {
 
-  const catNames= category.map ((el,i )=>`${el.cat}`)
   
- 
- 
+
+  const catNames= category.map ((el,i )=>`${el.cat}`)
 
   const hoursContainer= category.map((el,i )=> {
    const trainingDays= el.trainingDays.map((d,i)=> {
