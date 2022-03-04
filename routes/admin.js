@@ -28,9 +28,11 @@ router.post('/sign-up', async function (req, res, next) {
     error.push('utilisateur déjà présent')
   }
 
-  if (req.body.name == ''
+  if (req.body.lastName == ''
+    || req.body.firstName == ''
     || req.body.email == ''
     || req.body.password == ''
+    || req.body.telephone == ''
   ) {
     error.push('champs vides')
   }
@@ -38,11 +40,11 @@ router.post('/sign-up', async function (req, res, next) {
   if (error.length == 0) {
     var hash = bcrypt.hashSync(req.body.password, 10);
     var newAdmin = new adminModel({
-      name: req.body.name,
-      surname: req.body.surname,
+      lastName: req.body.lastName,
+      firstName: req.body.firstName,
       email: req.body.email,
       password: hash,
-      telephone: req.body.tel,
+      telephone: req.body.telephone,
       token: uid2(32)
     })
 

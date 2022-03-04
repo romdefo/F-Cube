@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
-import {Typography, Button, CardMedia, CardContent, CardActions, Card} from '@mui/material';
-//  import { Button, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Typography, Button, CardMedia, CardContent, CardActions, Card } from '@mui/material';
 
 export default function Cards(props) {
 
-    return(
+    useEffect(() => {
+        //console.log(props.img)
+        console.log(2 + 2)
+
+    }, [])
+    return (
         <Card className='card' id={props.cardID}>
             <CardMedia
                 component="img"
@@ -12,7 +16,7 @@ export default function Cards(props) {
                 image={props.img}
                 alt={props.imgDesc}
             />
-            
+
             <CardContent>
                 <Typography gutterBottom variant="h5" color="#FFF" component="div">
                     {props.title}
@@ -26,5 +30,5 @@ export default function Cards(props) {
             </CardActions>
         </Card>
     )
-    
+
 }

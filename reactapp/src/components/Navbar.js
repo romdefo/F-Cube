@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {Link, animateScroll as scroll } from "react-scroll";
+import React, { useEffect, useState } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 import Linked from '@mui/material/Link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,18 +14,18 @@ export default function Navbar(props) {
     const [toggleMenu, setToggleMenu] = useState(false);
     const toggleNav = () => {
         setToggleMenu(!toggleMenu)
-      }
+    }
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     useEffect(() => {
         const changeWidth = () => {
-          setScreenWidth(window.innerWidth);
-        }   
+            setScreenWidth(window.innerWidth);
+        }
         window.addEventListener('resize', changeWidth)
         return () => {
             window.removeEventListener('resize', changeWidth)
         }
-      }, [])
+    }, [])
 
     // List Items
     let navList = props.nav;
@@ -38,17 +38,17 @@ export default function Navbar(props) {
                     {!toggleMenu && (
                         <li >
                             <img
-                            src="./images/egdo_logo.png"
-                            className="nav-logo"
-                            alt="Logo."
+                                src="./images/egdo_logo.png"
+                                className="nav-logo"
+                                alt="Logo."
                             />
                         </li>
                     )}
-                    
+
                     {navList.map(nav => {
                         return (
-                            <li > 
-                                <Link 
+                            <li >
+                                <Link
                                     // activeClass="active"
                                     to={nav}
                                     spy={true}
@@ -57,26 +57,27 @@ export default function Navbar(props) {
                                     duration={500}
                                     onClick={toggleNav}
                                     className="nav-item"
-                                    >
-                                        {nav}
+                                >
+                                    {nav}
                                 </Link>
                             </li>
-                            )
-                        })
+                        )
+                    })
                     }
                     <li className="nav-item">
-                        <Linked 
-                        href='/j-agis'
-                        component='button'
-                        variant='body2'
-                        className="act-button">
+                        <Linked
+                            href='/j-agis'
+                            component='button'
+                            variant='body2'
+                            className="act-button">
                             J'agis
-                        </Linked>   
-                    </li>
-                </ul>       
-           )}
-           <FontAwesomeIcon className="menu-btn"  icon={faBars} onClick={toggleNav}/>
+                        </Linked>
+                    </li >
+                </ul >
+            )
+            }
+            <FontAwesomeIcon className="menu-btn" icon={faBars} onClick={toggleNav} />
 
-      </nav>
+        </nav >
     );
 }

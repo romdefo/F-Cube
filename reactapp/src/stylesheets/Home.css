@@ -1,0 +1,68 @@
+.allHomePage {
+    height: 95vh;
+    background-image: url("../../public/images/blue-pencils.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    background-color: #98c2c0;
+    text-align: center
+}
+
+.home-opacity-block {
+    padding: 40px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.home-panel {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%
+}
+
+.first-impression {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home-title {
+    width:100%;
+    font-family: Nanum Pen Script, cursive !important;
+    line-height: 0.8;
+    font-size: 300px;
+}
+
+.home-subtitle {
+    width:100%;
+    font-family: Nanum Pen Script, cursive !important;
+    line-height: 0.8;
+    white-space: nowrap;
+    font-size: 75px;
+}
+
+.quick-intro {
+    width: 60%;
+}
+
+@media screen and (max-width: 900px){
+    .home-title {
+        font-size: 200px
+    }
+    .home-subtitle {
+        font-size: 50px
+    }
+    .quick-intro {
+        width: 85%
+    }
+}
