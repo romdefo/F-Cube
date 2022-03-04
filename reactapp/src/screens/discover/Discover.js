@@ -1,10 +1,11 @@
 import React from 'react';
 
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar2';
 import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
 import theme from '../../components/Theme';
+import Home from '../Home';
 
 
 import '../../stylesheets/App.css'
@@ -17,16 +18,23 @@ import {Container, Grid, ThemeProvider, Typography} from '@mui/material';
 
 export default function Discover() {
 
-    const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe", "Blog", "Contact"];
+    const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe"];
     return (
     
         <ThemeProvider theme={theme}>     
 
             {/* Navbar */}
-            <Navbar nav={nav}/> 
-            
+            <Navbar 
+            nav={nav}
+            /> 
+
+            {/* Home page */}
+            <div id={nav[0]}>
+                <Home/> 
+            </div>
+                       
             {/* Section Actions */}
-            <div className='section'>
+            <div className='section' id={nav[1]}>
                 <Container  maxWidth="md" sx={{ py: 8 }}>
                     <Grid container sx={{ display:'flex', justifyContent:'center'}} pb={4}>
                         <Grid item 
@@ -56,7 +64,7 @@ export default function Discover() {
             </div>
 
             {/* Section Histoire*/}
-            <div className='section'>
+            <div className='section' id={nav[2]}>
                 <Container maxWidth="md" >
                     <Grid container py={10}>
                         <Histoire/>
@@ -66,9 +74,9 @@ export default function Discover() {
             </div>
 
             {/* Section Equipe */}
-            <div className='section'>
-                <Container maxWidth="md">
-                    <Grid container id={nav[2]} sx={{ display:'flex', justifyContent:'center'}}>
+            <div className='section' id={nav[3]}>
+                <Container  maxWidth="md">
+                    <Grid container sx={{ display:'flex', justifyContent:'center'}}>
 
                         <Grid item  mb={5}>
                             <Typography variant='h2'>Notre équipe</Typography> 
@@ -81,7 +89,7 @@ export default function Discover() {
                 </Container>
             </div>
 
-             {/* Footer */}
+            {/* Footer */}
             {/* <Footer/>    */}
 
         </ThemeProvider>

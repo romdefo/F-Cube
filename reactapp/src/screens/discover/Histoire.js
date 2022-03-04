@@ -34,8 +34,8 @@ const handleChange = (event, newValue) => {
   return (
         <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList inkBarStyle={{background: 'blue'}} onChange={handleChange} aria-label="lab API tabs example">
+                <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
+                <TabList inkBarStyle={{background: 'blue'}} onChange={handleChange} aria-label="lab API tabs example" sx={{display: 'flex', justifyContent: 'center'}}>
                     <Tab label="Notre Histoire" value="1"
                      //className="tabs"
                      />
