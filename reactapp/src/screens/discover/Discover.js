@@ -4,9 +4,8 @@ import Navbar from '../../components/Navbar2';
 import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
-import theme from '../../components/Theme';
-import Home from '../Home';
 
+import Home from '../Home';
 
 import '../../stylesheets/App.css'
 import '../../stylesheets/Separator.css'
@@ -87,6 +86,6 @@ export default function Discover() {
                 </Container>
             </div>
             <Footer />
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
