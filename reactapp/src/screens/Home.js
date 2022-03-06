@@ -148,7 +148,7 @@ const mystyle = {
         transform: 'rotate(-90deg)'
     },
     opacity: {
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
         minHeight: "95vh"
     },
 }

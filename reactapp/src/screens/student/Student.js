@@ -1,31 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Student.css';
 import CarouselNews from './assets/CarouselNews';
 import Footer from ".//../../components/Footer";
 import Navbar from ".//../../components/Navbar2";
 import { Grid, Button, ButtonGroup } from '@mui/material'
 
+// Unique key
+import uuid from 'react-uuid'
+
+
+// Components
 import CardEvents from './assets/CardEvents'
 import SportCard from './assets/SportCard'
 import Calendar from './assets/Calendar'
 import BasicTabs from './assets/Tabs'
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+
+
 
 const Student = () => {
 
+  const [events,setEvents] = useState([])
+
   useEffect(() => {
 
-    const aosAnime = () => {
-      AOS.init(
-        { duration: 500 }
-      );
-      AOS.refresh();
+    const fetchEvents = async () => {
+        const res= await fetch('/event/see-events')
+        const allEvents = await res.json()
+         await setEvents(allEvents.events)
     }
 
-    aosAnime()
+    fetchEvents()
   }, [])
+
+const eventsData= events.map (({title,description,type,date}) => {
+ 
+  
+  
+ return ( <CardEvents
+  key={uuid()}
+  title={title}
+  desc={description}
+  img= {`${type}.jpg`}
+  date={date}
+/>)
+})
 
 
   return (
@@ -40,18 +60,8 @@ const Student = () => {
         <h1>Prochaines Sorties</h1>
 
         <div style={myStyle.upcomingEvents} >
-          <CardEvents
-            title='Ski'
-            desc='Séjour de ski dans l’une des plus belle station de France'
-            img='ski.jpg'
-            date='Du 04/04/2022 au 10/04/2022'
-          />
-          <CardEvents
-            title='Musée du Louvre'
-            desc='Visite d’une journée au musée du Louvre'
-            img='louvre.jpg'
-            date='10/04/2022'
-          />
+            
+            { eventsData}
 
           <Grid item xs={12} md={4} style={{ margin: '1rem' }}>
             <Calendar />
@@ -65,7 +75,7 @@ const Student = () => {
         <Grid 
       
         item xs={11} md={8}
-        data-aos="zoom-in" 
+
         style={myStyle.footballInfoContainer}>
           <div
             style={myStyle.footballInfoContainer.textContainer}>
@@ -91,8 +101,7 @@ const Student = () => {
           boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
           height: '60vh',
           margin: '1rem'
-        }}
-          data-aos="fade-right">
+        }}>
           <div
             style={{
               height: "100%",
@@ -116,8 +125,7 @@ const Student = () => {
           backgroundPosition: 'center top',
           boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
           height: '60vh'
-        }}
-          data-aos="fade-left">
+        }}>
           <div
             style={{
               height: "100%",
