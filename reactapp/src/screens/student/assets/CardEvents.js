@@ -3,8 +3,13 @@ import { Grid } from '@mui/material'
 
 import ModalEvent from './ModalEvent'
 
-function CardEvents({ img, title, desc, date, selectEvent }) {
+// Day JS
+import DayJS from 'react-dayjs';
 
+
+function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
+
+    // Style
     const mystyle = {
         leftPanel: {
             minHeight: "200px",
@@ -33,25 +38,50 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
             color: '#080F5B',
             padding: '0 1rem'
         },
-
+      
     }
-
+    
+    // Date Format
+    const newDate= <DayJS format="DD-MM-YYYY">{date}</DayJS>
+        if (maxPeople!==0){
     return (
         <Grid item xs={12} md={4} style={mystyle.leftPanel}>
             <Grid item style={mystyle.opacityBlock} >
-                <span style={mystyle.date}>{date}</span>
+                <span style={mystyle.date}>{newDate}</span>
+               
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
 
-                    <ModalEvent
-                        eventTitle={title}
-                        eventDate={date}
+                    <ModalEvent 
+                    eventTitle={title}
+                    eventDate = {newDate}
                     />
                 </div>
             </Grid>
         </Grid>
+    )} 
+    else {
+
+           return (
+        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+            <Grid item style={mystyle.opacityBlock} >
+                <span style={mystyle.date}>Plus de places disponibles</span>
+               
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <h2 style={{ fontWeight: "500" }}>{title}</h2>
+                    <p>{desc}</p>
+
+                
+                </div>
+            </Grid>
+        </Grid>
     )
+
+    }
+
+    
+ 
 }
 
 export default CardEvents
