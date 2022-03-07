@@ -80,8 +80,6 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
 
     }
 
-    
- 
 }
 
 export default CardEvents
