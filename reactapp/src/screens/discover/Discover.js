@@ -88,7 +88,7 @@ export default function Discover() {
             </div>
 
             {/* Footer */}
-            {/* <Footer/>    */}
+            <Footer/>   
 
         </ThemeProvider>
 

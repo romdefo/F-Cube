@@ -1,83 +1,139 @@
-import React, { useEffect, useState } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
-import Linked from '@mui/material/Link';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import Link from '@mui/material/Link'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import '../stylesheets/Nav.css'
-import '../stylesheets/Buttons.css'
-import '../stylesheets/App.css'
 
-export default function Navbar(props) {
 
-    //Toggle menu and responsive
-    const [toggleMenu, setToggleMenu] = useState(false);
-    const toggleNav = () => {
-        setToggleMenu(!toggleMenu)
-    }
+const Navbar = (props) => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-    useEffect(() => {
-        const changeWidth = () => {
-            setScreenWidth(window.innerWidth);
-        }
-        window.addEventListener('resize', changeWidth)
-        return () => {
-            window.removeEventListener('resize', changeWidth)
-        }
-    }, [])
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-    // List Items
-    let navList = props.nav;
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-    // Render
-    return (
-        <nav className="nav" id="navbar">
-            {(toggleMenu || screenWidth > 500) && (
-                <ul className="nav-items">
-                    {!toggleMenu && (
-                        <li >
-                            <img
-                                src="./images/egdo_logo.png"
-                                className="nav-logo"
-                                alt="Logo."
-                            />
-                        </li>
-                    )}
+    console.log(props.nav)
 
-                    {navList.map(nav => {
-                        return (
-                            <li >
-                                <Link
-                                    // activeClass="active"
-                                    to={nav}
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={500}
-                                    onClick={toggleNav}
-                                    className="nav-item"
-                                >
-                                    {nav}
-                                </Link>
-                            </li>
-                        )
-                    })
-                    }
-                    <li className="nav-item">
-                        <Linked
-                            href='/j-agis'
-                            component='button'
-                            variant='body2'
-                            className="act-button">
-                            J'agis
-                        </Linked>
-                    </li >
-                </ul >
-            )
-            }
-            <FontAwesomeIcon className="menu-btn" icon={faBars} onClick={toggleNav} />
+  const pages = props.nav;
 
-        </nav >
-    );
-}
+  return (
+    <AppBar position="sticky">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Link
+            href='/'
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >
+            <img
+                src="./images/egdo_logo.png"
+                className="img-fluid"
+                alt="Logo."
+                />
+          </Link>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                  <Link 
+                    href={`#${page}`}
+                  >
+                  
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+                </Link>
+              ))}
+            </Menu>
+          </Box>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            mr={7}
+          >
+            <Link 
+              href="/"
+              ml={2}>
+              <img
+                src="./images/egdo_logo.png"
+                className="img-fluid"
+                alt="Logo."
+                />
+            </Link>
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent:'center', alignItems:'center'}} >
+            {pages.map((page) => (
+              <Link
+                href={`#${page}`}
+                key={page}
+                underline='none'
+                onClick={handleCloseNavMenu}
+                sx={{ 
+                    // my: 2,
+                    // color: 'white',
+                    // display: 'block',
+
+                }}
+                mx={4}
+              >
+                {page}
+              </Link>
+            ))}
+            <Link
+                key='act'
+                href='/j-agis'
+                underline='none'
+                ml={4}>
+                    <Button color='secondary' variant='contained'>
+                        J'agis
+                    </Button>
+                </Link>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
+export default Navbar;
