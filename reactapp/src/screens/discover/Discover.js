@@ -2,6 +2,8 @@ import React from 'react';
 
 import Navbar from '../../components/Navbar2';
 import Footer from '../../components/Footer';
+import theme from "../../components/Theme";
+
 import Action from './Action';
 import Histoire from './Histoire';
 
@@ -13,7 +15,6 @@ import '../../stylesheets/Buttons.css'
 import './Discover.css'
 
 import { Container, Grid, ThemeProvider, Typography } from '@mui/material';
-
 
 export default function Discover() {
 

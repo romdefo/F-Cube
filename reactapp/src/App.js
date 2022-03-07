@@ -10,9 +10,6 @@ import Discover from "./screens/discover/Discover";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material";
 
-import theme from './components/Theme'
-import { ThemeProvider } from '@mui/styles'
-
 // Le store où on va stocker le token de l'admin
 import admin from "./reducers/admin.reducer";
 import { Provider } from "react-redux";
