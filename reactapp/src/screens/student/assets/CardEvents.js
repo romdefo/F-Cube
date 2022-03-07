@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { Grid, Button, Modal } from '@mui/material'
+import { Grid } from '@mui/material'
 
 import ModalEvent from './ModalEvent'
-
 
 function CardEvents({ img, title, desc, date, selectEvent }) {
 
@@ -36,60 +35,24 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
         },
 
     }
-    
 
-
-
-<<<<<<< HEAD
-    useEffect(() => {
-
-        const aosAnime = () => {
-            AOS.init(
-                { duration: 2000 }
-            );
-            AOS.refresh();
-        }
-
-        aosAnime()
-    }, [])
-
-    return (
-        <Grid item xs={12} md={4} style={mystyle.leftPanel}
-            data-aos="zoom-in">
-=======
     return (
         <Grid item xs={12} md={4} style={mystyle.leftPanel}>
->>>>>>> 321eb4da6c65d948f0216767a1ccb1f2774259d6
             <Grid item style={mystyle.opacityBlock} >
                 <span style={mystyle.date}>{date}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
 
-<<<<<<< HEAD
-                    <ModalEvent />
-=======
-                    <ModalEvent 
-                    eventTitle={title}
-                    eventDate = {date}
+                    <ModalEvent
+                        eventTitle={title}
+                        eventDate={date}
                     />
->>>>>>> 321eb4da6c65d948f0216767a1ccb1f2774259d6
                 </div>
             </Grid>
         </Grid>
     )
 
-<<<<<<< HEAD
-
-=======
-    
- 
->>>>>>> 321eb4da6c65d948f0216767a1ccb1f2774259d6
 }
 
-
-
 export default CardEvents
-
-
-
