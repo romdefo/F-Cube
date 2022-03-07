@@ -9,6 +9,7 @@ import { Grid, Button, ButtonGroup } from '@mui/material'
 import uuid from 'react-uuid'
 
 
+
 // Components
 import CardEvents from './assets/CardEvents'
 import SportCard from './assets/SportCard'
@@ -34,9 +35,9 @@ const Student = () => {
     fetchEvents()
   }, [])
 
-const eventsData= events.map (({title,description,type,date}) => {
+const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) => {
  
-  
+
   
  return ( <CardEvents
   key={uuid()}
@@ -44,6 +45,7 @@ const eventsData= events.map (({title,description,type,date}) => {
   desc={description}
   img= {`${type}.jpg`}
   date={date}
+  maxPeople= {maxNumberOfPeople}
 />)
 })
 
