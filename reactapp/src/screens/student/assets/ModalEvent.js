@@ -25,7 +25,8 @@ const style = {
   p: 4,
 };
 
-export default function ModalEvent() {
+export default function ModalEvent({eventTitle, eventDate}) {
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -40,6 +41,15 @@ export default function ModalEvent() {
   const [email, setEmail] = useState ('')
   const [telephone, setTelephone] = useState ('')
 
+  // Submit Form
+    const submitForm = async ()=> {
+      await fetch('event/add-participant', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `eventTitle=${eventTitle}&name=${name}&surname=${surname}&email=${email}&telephone=${telephone}`
+       }); 
+    }
+
   return (
     <div>
 
@@ -52,15 +62,23 @@ export default function ModalEvent() {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-        <FontAwesomeIcon  icon={faRectangleXmark} size='lg' style={{position:'absolute',color:'#3FA2B0', right:'1rem',top:'1rem', cursor:'pointer'}}
+        <FontAwesomeIcon sx={{ color: 'text.primary' }} icon={faRectangleXmark} size='lg' style={{position:'absolute', right:'1rem',top:'1rem', cursor:'pointer'}}
          onClick = {()=> {closeModalHandler()}}/>
 
         <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
             <h6>Participer à la sortie</h6>
         </Typography>
 
+        <Typography id="keep-mounted-modal-description" sx={{ mt: 1 }}>
+            <h6>{eventTitle}</h6>
+        </Typography>
+
+        <Typography id="keep-mounted-modal-description" sx={{ mt: 1}}>
+            <h6> Le {eventDate}</h6>
+        </Typography>
+
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Nom" variant="outlined" color='info'
+          <TextField id="outlined-basic" label="Nom" variant="outlined" 
           onChange= {(e)=> setName(e.target.value)} />
           </Typography>
 
@@ -80,7 +98,7 @@ export default function ModalEvent() {
           </Typography>
 
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <Button variant="contained" style={ {backgroundColor: '#3FA2B0'}}>Valider</Button>
+          <Button variant="contained" onClick = {()=> submitForm()}>Valider</Button>
           </Typography>
 
         </Box>

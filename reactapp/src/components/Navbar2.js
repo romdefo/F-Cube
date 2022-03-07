@@ -24,8 +24,6 @@ const Navbar = (props) => {
     setAnchorElNav(null);
   };
 
-  console.log(props.nav)
-
   const pages = props.nav;
 
   return (
@@ -133,5 +131,6 @@ const Navbar = (props) => {
       </Container>
     </AppBar>
   );
-};
-export default Navbar;
+}
+
+export default Navbar

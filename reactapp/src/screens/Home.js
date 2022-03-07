@@ -135,7 +135,7 @@ export default function Home() {
 
 const mystyle = {
     img: {
-        backgroundImage: `url("../images/blue-pencils.jpg")`,
+        backgroundImage: `url("/images/bgi.jpg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "95vh"
@@ -148,7 +148,7 @@ const mystyle = {
         transform: 'rotate(-90deg)'
     },
     opacity: {
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
         minHeight: "95vh"
     },
 }
