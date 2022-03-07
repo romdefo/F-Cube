@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Grid } from '@mui/material'
 
 import ModalEvent from './ModalEvent'
@@ -52,7 +52,6 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
             </Grid>
         </Grid>
     )
-
 }
 
 export default CardEvents

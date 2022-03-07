@@ -30,7 +30,6 @@ const Student = () => {
   }, [])
 
   const eventsData = events.map(({ title, description, type, date }) => {
-
     return (<CardEvents
       key={uuid()}
       title={title}
@@ -39,6 +38,8 @@ const Student = () => {
       date={date}
     />)
   })
+
+
   return (
     <>
       <Navbar nav={["Accueil", "Sorties", "Football", "Taekwondo", "Contact"]} />
@@ -60,12 +61,11 @@ const Student = () => {
           </div>
         </div>
 
-
         <Grid container xs={12} height='100vh' className='football' id="Football" >
           <Grid
 
             item xs={11} md={8}
-            data-aos="zoom-in"
+
             style={myStyle.footballInfoContainer}>
             <div
               style={myStyle.footballInfoContainer.textContainer}>
@@ -91,8 +91,7 @@ const Student = () => {
             boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
             height: '60vh',
             margin: '1rem'
-          }}
-            data-aos="fade-right">
+          }}>
             <div
               style={{
                 height: "100%",
@@ -116,8 +115,7 @@ const Student = () => {
             backgroundPosition: 'center top',
             boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
             height: '60vh'
-          }}
-            data-aos="fade-left">
+          }}>
             <div
               style={{
                 height: "100%",
@@ -174,6 +172,7 @@ const Student = () => {
 
     </>
   )
+
 }
 
 export default Student
@@ -206,6 +205,7 @@ const myStyle = {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-end',
-    }
+    },
+
   }
 }
