@@ -46,9 +46,6 @@ router.post('/add-event', async function (req, res, next) {
   res.json({ result, error })
 })
 
-
-
-
 router.get('/see-events', async function (req, res, next) {
   const events = await eventModel.find()
   res.json({ events })
@@ -64,33 +61,30 @@ router.post('/add-participant', async function (req, res, next) {
   var result = false
   var error = []
 
+  const findEvent = await eventModel.findOne({
 
-  const findEvent= await eventModel.findOne({
-    
     title: req.body.eventTitle,
   })
 
-  if(findEvent) {
-    if(findEvent.maxNumberOfPeople===0){
+  if (findEvent) {
+    if (findEvent.maxNumberOfPeople === 0) {
       error.push("Desolé, le nombre maximum de participants a été atteint !")
     }
-    if (findEvent.maxNumberOfPeople>0&&findEvent.maxNumberOfPeople<=findEvent.maxNumberOfPeople) {
-          findEvent.maxNumberOfPeople--
-          findEvent.users.push({
-            name: req.body.name,
-            surname: req.body.surname,
-            email: req.body.email,
-            telephone: req.body.telephone,
-            isStudent: true
-          })
+    if (findEvent.maxNumberOfPeople > 0 && findEvent.maxNumberOfPeople <= findEvent.maxNumberOfPeople) {
+      findEvent.maxNumberOfPeople--
+      findEvent.users.push({
+        name: req.body.name,
+        surname: req.body.surname,
+        email: req.body.email,
+        telephone: req.body.telephone,
+        isStudent: true
+      })
 
-          await findEvent.save()
-          result=true
-        }
-      }
+      await findEvent.save()
+      result = true
+    }
+  }
   res.json({ result, error })
 })
-
-
 
 module.exports = router;
