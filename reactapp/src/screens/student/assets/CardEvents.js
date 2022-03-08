@@ -42,7 +42,8 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
     }
     
     // Date Format
-    const newDate= <DayJS format="DD-MM-YYYY">{date}</DayJS>
+    
+    const newDate= <DayJS format="D/M/YYYY">{date}</DayJS>
         if (maxPeople!==0){
     return (
         <Grid item xs={12} md={4} style={mystyle.leftPanel}>

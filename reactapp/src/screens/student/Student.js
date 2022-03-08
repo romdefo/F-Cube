@@ -15,14 +15,13 @@ import CardEvents from './assets/CardEvents'
 import SportCard from './assets/SportCard'
 import Calendar from './assets/Calendar'
 import BasicTabs from './assets/Tabs'
-
-
-
+import TitleContainer from './assets/TitleContainer';
 
 
 const Student = () => {
 
   const [events,setEvents] = useState([])
+  const [eventsDay, setEventsDay] = useState([])
 
   useEffect(() => {
 
@@ -35,10 +34,10 @@ const Student = () => {
     fetchEvents()
   }, [])
 
-const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) => {
- 
 
-  
+
+const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeople}) => {
+ 
  return ( <CardEvents
   key={uuid()}
   title={title}
@@ -53,33 +52,36 @@ const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) 
   return (
     <>
     <Navbar nav={["Accueil","Sorties", "Football", "Taekwondo", "Contact"]}  />
-    <div className='Student' style = {myStyle.studentContainer} id="Accueil">
-     
-        <CarouselNews />
-    
+    <div className='Student' style = {myStyle.studentContainer} >
+
+    <Grid container xs={12} flexDirection='column'justifyContent='center'  alignItems='center' minHeight='100vh' id="Accueil">
+      <TitleContainer>Actualités</TitleContainer>
+        <CarouselNews/>
+       </Grid>
 
       <div className='sorties' id="Sorties" >
-        <h1>Prochaines Sorties</h1>
+      <TitleContainer>Prochaines Sorties</TitleContainer>
 
         <div style={myStyle.upcomingEvents} >
-            
+          
+        <Grid item xs={12}  style={{ margin: '1rem' }}>
+            <Calendar events={events} setEvents={setEvents} eventsDay= {eventsDay} setEventsDay={setEventsDay} />
+            {eventsDay.length === 0 && <h6 style={{textAlign:'center'}}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h6>}
+            </Grid>
             { eventsData}
-
-          <Grid item xs={12} md={4} style={{ margin: '1rem' }}>
-            <Calendar />
-          </Grid>
 
         </div>
       </div>
 
 
-      <Grid container xs={12} height='100vh' className='football' id="Football" >
+      <Grid container xs={12} height='100vh' className='football' >
+      <Grid container xs={12}><TitleContainer>Football</TitleContainer></Grid>
         <Grid 
-      
         item xs={11} md={8}
 
         style={myStyle.footballInfoContainer}>
           <div
+           id="Football"
             style={myStyle.footballInfoContainer.textContainer}>
             <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '80%' }}>Football</h1>
             <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
@@ -95,13 +97,20 @@ const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) 
         <BasicTabs />
       </div>
 
-      <Grid container xs={12} minHeight='100vh'  className='taekwondo' id="Taekwondo">
+      
+
+      <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
+        <Grid container xs={12}>
+          <TitleContainer>Taekwondo</TitleContainer>
+          </Grid>
+
+
         <Grid item xs={11} md={5} style={{
           backgroundImage: "url('./student/imgs/taekwondo.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
-          height: '60vh',
+          height: '500px',
           margin: '1rem'
         }}>
           <div
@@ -126,7 +135,7 @@ const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) 
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
-          height: '60vh'
+          height: '500px'
         }}>
           <div
             style={{
@@ -179,7 +188,9 @@ const eventsData= events.map (({title,description,type,date,maxNumberOfPeople}) 
         />
 
       </Grid>
+      <div id='Contact'>
       <Footer />
+      </div>
     </div>
 
     </>

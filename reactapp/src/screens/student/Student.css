@@ -39,11 +39,10 @@
 .taekwondo {
   
     display:flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height:100vh;
     margin-bottom: 1rem;
+   
 }
 
 
