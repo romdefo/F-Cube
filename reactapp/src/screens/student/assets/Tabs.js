@@ -176,8 +176,6 @@ const myStyle = {
     trainingCards:{
         display:'flex',
         flexWrap:'wrap',
-        justifyContent:'center',
-       
-         
+        justifyContent:'center',   
     },
   }

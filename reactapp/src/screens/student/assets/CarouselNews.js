@@ -7,19 +7,19 @@ import {Grid} from '@mui/material'
 const CarouselNews = () => {
 
   return (
-    <Grid container xs={12} style={myStyle.carouselNews}>
+    <Grid container xs={12} style={myStyle.carouselNews} >
    
-   
-     <Grid item xs={12} md={8} >
+     <Grid item xs={12} md={6} >
     <Carousel  controls={false}  >
    
 
         <Carousel.Item >
             <img
-            className="d-block mx-auto w-100"
+            className=" d-block mx-auto w-100"
             src='/student/imgs/tkwu12.jpg'
             alt="First slide"
-            style={{maxHeight:'500px'}}/>
+            style={{height:'500px'}}
+            xs={5}/>
             <Carousel.Caption style ={myStyle.carouselText}>
             <h3>Saison 2022-2023 : Inscriptions !</h3>
             <p>Ouverture des inscriptions pour le Taekwondo.</p>
@@ -29,10 +29,10 @@ const CarouselNews = () => {
         <Carousel.Item >
             
             <img
-            className="d-block mx-auto w-100"
+            className="img-fluid d-block mx-auto w-100 "
             src='/student/imgs/2017-sortie-asterix.jpg'
             alt="First slide"
-            style={{maxHeight:'500px'}}
+            style={{height:'500px'}}
             />
             
                 <Carousel.Caption style ={myStyle.carouselText} >
@@ -54,10 +54,10 @@ export default CarouselNews
 
 const myStyle = {
   carouselNews: {
-minHeight:'100vh',
 display:'flex',
 justifyContent:'center',
-alignItems:'center',
+height:'300px'
+
 
 },
 carouselText: {
