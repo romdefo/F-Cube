@@ -1,28 +1,21 @@
 import React from 'react';
 
-import Navbar from '../../components/Navbar2';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Action from './Action';
 import Histoire from './Histoire';
-import theme from '../../components/Theme';
-import Home from '../Home';
+import Home from './Home';
 
-
+// import './Discover.css'
 import '../../stylesheets/App.css'
-import '../../stylesheets/Separator.css'
-import '../../stylesheets/Buttons.css'
-import './Discover.css'
 
-import {Container, Grid, ThemeProvider, Typography} from '@mui/material';
+import {Container, Grid, Typography, Button} from '@mui/material';
 
+const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe", "Blog"];
 
 export default function Discover() {
-
-    const nav = ["Accueil", "Qui-sommes-nous?","Histoire", "Equipe"];
-    return (
-    
-        <ThemeProvider theme={theme}>     
-
+    return ( 
+        <>     
             {/* Navbar */}
             <Navbar nav={nav}/> 
 
@@ -33,11 +26,14 @@ export default function Discover() {
                        
             {/* Section Actions */}
             <div className='section' id={nav[1]}>
-                <Container  maxWidth="md" sx={{ py: 8 }}>
-                    <Grid container sx={{ display:'flex', justifyContent:'center'}} pb={4}>
-                        <Grid item 
-                        // sx={{color:'#003D55'}}
-                         >
+                <div className='opacity'>
+                <Container  maxWidth="lg"
+                sx={{ pt: 2 }}
+                 >
+                    <Grid container sx={{ display:'flex', justifyContent:'center'}} 
+                     pb={4}
+                    >
+                        <Grid item >
                             <Typography variant='h2'>Nos actions</Typography> 
                         </Grid>
                     </Grid>
@@ -46,53 +42,52 @@ export default function Discover() {
                         <Action/>
                     </Grid>
                         
-                    <Grid container  justifyContent="center" alignItems="center" mt={5} pb={10} spacing={4} >
+                    <Grid container  justifyContent="center" alignItems="center" mt={5} 
+                        // pb={10}
+                        spacing={4} >
                             <Grid item>
                                 <Typography variant='h5'>
                                     Pour en savoir plus, visiter notre 
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <button className='act-button'> Blog </button>  
+                                <Button variant='contained' color='infos'> Blog </Button>  
                             </Grid>
                     </Grid>
 
                 </Container>
-                <div className='separator'></div>
+                </div>
             </div>
 
             {/* Section Histoire*/}
-            <div className='section' id={nav[2]}>
+            <div className='section2' id={nav[2]}>
+                <div className='opacity'>
                 <Container maxWidth="md" >
                     <Grid container py={10}>
                         <Histoire/>
                     </Grid>
                 </Container>
-                <div className='separator'></div>
+                </div>
             </div>
 
             {/* Section Equipe */}
-            <div className='section' id={nav[3]}>
-                <Container  maxWidth="md">
+            <div className='section' >
+                <div className='opacity'>
+                <Container  maxWidth="md" >
                     <Grid container sx={{ display:'flex', justifyContent:'center'}}>
-
                         <Grid item  mb={5}>
-                            <Typography variant='h2'>Notre équipe</Typography> 
+                            <Typography variant='h2' id={nav[3]}>Notre équipe</Typography> 
                         </Grid>
 
                         <Grid item >
-                            <img src="../images/discover/team.png" className='img-fluid'/>
+                            <img alt="equipe egdo" src="../images/discover/team.png" className='img-fluid'/>
                         </Grid>
                     </Grid>
                 </Container>
+                </div>
             </div>
 
             {/* Footer */}
-            {/* <Footer/>    */}
-
-        </ThemeProvider>
-
-
-           
-
+            <Footer/>   
+        </>      
      ); }

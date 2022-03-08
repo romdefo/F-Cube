@@ -1,30 +1,33 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {Typography, Button, CardMedia, CardContent, CardActions, Card} from '@mui/material';
-//  import { Button, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
 export default function Cards(props) {
 
     return(
-        <Card className='card' id={props.cardID}>
+        <Card id={props.cardID}>
             <CardMedia
                 component="img"
                 height="140"
                 image={props.img}
                 alt={props.imgDesc}
-            />
-            
-            <CardContent>
-                <Typography gutterBottom variant="h5" color="#FFF" component="div">
+            />          
+            <CardContent className='background-img' style={styles.container}>
+                <Typography variant="h5" component="div">
                     {props.title}
                 </Typography>
-                <Typography variant="body2" color="#FFF">
+                <Typography variant="body2">
                     {props.content}
                 </Typography>
-            </CardContent>
-            <CardActions>
+                <CardActions>
                 <Button variant="contained" color="primary">{props.button}</Button>
             </CardActions>
+            </CardContent>
         </Card>
     )
     
 }
+const styles = {
+    container: {
+        background: `radial-gradient(circle, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.9) 81%), url("/images/light-blue.jpg")`,
+    }
+};
