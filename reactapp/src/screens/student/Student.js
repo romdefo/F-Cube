@@ -26,9 +26,9 @@ const Student = () => {
   useEffect(() => {
 
     const fetchEvents = async () => {
-      const res = await fetch('/event/see-events')
-      const allEvents = await res.json()
-      await setEvents(allEvents.events)
+        const res= await fetch('/event/see-events')
+        const allEvents = await res.json()
+         await setEvents(allEvents.events)
     }
 
     fetchEvents()
@@ -55,7 +55,7 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
     <div className='Student' style = {myStyle.studentContainer} >
 
     <Grid container xs={12} flexDirection='column'justifyContent='center'  alignItems='center' minHeight='100vh' id="Accueil">
-      <TitleContainer>Actualités</TitleContainer>
+      <TitleContainer>Actualité</TitleContainer>
         <CarouselNews/>
        </Grid>
 
@@ -71,9 +71,8 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
             { eventsData}
 
         </div>
+      </div>
 
-        <Grid container xs={12} height='100vh' className='football' id="Football" >
-          <Grid
 
       <Grid container xs={12} height='100vh' className='football' >
       <Grid container xs={12}><TitleContainer>Football</TitleContainer></Grid>
@@ -89,14 +88,14 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
               <p style={{ color: 'white', alignSelf: 'center' }}>Le club de football "les Enfants de la Goutte D’Or" est une activité historique de l'association. Ce sont les habitants du quartier qui sont à l’origine de cette idée. Les Enfants de la Goutte D'Or est un Club de football alliant l'éducatif au sportif et ne pratiquant aucune détection préalable. </p>
               <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px', alignSelf: 'center' }}>Je m'inscris</Button>
 
-              </div>
             </div>
-          </Grid>
+          </div>
         </Grid>
+      </Grid>
 
-        <div className='football-info'>
-          <BasicTabs />
-        </div>
+      <div className='football-info'>
+        <BasicTabs />
+      </div>
 
       
 
@@ -127,28 +126,8 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
               <p style={{ color: 'white', alignSelf: 'center' }}>L’activité est affiliée FFTDA n° 750978 et proposée depuis 1999-2000 en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
               <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
 
-          <Grid item xs={11} md={5} style={{
-            backgroundImage: "url('./student/imgs/taekwondoF.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
-            height: '60vh'
-          }}>
-            <div
-              style={{
-                height: "100%",
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-              }}>
-              <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Body Tae Feminin</h1>
-              <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-                <p style={{ color: 'white', alignSelf: 'center' }}>Le Body Taekwondo féminin est un mélange de fitness et de Taekwondo en musique.</p>
-                <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-              </div>
             </div>
-          </Grid>
+          </div>
         </Grid>
 
         <Grid item xs={11} md={5} style={{
@@ -218,6 +197,7 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
   )
 
 }
+
 
 export default Student
 
