@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {AppBar, Box, Toolbar, Typography, Menu, IconButton, Container, Button, MenuItem, Link} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Link as LinkRouter } from 'react-router-dom';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, Link } from '@mui/material'
 
-import '../stylesheets/App.css'
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -21,16 +21,16 @@ const Navbar = (props) => {
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link
-            href='/'
+          <LinkRouter
+            to='/'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <img
-                src="./images/egdo_logo.png"
-                className="img-fluid"
-                alt="Logo."
-                />
-          </Link>
+              src="./images/egdo_logo.png"
+              className="img-fluid"
+              alt="Logo."
+            />
+          </LinkRouter>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -62,13 +62,13 @@ const Navbar = (props) => {
               }}
             >
               {pages.map((page) => (
-                  <Link 
-                    href={`#${page}`}
-                  >
-                  
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link
+                  href={`#${page}`}
+                >
+
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -80,18 +80,17 @@ const Navbar = (props) => {
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
             mr={7}
           >
-            <Link 
-              href="/"
-              ml={2}
-              >
+            <LinkRouter
+              to="/"
+              ml={2}>
               <img
                 src="./images/egdo_logo.png"
                 className="img-fluid"
                 alt="Logo."
-                />
-            </Link>
+              />
+            </LinkRouter>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent:'center', alignItems:'center'}} >
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }} >
             {pages.map((page) => (
               <Link
                 href={`#${page}`}
@@ -104,15 +103,15 @@ const Navbar = (props) => {
                 {page}
               </Link>
             ))}
-            <Link
-                key='act'
-                href='/j-agis'
-                underline='none'
-                ml={4}>
-                    <Button color='primary' variant='contained' disableElevation='true'>
-                        J'agis
-                    </Button>
-                </Link>
+            <LinkRouter
+              key='act'
+              to='/j-agis'
+              underline='none'
+              ml={4}>
+              <Button color='secondary' variant='contained'>
+                J'agis
+              </Button>
+            </LinkRouter>
           </Box>
         </Toolbar>
       </Container>

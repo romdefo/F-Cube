@@ -5,7 +5,7 @@ var userSchema = mongoose.Schema({
     surname: String,
     email: String,
     telephone: String,
-    status:String
+    status: String
 });
 
 var eventSchema = mongoose.Schema({

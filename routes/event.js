@@ -17,6 +17,7 @@ router.post('/add-event', async function (req, res, next) {
   }
 
   if (req.body.date == ''
+    || req.body.audience == ''
     || req.body.type == ''
     || req.body.title == ''
     || req.body.address == ''
@@ -29,6 +30,7 @@ router.post('/add-event', async function (req, res, next) {
   if (error.length == 0) {
     var newEvent = new eventModel({
       date: req.body.date,
+      audience: req.body.audience,
       type: req.body.type,
       title: req.body.title,
       address: req.body.address,
@@ -46,8 +48,13 @@ router.post('/add-event', async function (req, res, next) {
   res.json({ result, error })
 })
 
-router.get('/see-events', async function (req, res, next) {
-  const events = await eventModel.find()
+router.get('/see-events/:audience', async function (req, res, next) {
+  let events;
+  if (req.params.audience == "see-all") {
+    events = await eventModel.find();
+  } else {
+    events = await eventModel.find({ $or: [{ audience: req.params.audience }, { audience: "all" }] });
+  }
   res.json({ events })
 })
 
@@ -61,10 +68,30 @@ router.post('/add-participant', async function (req, res, next) {
   var result = false
   var error = []
 
+<<<<<<< HEAD
   const findEvent= await eventModel.findOne({
     title: req.body.eventTitle,
   })
 
+=======
+  const findEvent = await eventModel.findOne({
+    title: req.body.eventTitle,
+  })
+
+  if (findEvent) {
+    if (findEvent.maxNumberOfPeople === 0) {
+      error.push("Desolé, le nombre maximum de participants a été atteint !")
+    }
+    if (findEvent.maxNumberOfPeople > 0 && findEvent.maxNumberOfPeople <= findEvent.maxNumberOfPeople) {
+      findEvent.maxNumberOfPeople--
+      findEvent.users.push({
+        name: req.body.name,
+        surname: req.body.surname,
+        email: req.body.email,
+        telephone: req.body.telephone,
+        status: req.body.status
+      })
+>>>>>>> romain
 
   if (req.body.name ===''|| req.body.surname ===''|| req.body.telephone ===''|| req.body.email === ''
   ) {error.push('Certains champs sont vides !')}

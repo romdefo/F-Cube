@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, InputLabel, Select, MenuItem, Checkbox } from '@mui/material';
+import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, FormLabel, InputLabel, Select, MenuItem, Checkbox, Radio, RadioGroup } from '@mui/material';
 import '../stylesheets/Modal.css';
 
 export default function AdminButton(props) {
-    let eventTypes = ["Atelier C.V.", "Coaching à l'embauche", "Sortie ciné", "Sortie théâtre", "Evénement sportif", "Autre"];
+    let eventTypes = ["Atelier C.V.", "Coaching à l'embauche", "Sortie cinéma", "Sortie théâtre", "Atelier créatif", "Balade à vélo", "Evénement sportif", "Autre"];
     let eventDetails = [{ label: "Le nom", mongoDB: "title" }, { label: "Le type d'événement", mongoDB: "type" }, { label: "La date", mongoDB: "date" }, { label: "Le lieu", mongoDB: "address" }, { label: "Le nombre maximal de participants", mongoDB: "maxNumberOfPeople" }, { label: "La description", mongoDB: "description" }]
+    let audienceArray = ["Les enfants ou les élèves", "Les personnes en insertion", "Tout le monde"]
 
     const [open, setOpen] = useState(false);
     const [submit, setSubmit] = useState(false);
@@ -22,7 +23,8 @@ export default function AdminButton(props) {
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
     const [type, setType] = useState("");
-    const [maxNumberOfPeople, setMaxNumberOfPeople] = useState(30)
+    const [maxNumberOfPeople, setMaxNumberOfPeople] = useState(30);
+    const [audience, setAudience] = useState("");
     const [articleToDelete, setArticleToDelete] = useState("");
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -30,6 +32,8 @@ export default function AdminButton(props) {
     const [password, setPassword] = useState("");
     const [telephone, setTelephone] = useState("");
     const [changeEvent, setChangeEvent] = useState([]);
+    const [receiver, setReceiver] = useState('');
+    const [object, setObject] = useState('')
 
     // Récupérer les éléments des collections de la BDD
     const [allArticles, setAllArticles] = useState([]);
@@ -44,7 +48,7 @@ export default function AdminButton(props) {
         }
         getArticles();
         async function getEvents() {
-            var res = await fetch("/event/see-events")
+            var res = await fetch("/event/see-events/see-all")
             res = await res.json();
             setAllEvents(res.events);
         }
@@ -88,9 +92,10 @@ export default function AdminButton(props) {
         setSubmit(!submit);
     }
 
-    async function addEvent(date, type, title, address, maxNumberOfPeople, description) {
+    async function addEvent(date, audience, type, title, address, maxNumberOfPeople, description) {
         const newEvent = {
             date: date,
+            audience: audience == "Tout le monde" ? "all" : (audience == "Les enfants ou les élèves" ? "students" : "insertion"),
             type: type,
             title: title,
             address: address,
@@ -105,16 +110,17 @@ export default function AdminButton(props) {
         res = await res.json();
         console.log(res);
 
-        setDate(""); setType(""); setTitle(""); setAddress(""); setMaxNumberOfPeople(30); setDescription(""); setSubmit(!submit);
+        setDate(""); setAudience(""); setType(""); setTitle(""); setAddress(""); setMaxNumberOfPeople(30); setDescription(""); setSubmit(!submit);
     };
 
-    async function updateEvent(date, type, title, address, maxNumberOfPeople, description) {
+    async function updateEvent(date, type, title, address, maxNumberOfPeople, audience, description) {
         const newEvent = {
             date: date,
             type: type,
             title: title,
             address: address,
             maxNumberOfPeople: maxNumberOfPeople,
+            audience: audience,
             description: description
         };
         var res = await fetch("/event/add-event", {
@@ -125,7 +131,7 @@ export default function AdminButton(props) {
         res = await res.json();
         console.log(res);
 
-        setDate(""); setType(""); setTitle(""); setAddress(""); setMaxNumberOfPeople(30); setDescription(""); setSubmit(!submit);
+        setDate(""); setType(""); setTitle(""); setAddress(""); setMaxNumberOfPeople(30); setAudience(""); setDescription(""); setSubmit(!submit);
     };
 
     async function deleteEvent(title, date) {
@@ -158,6 +164,10 @@ export default function AdminButton(props) {
         console.log(res);
 
         setLastName(""); setFirstName(""); setEmail(""); setPassword(""); setTelephone(""); setSubmit(!submit);
+    }
+
+    function contactDev() {
+        setReceiver(''); setObject(''); setContent(''); setOpen(false);
     }
 
     // En fonction du bouton sur lequel on clique, un modal différent va apparaître.
@@ -219,6 +229,22 @@ export default function AdminButton(props) {
                 <div className="modal-container">
                     <div className="form-input">
                         <TextField id="datetime-local" label="Date de l'événement" type="datetime-local" onChange={(e) => setDate(e.target.value)} value={date} className="input-field date-field" InputLabelProps={{ shrink: true }} />
+                        <InputLabel id="demo-simple-select-helper-label" style={{ marginTop: 10 }}>Public visé par l'événement :</InputLabel>
+                        <FormControl component="fieldset">
+                            <RadioGroup aria-labelledby="demo-radio-buttons-group-label"
+                                defaultValue="all"
+                                name="radio-buttons-group" row>
+                                {audienceArray.map((audienceElement, i) => {
+                                    return (<FormControlLabel
+                                        value={audienceElement}
+                                        control={<Radio />}
+                                        onChange={(e) => setAudience(e.target.value)}
+                                        label={audienceElement}
+                                        labelPlacement="end"
+                                    />)
+                                })}
+                            </RadioGroup>
+                        </FormControl>
                         <FormControl className="select-field">
                             <InputLabel id="demo-simple-select-helper-label">Type d'événement</InputLabel>
                             <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={type} label="Type d'événement" onChange={(e) => setType(e.target.value)}>
@@ -231,7 +257,7 @@ export default function AdminButton(props) {
                         <TextField id="outlined-basic" label="Nombre maximal de participants" variant="outlined" type="number" className="input-field" onChange={(e) => setMaxNumberOfPeople(e.target.value)} value={maxNumberOfPeople} />
                         <TextField id="outlined-basic" label="Description" variant="outlined" className="input-field" onChange={(e) => setDescription(e.target.value)} value={description} multiline rows={5} />
                     </div>
-                    <button onClick={() => addEvent(date, type, title, address, maxNumberOfPeople, description)} className="button-input">{props.title}</button>
+                    <button onClick={() => addEvent(date, audience, type, title, address, maxNumberOfPeople, description)} className="button-input">{props.title}</button>
                 </div>)
             break;
 
@@ -285,6 +311,31 @@ export default function AdminButton(props) {
                     <button onClick={() => adminSignUp(lastName, firstName, email, password, telephone)} className="button-input">{props.title}</button>
                 </div>)
             break;
+
+        case "Contacter un développeur":
+            modalShown = (
+                <div className="modal-container">
+                    <div className="form-input">
+                        <FormControl>
+                            <FormLabel id="demo-row-radio-buttons-group-label">Qui souhaitez-vous contacter ?</FormLabel>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                            >
+                                <FormControlLabel value="celia.bayet@gmail.com" control={<Radio />} label="Célia Bayet" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="jsebbari@gmail.com" control={<Radio />} label="Jamal Sebbari" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="romain.defouilhoux@pm.me" control={<Radio />} label="Romain Defouilhoux" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="celia.bayet@gmail.com,jsebbari@gmail.com,romain.defouilhoux@pm.me" control={<Radio />} label="Peu importe" onChange={(e) => setReceiver(e.target.value)} />
+                            </RadioGroup>
+                        </FormControl>
+                        <TextField id="outlined-basic" label="Objet du message" variant="outlined" className="input-field" onChange={(e) => setObject(e.target.value)} value={object} />
+                        <TextField id="outlined-basic" label="Contenu" variant="outlined" multiline rows={9} className="input-field" onChange={(e) => setContent(e.target.value)} value={content} />
+                    </div>
+                    <a href={`mailto:${receiver}?&subject=${object}&body=${content}`}><button className="button-input" onClick={contactDev}>Envoyer depuis mon adresse email</button></a>
+                </div >)
+            break;
+
         default:
             modalShown = (<TextField id="outlined-basic" label="Défaut" variant="outlined" className="input-field" />)
     }
