@@ -81,7 +81,8 @@ router.post('/sign-in', async function (req, res, next) {
     if (admin) {
       if (bcrypt.compareSync(req.body.password, admin.password)) {
         result = true
-        token = admin.token
+        token = uid2(32)
+        await adminModel.updateOne({ token: admin.token }, { token: token })
       } else {
         result = false
         error.push('mot de passe incorrect')
