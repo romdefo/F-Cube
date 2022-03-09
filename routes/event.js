@@ -17,6 +17,7 @@ router.post('/add-event', async function (req, res, next) {
   }
 
   if (req.body.date == ''
+    || req.body.audience == ''
     || req.body.type == ''
     || req.body.title == ''
     || req.body.address == ''
@@ -29,6 +30,7 @@ router.post('/add-event', async function (req, res, next) {
   if (error.length == 0) {
     var newEvent = new eventModel({
       date: req.body.date,
+      audience: req.body.audience,
       type: req.body.type,
       title: req.body.title,
       address: req.body.address,
@@ -46,8 +48,13 @@ router.post('/add-event', async function (req, res, next) {
   res.json({ result, error })
 })
 
-router.get('/see-events', async function (req, res, next) {
-  const events = await eventModel.find()
+router.get('/see-events/:audience', async function (req, res, next) {
+  let events;
+  if (req.params.audience == "see-all") {
+    events = await eventModel.find();
+  } else {
+    events = await eventModel.find({ $or: [{ audience: req.params.audience }, { audience: "all" }] });
+  }
   res.json({ events })
 })
 
@@ -62,7 +69,6 @@ router.post('/add-participant', async function (req, res, next) {
   var error = []
 
   const findEvent = await eventModel.findOne({
-
     title: req.body.eventTitle,
   })
 
@@ -77,7 +83,7 @@ router.post('/add-participant', async function (req, res, next) {
         surname: req.body.surname,
         email: req.body.email,
         telephone: req.body.telephone,
-        isStudent: true
+        status: req.body.status
       })
 
       await findEvent.save()

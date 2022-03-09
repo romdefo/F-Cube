@@ -1,12 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
-import {Grid} from '@mui/material'
-
 import SportCard from './SportCard';
 
 function TabPanel(props) {
@@ -42,142 +39,200 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+function StudentTabs() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  return (
+
+    <Box sx={{ width: '100%', diplay: 'block' }}  >
+      <Box sx={{ maxWidth: 610, bgcolor: 'background.paper', display: "flex", justifyContent: "center", marginLeft: 'auto', marginRight: 'auto' }} >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
+        >
+          <Tab label="7-11 ans" {...a11yProps(0)} />
+          <Tab label="12-13 ans" {...a11yProps(1)} />
+          <Tab label="14-15 ans" {...a11yProps(2)} />
+          <Tab label="16 ans et +" {...a11yProps(3)} />
+          <Tab label="Féminines" {...a11yProps(4)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+
+        <div style={myStyle.trainingCards}>
+
+          <SportCard
+            terrain='Gymnase Doudeauville'
+            adress='82, rue Doudeauville'
+            city='75018 Paris'
+            img='u9'
+            category={[{ cat: '7 ans', trainingDays: [{ day: 'Mercredi', hour: '16h15' }] }, { cat: '8 ans', trainingDays: [{ day: 'Mercredi', hour: '17h15' }] }, { cat: '9 ans', trainingDays: [{ day: 'Mercredi', hour: '18h15' }] }]}
+            coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Mendy_Jacques-U9...U13_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f', 'Ozdemir_Kaan-U8_U9_U10']}
+          />
+
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='u10'
+            category={[{ cat: '10 / 11 ans', trainingDays: [{ day: 'Mercredi', hour: '16h00' }] }]}
+            coaches={['Bangaly_Souare-U10_U11', 'Diabi_Kone-U10_U11', 'Ozdemir_Kaan-U8_U9_U10']}
+          />
+
+        </div>
+
+      </TabPanel>
+
+      <TabPanel value={value} index={1}>
+
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='u12-u13'
+            category={[{ cat: '12 ans', trainingDays: [{ day: 'Mardi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }, { cat: '13 ans', trainingDays: [{ day: 'Mardi & Jeudi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }]}
+            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+          />
+        </div>
+
+      </TabPanel>
+
+      <TabPanel value={value} index={2}>
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='u14-u15'
+            category={[{ cat: '14 ans', trainingDays: [{ day: 'Lundi', hour: 'de 17h45 à 19h30' }] }, { cat: '15 ans', trainingDays: [{ day: 'Lundi, Jeudi & Vendredi', hour: 'de 17h45 à 19h30' }] }]}
+            coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Diawara_Mamadou-U14_U15', 'Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
+          />
+        </div>
+      </TabPanel>
+
+      <TabPanel value={value} index={3}>
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='u16-17'
+            category={[{ cat: '16 ans', trainingDays: [{ day: 'Vendredi', hour: '18h00' }] }, { cat: '17 ans', trainingDays: [{ day: 'Mercredi & Vendredi', hour: 'de 18h30 à 20h30' }] }]}
+            coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
+          />
+        </div>
+      </TabPanel>
+
+      <TabPanel value={value} index={4}>
+
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='u12f'
+            category={[{ cat: '12 / 13 ans', trainingDays: [{ day: 'Mardi & Jeudi', hour: 'de 17h45 à 19h30' }] },
+            ]}
+            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
+          />
+
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
+            city='75018 Paris'
+            img='sectionf'
+            category={[{ cat: '15 ans', trainingDays: [{ day: 'Mercredi', hour: 'de 17h30 à 19h30' }] },
+            { cat: '16 ans', trainingDays: [{ day: 'Mardi & Jeudi', hour: 'de 17h45 à 19h30' }] }
+            ]}
+            coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
+          />
+
+        </div>
+      </TabPanel>
+    </Box>
+  );
+}
+
+function AdultTabs() {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
 
-   
-        <Box sx={{ width: '100%', diplay:'block'}}  >
-         <Box sx={{ maxWidth: 600, bgcolor: 'background.paper'}} style={{marginLeft:'auto', marginRight:'auto'}} >
-         <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
->
-            <Tab label="7-11 ans" {...a11yProps(0)} />
-            <Tab label="12-13 ans" {...a11yProps(1)} />
-            <Tab label="14-15 ans" {...a11yProps(2)} />
-            <Tab label="16 ans et plus" {...a11yProps(3)} />
-            <Tab label="Féminines" {...a11yProps(4)} />
-            </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
+    <Box sx={{ width: '100%', diplay: 'block' }}  >
+      <Box sx={{ maxWidth: 600, bgcolor: 'background.paper' }} style={{ marginLeft: 'auto', marginRight: 'auto' }} >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
+        >
+          <Tab label="Equipes Seniors Masculines" {...a11yProps(0)} />
+          <Tab label="Equipe Senior Féminine" {...a11yProps(1)} />
+        </Tabs>
+      </Box>
 
-        <div  style = {myStyle.trainingCards}>
-
-            <SportCard
-            terrain= 'Gymnase Doudeauville'
-            adress= '82,rue Doudeauville'
+      <TabPanel value={value} index={0}>
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade des Fillettes'
+            adress='56, boulevard Ney'
             city='75018 Paris'
-            img='u9foot'
-            trainingDay='Mercredi'
-            category= {[{cat:'U7',trainingDays:[{day:'Mercredi',hour:'16h15'}]}, {cat:'U8',trainingDays:[{day:'Mercredi',hour:'17h15'}]}, {cat:'U9',trainingDays:[{day:'Mercredi',hour:'18h15'}]}]}
-            coachs = {['Chafai_Aitsaid-u7-u8-u14-u15','coach_u8-u9-u10']}
-            />
+            img='senior1'
+            category={[{ cat: 'Senior 1', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
+            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+          />
 
-            <SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
+          <SportCard
+            terrain='Stade des Fillettes'
+            adress='56, boulevard Ney'
             city='75018 Paris'
-            img='U10_TOURNOI_217'
-            category= {[{cat:'U10 / U11',trainingDays:[{day:'Mercredi',hour:'16h00'}]}]}
-            coachs = {['Bangaly_Souareu10-u11','coach_u8-u9-u10']}
-            />
-           
-         </div>
+            img='senior2'
+            category={[{ cat: 'Senior 2', trainingDays: [{ day: 'Mardi, Jeudi & Vendredi', hour: 'de 20h30 à 22h30' }] }]}
+            coaches={['Assoumani_Abdou-U2_Senior', 'Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+          />
 
+        </div>
 
-        </TabPanel>
+      </TabPanel>
 
-        <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1}>
 
-        <div  style = {myStyle.trainingCards}>
-        <SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
+        <div style={myStyle.trainingCards}>
+          <SportCard
+            terrain='Stade Porte de la Chapelle'
+            adress='56, boulevard de Ney'
             city='75018 Paris'
-            img='u12-u13'
-            category= {[{cat:'U12',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h15'}, {day:'Mercredi',hour:'De 17h30 à 19h15'}]}, {cat:'U13',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h15'}, {day:'Mercredi',hour:'De 17h30 à 19h15'}, {day:'Jeudi',hour:'De 17h45 à 19h15'}]}]}
-            coachs = {['Mendy_Jacques-u12']}
-            />
-            </div>
+            img='senior-f'
+            category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
+            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+          />
+        </div>
 
-        </TabPanel>
+      </TabPanel>
 
-        <TabPanel value={value} index={2}>
-        <div  style = {myStyle.trainingCards}>
-        <SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
-            city='75018 Paris'
-            img='u14-u15'
-            category= {[{cat:'U14',trainingDays:[{day:'Lundi',hour:'De 17h45 à 19h30'}]}, {cat:'U15',trainingDays:[{day:'Lundi',hour:'De 17h45 à 19h30'}, {day:'Jeudi',hour:'De 17h45 à 19h30'}, {day:'Vendredi',hour:'De 17h45 à 19h30'}]}]}
-            coachs = {['Chafai_Aitsaid-u7-u8-u14-u15']}
-            />
-            </div>
-        </TabPanel>
-
-        <TabPanel value={value} index={3}>
-        <div  style = {myStyle.trainingCards}>
-        <SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
-            city='75018 Paris'
-            img='u16-17'
-            category= {[{cat:'U16',trainingDays:[{day:'Vendredi',hour:'18h00'}]}, {cat:'U17',trainingDays:[{day:'Mercredi',hour:'De 18h30 à 20h30'}, {day:'Vendredi',hour:'De 18h30 à 20h30'}]}]}
-            coachs = {['Nasser_Hamici-17f']}
-            />
-            </div>
-        </TabPanel>
-
-        <TabPanel value={value} index={4}>
-
-        <div  style = {myStyle.trainingCards}>
-        <SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
-            city='75018 Paris'
-            img='u12f'
-            category= {[{cat:'U12 / U13',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h30'}, {day:'Jeudi',hour:'De 17h45 à 19h30'}]}, 
-                      ]}
-            coachs = {['Nasser_Hamici-17f']}
-            />
-
-<SportCard
-            terrain= 'Stade Porte de la Chapelle'
-            adress= '56, boulevard de Ney'
-            city='75018 Paris'
-            img='sectionf'
-            category= {[    {cat:'U15',trainingDays:[{day:'Mercredi',hour:'De 17h30 à 19h30'}]},
-            {cat:'U16',trainingDays:[{day:'Mardi',hour:'De 17h45 à 19h30'},{day:'Jeudi',hour:'De 17h45 à 19h30'}]} 
-                      ]}
-            coachs = {['Nasser_Hamici-17f']}
-            />
-
-            
-            </div>
-
-        </TabPanel>
-
-        </Box>
-   
+    </Box>
   );
 }
 
 const myStyle = {
-    trainingCards:{
-        display:'flex',
-        flexWrap:'wrap',
-        justifyContent:'center',
-       
-         
-    },
-  }
+  trainingCards: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  },
+}
+
+export { StudentTabs, AdultTabs }

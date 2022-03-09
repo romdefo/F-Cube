@@ -5,7 +5,7 @@ var userSchema = mongoose.Schema({
     surname: String,
     email: String,
     telephone: String,
-    isStudent: Boolean
+    status: String
 });
 
 var eventSchema = mongoose.Schema({
@@ -15,6 +15,7 @@ var eventSchema = mongoose.Schema({
     address: String,
     maxNumberOfPeople: Number,
     description: String,
+    audience: String,
     users: [userSchema]
 });
 

@@ -30,5 +30,4 @@ export default function Cards(props) {
             </CardActions>
         </Card>
     )
-
 }

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Grid } from '@mui/material';
-import Navbar from ".//../components/Navbar";
+import Navbar from ".//../components/Navbar2";
 import AdminButton from ".//../components/AdminButton";
 import EventIcon from '@mui/icons-material/Event';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
@@ -16,7 +16,9 @@ import '../stylesheets/Buttons.css'
 import '../stylesheets/Home.css'
 
 function Admin(props) {
-    if (props.admin.token === "") {
+    console.log(props.admin.token);
+
+    if (!props.admin.token) {
         return (<Redirect to='/' />);
     } else {
         return (
@@ -29,7 +31,7 @@ function Admin(props) {
                             <Grid item xs={12} md={4} className="home-panel">
                                 <h2><LibraryBooksIcon style={{ fontSize: 50 }} /> Blog</h2>
                                 <AdminButton title="Ajouter un article" />
-                                <AdminButton title="??" />
+                                <AdminButton title="Modifier un article" />
                                 <AdminButton title="Supprimer un article" />
                             </Grid>
                             <Grid item xs={12} md={4} className="home-panel">

@@ -40,7 +40,7 @@ function Footer(props) {
     const closeContactModal = () => { setContactModalOpen(false); setReceiver(""); setObject(""); setContent("") };
 
     const handleLogin = async () => {
-        if (props.admin === "") {
+        if (!props.admin.token) {
             setAdminModalOpen(true)
         } else {
             setAlreadyLoggedIn(true);
@@ -63,6 +63,8 @@ function Footer(props) {
         };
         setAdminModalOpen(false); setEmail(""); setPassword("");
     };
+
+    console.log(props.admin.token);
 
     if (loginSuccessful || alreadyLoggedIn) {
         return (<Redirect to='/admin' />);

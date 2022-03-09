@@ -13,8 +13,9 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
             backgroundPosition: 'center',
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)",
-            margin: '1rem'
+            boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.3)",
+            margin: '1rem',
+            borderRadius: 20
         },
         opacityBlock: {
             position: 'relative',
@@ -23,17 +24,20 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
             justifyContent: "space-around",
             alignItems: "center",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.70)",
-            color: "#F4E4C1"
-        }, date: {
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            color: "#F4E4C1",
+            borderRadius: 20
+        },
+        date: {
             position: 'absolute',
             top: 0,
             left: 0,
-            backgroundColor: '#E4C580',
+            backgroundColor: '#FEFEE2',
             color: '#080F5B',
-            padding: '0 1rem'
-        },
-
+            padding: '0 1rem',
+            borderTopLeftRadius: 10,
+            borderBottomRightRadius: 10
+        }
     }
 
     return (
