@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react'
-import { Grid, Button, Modal } from '@mui/material'
+import React from 'react'
+import { Grid } from '@mui/material'
 
 import ModalEvent from './ModalEvent'
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+// Day JS
+import DayJS from 'react-dayjs';
 
 
-function CardEvents({ img, title, desc, date, selectEvent }) {
+function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
+
+    // Style
     const mystyle = {
         leftPanel: {
             minHeight: "200px",
             minWidth: '200px',
-            backgroundImage: `url(./student/imgs/${img})`,
+            backgroundImage: `url(/images/events/${img})`,
             backgroundPosition: 'center',
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -38,39 +40,46 @@ function CardEvents({ img, title, desc, date, selectEvent }) {
         },
       
     }
-
-  
-
-    useEffect(() => {
     
-        const aosAnime =  () => {
-          AOS.init(
-            {duration : 2000}
-          );
-          AOS.refresh();
-        }
-    
-        aosAnime()
-      }, [])
-
+    // Date Format
+    const newDate= <DayJS format="DD-MM-YYYY">{date}</DayJS>
+        if (maxPeople!==0){
     return (
-        <Grid item xs={12} md={4} style={mystyle.leftPanel} 
-        data-aos="zoom-in">
+        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
             <Grid item style={mystyle.opacityBlock} >
-                <span style={mystyle.date}>{date}</span>
+                <span style={mystyle.date}>{newDate}</span>
+               
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2 style={{ fontWeight: "500" }}>{title}</h2>
                     <p>{desc}</p>
-                    
-                    <ModalEvent />
+
+                    <ModalEvent 
+                    eventTitle={title}
+                    eventDate = {newDate}
+                    />
+                </div>
+            </Grid>
+        </Grid>
+    )} 
+    else {
+
+           return (
+        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+            <Grid item style={mystyle.opacityBlock} >
+                <span style={mystyle.date}>Plus de places disponibles</span>
+               
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <h2 style={{ fontWeight: "500" }}>{title}</h2>
+                    <p>{desc}</p>
+
+                
                 </div>
             </Grid>
         </Grid>
     )
 
- 
+    }
+
 }
 
-
 export default CardEvents
-

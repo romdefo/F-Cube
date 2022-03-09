@@ -16,7 +16,7 @@ import '../stylesheets/Buttons.css'
 import '../stylesheets/Home.css'
 
 function Admin(props) {
-    if (props.admin.token === "") {
+    if (props.admin.token === undefined) {
         return (<Redirect to='/' />);
     } else {
         return (

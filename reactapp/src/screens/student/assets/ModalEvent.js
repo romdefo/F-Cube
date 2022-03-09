@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRectangleXmark } from '@fortawesome/free-solid-svg-icons'
+import TransitionAlerts from './Alert'
+
+
 
 
 
@@ -25,20 +28,53 @@ const style = {
   p: 4,
 };
 
-export default function ModalEvent() {
+
+export default function ModalEvent({eventTitle, eventDate}) {
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // fetch BDD
+  const [errorMsg, setErrorMsg]= useState([])
+  const [successMsg, setSuccessMsg] = useState([])
+
+
   const closeModalHandler = ()=> {
       setOpen (false)
   }
+
 
 // Event Form
   const [name,setName] = useState ('')
   const [surname, setSurname] = useState ('')
   const [email, setEmail] = useState ('')
   const [telephone, setTelephone] = useState ('')
+
+
+  
+
+  // Submit Form
+  const submitForm = async ()=> {
+     const addParticipant= await fetch('event/add-participant', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `eventTitle=${eventTitle}&name=${name}&surname=${surname}&email=${email}&telephone=${telephone}`
+       }); 
+      const res= await addParticipant.json()
+
+     if (res.error.length!==0)
+         { setErrorMsg(res.error)
+            setSuccessMsg('')}
+            
+    else if(res.result){
+        setErrorMsg('')
+        setSuccessMsg(["Votre inscription a été validée !"])
+        setName('')
+        setSurname('')
+        setEmail('')
+        setTelephone('')}
+    }
 
   return (
     <div>
@@ -52,37 +88,53 @@ export default function ModalEvent() {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-        <FontAwesomeIcon  icon={faRectangleXmark} size='lg' style={{position:'absolute',color:'#3FA2B0', right:'1rem',top:'1rem', cursor:'pointer'}}
-         onClick = {()=> {closeModalHandler()}}/>
+            <FontAwesomeIcon sx={{ color: 'text.primary' }} icon={faRectangleXmark} size='lg' style={{position:'absolute', right:'1rem',top:'1rem', cursor:'pointer'}}
+            onClick = {()=> {closeModalHandler()}}/>
 
-        <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            <h6>Participer à la sortie</h6>
-        </Typography>
+            <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+                <h6>Participer à la sortie</h6>
+            </Typography>
 
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Nom" variant="outlined" color='info'
-          onChange= {(e)=> setName(e.target.value)} />
-          </Typography>
+            <Typography id="keep-mounted-modal-description" sx={{ mt: 1 }}>
+                <h6>{eventTitle}</h6>
+            </Typography>
 
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Prénom" variant="outlined"
-           onChange= {(e)=> setSurname(e.target.value)}/>
-          </Typography>
+            <Typography id="keep-mounted-modal-description" sx={{ mt: 1}}>
+                <h6> Le {eventDate}</h6>
+            </Typography>
 
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Email" variant="outlined"
-          onChange= {(e)=> setEmail(e.target.value)}/>
-          </Typography>
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <TextField id="outlined-basic" label="Nom" variant="outlined" value={name}
+              onChange= {(e)=> {setName(e.target.value) 
+              setSuccessMsg('');setErrorMsg('')}} />
+              </Typography>
 
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <TextField id="outlined-basic" label="Téléphone" variant="outlined"
-          onChange= {(e)=> setTelephone(e.target.value)}/>
-          </Typography>
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <TextField id="outlined-basic" label="Prénom" variant="outlined" value={surname}
+              onChange= {(e)=> {setSurname(e.target.value)
+                setSuccessMsg('');setErrorMsg('')}}/>
+              </Typography>
 
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          <Button variant="contained" style={ {backgroundColor: '#3FA2B0'}}>Valider</Button>
-          </Typography>
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <TextField id="outlined-basic" label="Email" variant="outlined" value={email}
+              onChange= {(e)=>{ setEmail(e.target.value)
+                setSuccessMsg('');setErrorMsg('')}}/>
+              </Typography>
 
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <TextField id="outlined-basic" label="Téléphone" variant="outlined" value={telephone}
+              onChange= {(e)=> {setTelephone(e.target.value)
+                setSuccessMsg('');setErrorMsg('')}}/>
+              </Typography>
+
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 1}}>
+                {errorMsg.length!==0&& <TransitionAlerts type ='error' msg={errorMsg[0]}/> }
+                {successMsg.length!==0&& <TransitionAlerts type='success' msg={successMsg[0]}/> }
+              </Typography>
+
+              <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <Button variant="contained" onClick = {()=> submitForm()}>Valider</Button>
+              </Typography>
         </Box>
       </Modal>
     </div>
