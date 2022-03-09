@@ -2,7 +2,7 @@
 .footer-background {
     background-image: url("../../public/images/blue-pencils.jpg");
     background-size: cover;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 
 .footer-opacity-block {

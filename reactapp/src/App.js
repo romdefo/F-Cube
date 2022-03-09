@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Student from './screens/student/Student';
-import Insertion from './screens/Insertion';
-import Volunteer from './screens/benevole/Volunteer';
-import Act from './screens/discover/Act';
-import Admin from './screens/Admin'
-import Discover from './screens/discover/Discover';
-import {ThemeProvider} from '@mui/material';
-import theme from './components/Theme';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Student from "./screens/student/Student";
+import Insertion from "./screens/insertion/Insertion";
+import Volunteer from "./screens/benevole/Volunteer";
+import Act from "./screens/discover/Act";
+import Admin from "./screens/Admin";
+import Discover from "./screens/discover/Discover";
+import theme from "./components/Theme";
+import { ThemeProvider } from "@mui/material";
 
 // Le store où on va stocker le token de l'admin
 import admin from "./reducers/admin.reducer";
@@ -16,10 +16,9 @@ import { createStore, combineReducers } from "redux";
 
 const store = createStore(combineReducers({ admin }));
 
-
 function App() {
   return (
-  
+
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Router>
@@ -34,7 +33,6 @@ function App() {
         </Router>
       </Provider>
     </ThemeProvider>
-
 
   );
 }

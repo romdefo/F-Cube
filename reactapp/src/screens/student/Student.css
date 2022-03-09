@@ -3,8 +3,6 @@
     padding:0;
 }
 
-
-
 .news-student {
     height:100vh;
     display:flex;
@@ -21,11 +19,7 @@
     align-items: center;
 }
 
-
-
-
 .football {
-  
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -33,18 +27,97 @@
     min-height:100vh;
 }
 
-
-
-
-.taekwondo {
-  
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-   
+.football-info-container {
+    position:relative;
+    background-image: url('./../../../public/student/imgs/soccer-field.jpg');
+    background-size: cover;
+    background-position:30%;
+    height:60%;
+    box-shadow: "5px 4px 6px rgba(0, 0, 0, 0.48)";
+    border-radius:15px;
 }
 
+.taekwondo {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height:100vh;
+    margin-bottom: 5rem;
+}
 
+.taekwondo-info-container {
+    position:relative;
+    background-image: url('./../../../public/student/imgs/taekwondo.jpg');
+    background-size: cover;
+    background-position:30%;
+    height:60%;
+    box-shadow: "5px 4px 6px rgba(0, 0, 0, 0.48)";
+    border-radius:15px;
+}
 
+.bodytae-info-container {
+    position:relative;
+    background-image: url('./../../../public/student/imgs/taekwondoF.jpg');
+    background-size: cover;
+    background-position:30%;
+    height:60%;
+    box-shadow: "5px 4px 6px rgba(0, 0, 0, 0.48)";
+    border-radius:15px;
+}
 
+.sports-name {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    height:100%;
+    width:100%
+}
+
+.sports-text {
+    position:relative;
+    padding:100px;
+    color:white;
+    font-size: 23px;
+    font-weight:500;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    border-radius:15px;
+}
+
+.football-info-container:hover .sports-text{
+    opacity: 1;
+    height: 100%;
+    width:100%;
+}
+
+.football-info-container:hover .sports-name{
+    display:none
+}
+
+.taekwondo-info-container:hover .sports-text{
+    opacity: 1;
+    height: 100%;
+    width:100%;
+}
+
+.taekwondo-info-container:hover .sports-name{
+    display:none
+}
+
+.bodytae-info-container:hover .sports-text{
+    opacity: 1;
+    height: 100%;
+    width:100%;
+}
+
+.bodytae-info-container:hover .sports-name{
+    display:none
+}

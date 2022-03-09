@@ -6,8 +6,7 @@ import ModalEvent from './ModalEvent'
 // Day JS
 import DayJS from 'react-dayjs';
 
-
-function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
+function CardEvents({ img, title, desc, date, selectEvent, maxPeople }) {
 
     // Style
     const mystyle = {
@@ -18,8 +17,9 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
             backgroundPosition: 'center',
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.25)",
-            margin: '1rem'
+            boxShadow: "5px 4px 4px rgba(0, 0, 0, 0.3)",
+            margin: '1rem',
+            borderRadius: 20
         },
         opacityBlock: {
             position: 'relative',
@@ -28,56 +28,60 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople}) {
             justifyContent: "space-around",
             alignItems: "center",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.70)",
-            color: "#F4E4C1"
-        }, date: {
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            color: "#F4E4C1",
+            borderRadius: 20
+        },
+        date: {
             position: 'absolute',
             top: 0,
             left: 0,
-            backgroundColor: '#E4C580',
+            backgroundColor: '#FEFEE2',
             color: '#080F5B',
-            padding: '0 1rem'
-        },
-      
+            padding: '0 1rem',
+            borderTopLeftRadius: 10,
+            borderBottomRightRadius: 10
+        }
     }
-    
-    // Date Format
-    
-    const newDate= <DayJS format="D/M/YYYY">{date}</DayJS>
-        if (maxPeople!==0){
-    return (
-        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
-            <Grid item style={mystyle.opacityBlock} >
-                <span style={mystyle.date}>{newDate}</span>
-               
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h2 style={{ fontWeight: "500" }}>{title}</h2>
-                    <p>{desc}</p>
 
-                    <ModalEvent 
-                    eventTitle={title}
-                    eventDate = {newDate}
-                    />
-                </div>
+    // Date Format
+
+    const newDate = <DayJS format="D/M/YYYY">{date}</DayJS>
+    if (maxPeople !== 0) {
+        return (
+            <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+                <Grid item style={mystyle.opacityBlock} >
+                    <span style={mystyle.date}>{newDate}</span>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <h2 style={{ fontWeight: "500" }}>{title}</h2>
+                        <p>{desc}</p>
+
+                        <ModalEvent
+                            eventTitle={title}
+                            eventDate={newDate}
+                        />
+                    </div>
+                </Grid>
             </Grid>
-        </Grid>
-    )} 
+        )
+    }
     else {
 
-           return (
-        <Grid item xs={12} md={4} style={mystyle.leftPanel}>
-            <Grid item style={mystyle.opacityBlock} >
-                <span style={mystyle.date}>Plus de places disponibles</span>
-               
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h2 style={{ fontWeight: "500" }}>{title}</h2>
-                    <p>{desc}</p>
+        return (
+            <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+                <Grid item style={mystyle.opacityBlock} >
+                    <span style={mystyle.date}>Plus de places disponibles</span>
 
-                
-                </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <h2 style={{ fontWeight: "500" }}>{title}</h2>
+                        <p>{desc}</p>
+
+
+                    </div>
+                </Grid>
             </Grid>
-        </Grid>
-    )
+        )
 
     }
 

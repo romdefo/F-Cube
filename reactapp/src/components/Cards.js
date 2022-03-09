@@ -24,7 +24,6 @@ export default function Cards(props) {
             </CardContent>
         </Card>
     )
-
 }
 const styles = {
     container: {

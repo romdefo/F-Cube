@@ -1,118 +1,107 @@
 import React from 'react'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import { CardActionArea, Grid } from '@mui/material';
+import { CardActionArea, Grid, Avatar, Typography, CardMedia, CardContent, Card } from '@mui/material';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 // Unique Key
-import uuid from 'react-uuid'
+import uuid from 'react-uuid';
 
+export default function SportCard({ img, category, terrain, adress, coaches, city, sport }) {
 
-
-export default function SportCard({img,category,terrain,adress,coachs,city,sport }) {
-
-  
-
-  const catNames= category.map ((el,i )=>`${el.cat}`)
-
-  const hoursContainer= category.map((el,i )=> {
-   const trainingDays= el.trainingDays.map((d,i)=> {
-      return ( <div key={uuid()} style={{textAlign:'center',marginBottom:'auto'}}> 
-      <h6 style={{fontWeight:'bold'}}>{d.day}</h6>
-      <h6>{d.hour}</h6></div>)
+  const hoursContainer = category.map((el, i) => {
+    const trainingDays = el.trainingDays.map((d, i) => {
+      return (<div key={uuid()} style={{ textAlign: 'center', borderBottom: "2px solid #003D55", paddingTop: 10 }}>
+        <h6 style={{ fontWeight: 'bold' }}>{d.day}</h6>
+        <h6>{d.hour}</h6></div>)
     })
 
-    return( 
-      <div  style={myStyle.divHours} key={uuid()} >
-     {sport!=='tkw'&& <h4 style={{fontWeight:'bold',marginBottom:'auto'}}>{el.cat}</h4>}
+    return (
+      <div style={myStyle.divHours} key={uuid()} >
+        <h4 style={{ paddingBottom: 5 }}>{el.gen}</h4>
+        <h4 style={{ fontWeight: 'bold', paddingBottom: 5 }}>{el.cat}</h4>
         {trainingDays}
-     </div>
-  )})
-
-     
-  const coach =  coachs.map(el=> {
-      return <Avatar
-      alt={el}
-      src={`./student/imgs/${el}.jpg`}
-      sx={{ width: 56, height: 56 }}
-      key={uuid()}/>
+      </div>
+    )
   })
 
-  
-  
-  return (
-  <Grid item xs={12} md={3} style={{margin:'1rem'}}>
-    <Card >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image= {`./student/imgs/${img}.jpg`}
-          alt="green iguana"
+  const coach = coaches.map(el => {
+    return (
+      <OverlayTrigger
+        placement="bottom"
+        delay={{ show: 100, hide: 200 }}
+        overlay={(props) => (
+          <Tooltip id="button-tooltip" {...props}>
+            {el.replace(/\-[^-]*?$/, "").replace(/_/g, " ")}
+          </Tooltip>
+        )}>
+        <Avatar
+          alt={el}
+          src={`./images/sportcards/coaches/${el}.jpg`}
+          sx={{ width: 56, height: 56 }}
+          key={uuid()}
         />
-        <CardContent>
+      </OverlayTrigger>)
+  })
 
+  return (
+    <Grid item xs={12} md={3} style={{ margin: '1rem' }}>
+      <Card >
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="200"
+            image={`./images/sportcards/${img}.jpg`}
+            alt="équipe"
+          />
+          <CardContent>
 
-          <Typography style = {myStyle.categoryName} gutterBottom variant="h5" component="div">
-         {catNames.join(' / ')}
-          </Typography>
+            <Typography variant="body2" display='flex' justifyContent='center'>
+              {hoursContainer}
+            </Typography>
 
-          <Typography variant="body2" display='flex' justifyContent='center'>
-          {hoursContainer}
-          </Typography>
+            <Typography variant="body" display='flex' justifyContent='center' sx={{ fontWeight: 'regular', marginTop: 1 }}>
+              {terrain}
+            </Typography>
 
-          <Typography variant="body"  display='flex' justifyContent='center'>
-            Adresse
-          </Typography>
-          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
-            {terrain}
-          </Typography>
+            <Typography variant="body" display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
+              {adress}
+            </Typography>
 
-          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
-            {adress}
-          </Typography>
+            <Typography variant="body" display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
+              {city}
+            </Typography>
 
-          <Typography variant="body"  display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
-            {city}
-          </Typography>
-      
-         
-          {coachs.length>0?
-          <Typography variant="body2"  display='flex' flexDirection='column' alignItems='center' sx={{ fontWeight: 'bold' }}>
-            Entraineurs
-          <Typography variant="body2" display='flex' justifyContent='center'>
-          {coach }
-          </Typography>
-          
-          </Typography>
-          : null}
-          
-        </CardContent>
-      </CardActionArea>
-    </Card>
+            {coaches.length > 0 ?
+              <Typography variant="body2" display='flex' flexDirection='column' alignItems='center' sx={{ fontWeight: 'bold', marginTop: 2 }}>
+                Entraineurs
+                <Typography variant="body2" display='flex' justifyContent='center' sx={{ marginTop: 1 }}>
+                  {coach}
+                </Typography>
+              </Typography>
+              : null}
+
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </Grid>
-  
+
   );
 }
 
 const myStyle = {
-  divHours:{
-      display:'flex',
-      flexDirection:'column',
-      justifyContent:'center',
-      alignItems:'center',
-      border: '2px solid black',
-      padding:'0.2rem 0.3rem',
-      margin: '0.5rem'
+  divHours: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '0.2rem 0.3rem',
+    margin: '0.5rem'
   },
   categoryName: {
-    position:'absolute',
-    top:0,
-    left:0,
-    backgroundColor:'red',
-    color:'white',
-    padding:'0 1rem'
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    backgroundColor: 'red',
+    color: 'white',
+    padding: '0 1rem'
   }
 }
