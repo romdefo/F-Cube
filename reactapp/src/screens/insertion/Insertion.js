@@ -93,11 +93,12 @@ const Insertion = (props) => {
                     </div>
                 </div>
 
-                <h1 style={{ textAlign: "center" }}>Nos programmes Sport & Insertion</h1>
-                <Grid container xs={12} height='100vh' className='sport-inclusion' id="Sport & Insertion">
+                
+                <Grid container xs={12} minHeight='100vh' className='sport-inclusion' id="Sport & Insertion">
+               <Grid item xs={12}> <h1 style={{ textAlign: "center" }}>Nos programmes Sport & Insertion</h1></Grid>
                     {SportInclusion.map((card, index) => {
                         return (
-                            <Grid key={index} item xs={11} md={3.5} className={`${card.id}-info-container`}>
+                            <Grid key={index}  height='300px'item xs={11} md={3.5} className={`${card.id}-info-container`} >
                                 <div className="adult-sports-name">
                                     <h1 style={{ color: "white", fontSize: 45, textShadow: "black 2px 3px", textWrap: "wrap" }}>{card.title}</h1>
                                 </div>
@@ -110,8 +111,8 @@ const Insertion = (props) => {
                     })}
                 </Grid>
 
-                <Grid container xs={12} height='100vh' className='football' id="Football" >
-                    <Grid item xs={11} md={8} className="football-info-container">
+                <Grid container xs={12}  className='football' id="Football" >
+                    <Grid item xs={11} md={8} height="500px" className="football-info-container">
                         <div className="sports-name">
                             <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Football</h1>
                         </div>
@@ -127,8 +128,8 @@ const Insertion = (props) => {
                     <AdultTabs />
                 </div>
 
-                <Grid container xs={12} height='100vh' className='taekwondo' id="Taekwondo">
-                    <Grid item xs={11} md={5} className="taekwondo-info-container">
+                <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
+                    <Grid item xs={11} md={5} height='500px' className="taekwondo-info-container" style={{marginBottom:"2rem"}}>
                         <div className="sports-name">
                             <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
                         </div>
@@ -138,7 +139,7 @@ const Insertion = (props) => {
                         </div>
                     </Grid>
 
-                    <Grid item xs={11} md={5} className="bodytae-info-container">
+                    <Grid item xs={11} md={5} className="bodytae-info-container" height='500px'>
                         <div className="sports-name">
                             <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
                         </div>
