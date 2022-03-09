@@ -19,12 +19,14 @@ export default function Calendar({events, setEvents, eventsDay, setEventsDay}) {
     return format
   }
 
+
+
   useEffect(() => {
 
     const eventsForDateSelect = async () => {
 
     const newDateSelect=  dateFormat(date)
-    
+
     const eventsFilter=  events.filter(event=> {
       const dateEvent= dateFormat(event.date)
      return newDateSelect == dateEvent 
@@ -38,7 +40,10 @@ export default function Calendar({events, setEvents, eventsDay, setEventsDay}) {
 
     eventsForDateSelect()
 
-  }, [date])
+  },[date])
+
+
+  
   
     
 
