@@ -1,9 +1,8 @@
 import React from 'react';
-import { Grid, Button } from '@mui/material';
+import { Grid, Button, Container, Typography} from '@mui/material';
 
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-
 
 // import './Discover.css'
 import '../../stylesheets/App.css'
@@ -15,7 +14,45 @@ export default function Act() {
         <>  
             {/* Navbar */}
             <Navbar nav={nav}/> 
+            <div className='section'>
+                <div className='opacity'>
+                    <Container 
+                        maxWidth='lg' 
+                        sx={{display:'flex', justifyContent:'center', alignItems:'space-between', pt:'4', height: '80vh'}}>
+                        <Grid container my={4}>
+                            <Grid item >
+                                <img src="../images/act/image-act-2.jpg" alt="pourquoi donner" className='img-fluid'/>
+                            </Grid>
+                            <Grid item>
+                                <Typography variant="h5">
+                                    Pourquoi donner ?
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography variant='h4'>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                </Typography>
+                            </Grid>
+                            
+                        </Grid>
+                        <Grid container  spacing={4}>
+                            <Grid item >
+                                <Typography variant="h5">
+                                    Pourquoi devenir bénévole ?
+                                </Typography>
+                                <Typography variant='h4'>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <img src="../images/act/image-act-1.jpg" alt="pourquoi devenir bénévole" className='img-fluid'/>
+                            </Grid>
+                            
+                        </Grid>
 
+                    </Container>
+                </div>
+            </div>
             {/* Footer */}
             <Footer/> 
         

@@ -22,6 +22,7 @@ export default function Volunteer() {
 
             {/* Home page */}
             <div className='section' id={nav[1]}>
+                <div className='opacity'>
                 <Container  maxWidth="md" sx={{ py: 8}}>
                     <Grid container justifyContent="center" alignItems="center" mb={4}>
                         <Grid item>
@@ -32,6 +33,21 @@ export default function Volunteer() {
                     </Grid>
                     <Inscription/>
                 </Container>            
+                </div>
+            </div>
+            <div className='section' id={nav[1]}>
+                <div className='opacity'>
+                <Container  maxWidth="md" sx={{ py: 8}}>
+                    <Grid container justifyContent="center" alignItems="center" mb={4}>
+                        <Grid item>
+                            <Typography variant='h5'>
+                                Inscription soutien scolaire mois de Mars
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Inscription/>
+                </Container>            
+                </div>
             </div>
                        
             {/* Section Actions */}

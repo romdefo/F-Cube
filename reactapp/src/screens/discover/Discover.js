@@ -27,9 +27,7 @@ export default function Discover() {
             {/* Section Actions */}
             <div className='section' id={nav[1]}>
                 <div className='opacity'>
-                <Container  maxWidth="lg"
-                sx={{ pt: 2 }}
-                 >
+                <Container  maxWidth="lg" sx={{ pt: 2 }} >
                     <Grid container sx={{ display:'flex', justifyContent:'center'}} 
                      pb={4}
                     >

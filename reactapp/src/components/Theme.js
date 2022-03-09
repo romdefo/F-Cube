@@ -88,6 +88,8 @@ theme.components = {
         root: {
           borderRadius: 0,
           textTransform: 'none',
+          color: theme.palette.primary.dark,
+          fontWeight: 700,
         },
         contained: {
           backgroundColor: theme.palette.primary.main,
