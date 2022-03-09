@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./screens/Home";
 import Student from "./screens/student/Student";
-import Insertion from "./screens/Insertion";
-import Volunteer from "./screens/Volunteer";
-import Act from "./screens/Act";
+import Insertion from "./screens/insertion/Insertion";
+import Volunteer from "./screens/benevole/Volunteer";
+import Act from "./screens/discover/Act";
 import Admin from "./screens/Admin";
 import Discover from "./screens/discover/Discover";
 import theme from "./components/Theme";
@@ -19,20 +18,20 @@ const store = createStore(combineReducers({ admin }));
 
 function App() {
   return (
-    <ThemeProvider theme='theme'>
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Discover} />
-          <Route path="/decouvrir-l-association" component={Discover} />
-          <Route path="/espace-eleve" component={Student} />
-          <Route path="/espace-insertion" component={Insertion} />
-          <Route path="/espace-benevole" component={Volunteer} />
-          <Route path="/j-agis" component={Act} />
-          <Route path="/admin" component={Admin} />
-        </Switch>
-      </Router>
-    </Provider>
+
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Discover} />
+            <Route path="/espace-eleve" component={Student} />
+            <Route path="/espace-insertion" component={Insertion} />
+            <Route path="/espace-benevole" component={Volunteer} />
+            <Route path="/j-agis" component={Act} />
+            <Route path="/admin" component={Admin} />
+          </Switch>
+        </Router>
+      </Provider>
     </ThemeProvider>
 
   );
