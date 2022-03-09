@@ -15,7 +15,8 @@ import CardEvents from './assets/CardEvents'
 import SportCard from './assets/SportCard'
 import Calendar from './assets/Calendar'
 import BasicTabs from './assets/Tabs'
-import TitleContainer from './assets/TitleContainer';
+import { EventNoteSharp } from '@mui/icons-material';
+
 
 
 const Student = () => {
@@ -23,15 +24,42 @@ const Student = () => {
   const [events,setEvents] = useState([])
   const [eventsDay, setEventsDay] = useState([])
 
+  const dateFormat = function(d){
+    var newDate = new Date(d);
+    var format = newDate.getDate()+'/'+(newDate.getMonth()+1)+"/"+newDate.getFullYear() 
+    return format
+  }
+
+  const dateToday= new Date()
+  const dateTodayFormat= dateFormat(dateToday)
+
+
   useEffect(() => {
+    
 
     const fetchEvents = async () => {
         const res= await fetch('/event/see-events')
         const allEvents = await res.json()
-         await setEvents(allEvents.events)
+         await setEvents(allEvents.events)  
+    }
+    fetchEvents()
+
+    const todayEvents = ()=> {
+
+      const eventsTodayFilter=  events.filter(event=> {
+        const eventDay = dateFormat(event.date)
+           return dateTodayFormat == eventDay 
+              })
+   
+        if (eventsTodayFilter.length!==0){
+          setEventsDay(eventsTodayFilter)
+        }
+             
     }
 
-    fetchEvents()
+
+    todayEvents()
+   
   }, [])
 
 
@@ -51,16 +79,16 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
 
   return (
     <>
-    <Navbar nav={["Accueil","Sorties", "Football", "Taekwondo", "Contact"]}  />
+    <Navbar nav={["Actualités","Sorties", "Football", "Taekwondo", "Contact"]}  />
     <div className='Student' style = {myStyle.studentContainer} >
 
-    <Grid container xs={12} flexDirection='column'justifyContent='center'  alignItems='center' minHeight='100vh' id="Accueil">
-      <TitleContainer>Actualités</TitleContainer>
+    <Grid container xs={12} flexDirection='column'justifyContent='center'  alignItems='center' minHeight='100vh' id="Actualités">
+    
         <CarouselNews/>
        </Grid>
 
       <div className='sorties' id="Sorties" >
-      <TitleContainer>Prochaines Sorties</TitleContainer>
+     
 
         <div style={myStyle.upcomingEvents} >
           
@@ -75,7 +103,7 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
 
 
       <Grid container xs={12} height='100vh' className='football' >
-      <Grid container xs={12}><TitleContainer>Football</TitleContainer></Grid>
+  
         <Grid 
         item xs={11} md={8}
 
@@ -101,7 +129,7 @@ const eventsData=  eventsDay.map (({title,description,type,date,maxNumberOfPeopl
 
       <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
         <Grid container xs={12}>
-          <TitleContainer>Taekwondo</TitleContainer>
+        
           </Grid>
 
 

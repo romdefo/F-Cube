@@ -88,7 +88,7 @@ export default function ModalEvent({eventTitle, eventDate}) {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-            <FontAwesomeIcon sx={{ color: 'text.primary' }} icon={faRectangleXmark} size='lg' style={{position:'absolute', right:'1rem',top:'1rem', cursor:'pointer'}}
+            <FontAwesomeIcon sx={{ color: 'primary' }} icon={faRectangleXmark} size='lg' style={{position:'absolute', right:'1rem',top:'1rem', cursor:'pointer'}}
             onClick = {()=> {closeModalHandler()}}/>
 
             <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
