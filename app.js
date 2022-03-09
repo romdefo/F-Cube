@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var eventRouter = require('./routes/event');
 var articleRouter = require('./routes/article');
+var volunteerRouter = require('./routes/volunteer');
 //var models = require('./routes/index');
 
 // Models
@@ -41,6 +42,8 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/event', eventRouter);
 app.use('/article', articleRouter);
+app.use('/volunteer', volunteerRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
