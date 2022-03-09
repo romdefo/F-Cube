@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { Grid, Button, Box, Container, Typography } from '@mui/material';
-// import { Link } from 'react-router-dom';
-import Link from '@mui/material/Link';
+import { Link as LinkRouter } from 'react-router-dom';
 
 import '../stylesheets/App.css'
 import '../stylesheets/Buttons.css'
 import '../screens/discover/Discover.css'
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default function Home() {
 
@@ -44,31 +43,31 @@ export default function Home() {
 
                     <Grid container xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} spacing={8}>
                         <Grid item data-aos="fade-left" data-aos-duration="1000">
-                            <Link
-                                href='/espace-eleve'
+                            <LinkRouter
+                                to='/espace-eleve'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                         <Grid item data-aos="fade-left" data-aos-duration="2000">
-                            <Link
-                                href='/espace-insertion'
+                            <LinkRouter
+                                to='/espace-insertion'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                         <Grid item data-aos="fade-left" data-aos-duration="3000">
-                            <Link
-                                href='/espace-benevole'
+                            <LinkRouter
+                                to='/espace-benevole'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                     </Grid>
                 </Container>
@@ -99,31 +98,31 @@ export default function Home() {
                         sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}
                         spacing={8}>
                         <Grid item>
-                            <Link
-                                href='/espace-eleve'
+                            <LinkRouter
+                                to='/espace-eleve'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                         <Grid item>
-                            <Link
-                                href='/espace-insertion'
+                            <LinkRouter
+                                to='/espace-insertion'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                         <Grid item>
-                            <Link
-                                href='/espace-benevole'
+                            <LinkRouter
+                                to='/espace-benevole'
                                 variant="body2"
                                 underline='none'
                             >
                                 <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
-                            </Link>
+                            </LinkRouter>
                         </Grid>
                     </Grid>
                 </Container>

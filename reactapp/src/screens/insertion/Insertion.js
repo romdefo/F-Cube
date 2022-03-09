@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+
 import '../student/Student.css';
-import './Insertion.css'
+import './Insertion.css';
 import CarouselNews from '../student/assets/CarouselNews';
 import Footer from ".//../../components/Footer";
-import Navbar from ".//../../components/Navbar2";
+import Navbar from "../../components/Navbar";
 
 import { Grid, Button } from '@mui/material'
 
@@ -16,8 +18,8 @@ import SportCard from '../student/assets/SportCard'
 import Calendar from '../student/assets/Calendar'
 import { AdultTabs } from '../student/assets/Tabs'
 
-const Insertion = () => {
-
+const Insertion = (props) => {
+    console.log(props.admin.token)
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -121,67 +123,41 @@ const Insertion = () => {
                 </Grid>
 
                 <div className='football-info'>
+                    <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
                     <AdultTabs />
                 </div>
 
-                <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
-                    <Grid item xs={11} md={5} style={{
-                        backgroundImage: "url('./student/imgs/taekwondo.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center top',
-                        boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
-                        height: '60vh',
-                        margin: '1rem'
-                    }}>
-                        <div
-                            style={{
-                                height: "100%",
-                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end',
-                            }}>
-                            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Taekwondo</h1>
-                            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-                                <p style={{ color: 'white', alignSelf: 'center' }}>L’activité est affiliée FFTDA n° 750978 et proposée depuis 1999-2000 en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
-                                <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-
-                            </div>
+                <Grid container xs={12} height='100vh' className='taekwondo' id="Taekwondo">
+                    <Grid item xs={11} md={5} className="taekwondo-info-container">
+                        <div className="sports-name">
+                            <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
+                        </div>
+                        <div className="sports-text">
+                            <p style={{ marginBottom: 25 }}>Au sein d'EGDO, on pratique un art martial olympique depuis un quart de siècle ! Le taekwondo est proposé en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
+                            <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button></a>
                         </div>
                     </Grid>
 
-                    <Grid item xs={11} md={5} style={{
-                        backgroundImage: "url('./student/imgs/taekwondoF.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center top',
-                        boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
-                        height: '60vh'
-                    }}>
-                        <div
-                            style={{
-                                height: "100%",
-                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end',
-                            }}>
-                            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Body Tae Feminin</h1>
-                            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-                                <p style={{ color: 'white', alignSelf: 'center' }}>Le Body Taekwondo féminin est un mélange de fitness et de Taekwondo en musique.</p>
-                                <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-                            </div>
+                    <Grid item xs={11} md={5} className="bodytae-info-container">
+                        <div className="sports-name">
+                            <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
+                        </div>
+                        <div className="sports-text">
+                            <p style={{ marginBottom: 25 }}>Le Body Taekwondo féminin est un mélange de fitness et de taekwondo en musique qui développe la coordination, la psychomotricité et la perception du corps dans l'espace.</p>
+                            <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button></a>
                         </div>
                     </Grid>
                 </Grid>
 
-                <Grid container xs={12} justifyContent='center'>
+                <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
 
+                <Grid container xs={12} justifyContent="center">
                     <SportCard
                         terrain="Gymnase de la Goutte d'Or"
                         adress='12 rue de la Goutte d’Or'
                         city='75018 Paris'
-                        img='tkw-6a'
-                        category={[{ cat: '6-8 ans', trainingDays: [{ day: 'Mardi', hour: 'De 17h45 à 18h30' }, { day: 'Samedi', hour: 'De 14h00 à 14h45' }] }]}
+                        img='u16tkw'
+                        category={[{ gen: "Taekwondo", cat: '17 ans et +', trainingDays: [{ day: 'Mardi', hour: 'de 19h30 à 20h30' }, { day: 'Samedi', hour: 'de 15h45 à 17h' }] }]}
                         coaches={[]}
                         sport='tkw'
                     />
@@ -191,17 +167,7 @@ const Insertion = () => {
                         adress='12 rue de la Goutte d’Or'
                         city='75018 Paris'
                         img='tkwu12'
-                        category={[{ cat: '9-11 ans', trainingDays: [{ day: 'Mardi', hour: 'De 18h30 à 19h30' }, { day: 'Samedi', hour: 'De 14h45 à 15h45' }] }]}
-                        coaches={[]}
-                        sport='tkw'
-                    />
-
-                    <SportCard
-                        terrain="Gymnase de la Goutte d'Or"
-                        adress='12 rue de la Goutte d’Or'
-                        city='75018 Paris'
-                        img='u16tkw'
-                        category={[{ cat: '12-17 ans', trainingDays: [{ day: 'Mardi', hour: 'De 19h30 à 20h30' }, { day: 'Samedi', hour: 'De 15h45 à 17h00' }] }]}
+                        category={[{ gen: "Body Tae Féminin", cat: '15 ans et +', trainingDays: [{ day: 'Mardi', hour: 'de 20h30 à 21h30' }, { day: 'Samedi', hour: 'de 13h à 14h' }] }]}
                         coaches={[]}
                         sport='tkw'
                     />
@@ -209,13 +175,9 @@ const Insertion = () => {
                 </Grid>
                 <Footer />
             </div>
-
         </>
     )
-
 }
-
-export default Insertion
 
 const myStyle = {
     studentContainer: {
@@ -233,3 +195,9 @@ const myStyle = {
         width: '100%'
     }
 }
+
+function mapStateToProps(state) {
+    return { admin: state.admin }
+}
+
+export default connect(mapStateToProps, null)(Insertion);

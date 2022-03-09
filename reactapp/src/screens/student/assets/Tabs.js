@@ -171,58 +171,35 @@ function AdultTabs() {
   return (
 
     <Box sx={{ width: '100%', diplay: 'block' }}  >
-      <Box sx={{ maxWidth: 600, bgcolor: 'background.paper' }} style={{ marginLeft: 'auto', marginRight: 'auto' }} >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
-        >
-          <Tab label="Equipes Seniors Masculines" {...a11yProps(0)} />
-          <Tab label="Equipe Senior Féminine" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
 
-      <TabPanel value={value} index={0}>
-        <div style={myStyle.trainingCards}>
-          <SportCard
-            terrain='Stade des Fillettes'
-            adress='56, boulevard Ney'
-            city='75018 Paris'
-            img='senior1'
-            category={[{ cat: 'Senior 1', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
-            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-          />
+      <div style={myStyle.trainingCards}>
+        <SportCard
+          terrain='Stade des Fillettes'
+          adress='56, boulevard Ney'
+          city='75018 Paris'
+          img='senior1'
+          category={[{ cat: 'Senior 1', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
+          coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+        />
 
-          <SportCard
-            terrain='Stade des Fillettes'
-            adress='56, boulevard Ney'
-            city='75018 Paris'
-            img='senior2'
-            category={[{ cat: 'Senior 2', trainingDays: [{ day: 'Mardi, Jeudi & Vendredi', hour: 'de 20h30 à 22h30' }] }]}
-            coaches={['Assoumani_Abdou-U2_Senior', 'Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-          />
+        <SportCard
+          terrain='Stade des Fillettes'
+          adress='56, boulevard Ney'
+          city='75018 Paris'
+          img='senior2'
+          category={[{ cat: 'Senior 2', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
+          coaches={['Assoumani_Abdou-U2_Senior', 'Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+        />
 
-        </div>
-
-      </TabPanel>
-
-      <TabPanel value={value} index={1}>
-
-        <div style={myStyle.trainingCards}>
-          <SportCard
-            terrain='Stade Porte de la Chapelle'
-            adress='56, boulevard de Ney'
-            city='75018 Paris'
-            img='senior-f'
-            category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
-            coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-          />
-        </div>
-
-      </TabPanel>
-
+        <SportCard
+          terrain='Stade Porte de la Chapelle'
+          adress='56, boulevard de Ney'
+          city='75018 Paris'
+          img='senior-f'
+          category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
+          coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+        />
+      </div>
     </Box>
   );
 }

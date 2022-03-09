@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import Navbar from '../../components/Navbar2';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import theme from "../../components/Theme";
 
@@ -16,7 +17,8 @@ import './Discover.css'
 
 import { Container, Grid, ThemeProvider, Typography } from '@mui/material';
 
-export default function Discover() {
+function Discover(props) {
+    console.log(props.admin.token)
 
     const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe"];
     return (
@@ -90,3 +92,9 @@ export default function Discover() {
         </ThemeProvider >
     );
 }
+
+function mapStateToProps(state) {
+    return { admin: state.admin }
+}
+
+export default connect(mapStateToProps, null)(Discover);

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+
 import './Student.css';
 import CarouselNews from './assets/CarouselNews';
 import Footer from ".//../../components/Footer";
-import Navbar from ".//../../components/Navbar2";
+import Navbar from "../../components/Navbar";
 import { Grid, Button } from '@mui/material'
 
 // Unique key
@@ -14,8 +16,8 @@ import SportCard from './assets/SportCard'
 import Calendar from './assets/Calendar'
 import { StudentTabs } from './assets/Tabs'
 
-const Student = () => {
-
+const Student = (props) => {
+  console.log(props.admin.token)
   const [events, setEvents] = useState([])
 
   useEffect(() => {
@@ -150,8 +152,6 @@ const Student = () => {
 
 }
 
-export default Student
-
 const myStyle = {
   studentContainer: {
     backgroundImage: `url(./student/imgs/bg-student.jpg)`,
@@ -160,27 +160,16 @@ const myStyle = {
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed'
   },
-
   upcomingEvents: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
     width: '100%'
-  },
-  footballInfoContainer: {
-    backgroundImage: "url('/student/imgs/bgfootball.jpg')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'bottom',
-    height: '60%',
-    boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.48)",
-    textContainer: {
-      height: "100%",
-      width: "100%",
-      backgroundColor: 'rgba(0, 0, 0, 0.7)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-    },
-
   }
 }
+
+function mapStateToProps(state) {
+  return { admin: state.admin }
+}
+
+export default connect(mapStateToProps, null)(Student);

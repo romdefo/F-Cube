@@ -16,6 +16,7 @@ export default function SportCard({ img, category, terrain, adress, coaches, cit
 
     return (
       <div style={myStyle.divHours} key={uuid()} >
+        <h4 style={{ paddingBottom: 5 }}>{el.gen}</h4>
         <h4 style={{ fontWeight: 'bold', paddingBottom: 5 }}>{el.cat}</h4>
         {trainingDays}
       </div>

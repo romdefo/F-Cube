@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, InputLabel, Select, MenuItem, Checkbox, Radio, RadioGroup } from '@mui/material';
+import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, FormLabel, InputLabel, Select, MenuItem, Checkbox, Radio, RadioGroup } from '@mui/material';
 import '../stylesheets/Modal.css';
 
 export default function AdminButton(props) {
@@ -32,6 +32,8 @@ export default function AdminButton(props) {
     const [password, setPassword] = useState("");
     const [telephone, setTelephone] = useState("");
     const [changeEvent, setChangeEvent] = useState([]);
+    const [receiver, setReceiver] = useState('');
+    const [object, setObject] = useState('')
 
     // Récupérer les éléments des collections de la BDD
     const [allArticles, setAllArticles] = useState([]);
@@ -162,6 +164,10 @@ export default function AdminButton(props) {
         console.log(res);
 
         setLastName(""); setFirstName(""); setEmail(""); setPassword(""); setTelephone(""); setSubmit(!submit);
+    }
+
+    function contactDev() {
+        setReceiver(''); setObject(''); setContent(''); setOpen(false);
     }
 
     // En fonction du bouton sur lequel on clique, un modal différent va apparaître.
@@ -305,6 +311,31 @@ export default function AdminButton(props) {
                     <button onClick={() => adminSignUp(lastName, firstName, email, password, telephone)} className="button-input">{props.title}</button>
                 </div>)
             break;
+
+        case "Contacter un développeur":
+            modalShown = (
+                <div className="modal-container">
+                    <div className="form-input">
+                        <FormControl>
+                            <FormLabel id="demo-row-radio-buttons-group-label">Qui souhaitez-vous contacter ?</FormLabel>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                            >
+                                <FormControlLabel value="celia.bayet@gmail.com" control={<Radio />} label="Célia Bayet" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="jsebbari@gmail.com" control={<Radio />} label="Jamal Sebbari" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="romain.defouilhoux@pm.me" control={<Radio />} label="Romain Defouilhoux" onChange={(e) => setReceiver(e.target.value)} />
+                                <FormControlLabel value="celia.bayet@gmail.com,jsebbari@gmail.com,romain.defouilhoux@pm.me" control={<Radio />} label="Peu importe" onChange={(e) => setReceiver(e.target.value)} />
+                            </RadioGroup>
+                        </FormControl>
+                        <TextField id="outlined-basic" label="Objet du message" variant="outlined" className="input-field" onChange={(e) => setObject(e.target.value)} value={object} />
+                        <TextField id="outlined-basic" label="Contenu" variant="outlined" multiline rows={9} className="input-field" onChange={(e) => setContent(e.target.value)} value={content} />
+                    </div>
+                    <a href={`mailto:${receiver}?&subject=${object}&body=${content}`}><button className="button-input" onClick={contactDev}>Envoyer depuis mon adresse email</button></a>
+                </div >)
+            break;
+
         default:
             modalShown = (<TextField id="outlined-basic" label="Défaut" variant="outlined" className="input-field" />)
     }

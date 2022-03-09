@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { Grid, Button } from '@mui/material';
 
-export default function Act() {
+const Act = (props) => {
+    console.log(props.admin.token)
+
     return (
         <Grid container style={{ height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#F3F3F3", fontFamily: "IBM Plex Sans, sans-serif", color: "#004636" }}>
             <Grid style={{ width: "90%", display: "flex", justifyContent: "center" }}>
@@ -46,3 +50,9 @@ const mystyle = {
         textTransform: 'none'
     }
 }
+
+function mapStateToProps(state) {
+    return { admin: state.admin }
+}
+
+export default connect(mapStateToProps, null)(Act);

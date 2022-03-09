@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./screens/Home";
 import Student from "./screens/student/Student";
 import Insertion from "./screens/insertion/Insertion";
 import Volunteer from "./screens/Volunteer";
