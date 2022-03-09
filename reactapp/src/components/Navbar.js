@@ -1,52 +1,4 @@
 import * as React from 'react';
-<<<<<<< HEAD
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import Link from '@mui/material/Link'
-
-
-
-const Navbar = (props) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-    console.log(props.nav)
-
-  const pages = props.nav;
-
-  return (
-    <AppBar position="sticky">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Link
-            href='/'
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            <img
-                src="./images/egdo_logo.png"
-                className="img-fluid"
-                alt="Logo."
-                />
-          </Link>
-
-=======
 import {AppBar, Box, Toolbar, Typography, Menu, IconButton, Container, Button, MenuItem, Link} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -80,7 +32,6 @@ const Navbar = (props) => {
                 />
           </Link>
 
->>>>>>> finalDiscover
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -131,12 +82,8 @@ const Navbar = (props) => {
           >
             <Link 
               href="/"
-<<<<<<< HEAD
-              ml={2}>
-=======
               ml={2}
               >
->>>>>>> finalDiscover
               <img
                 src="./images/egdo_logo.png"
                 className="img-fluid"
@@ -151,18 +98,8 @@ const Navbar = (props) => {
                 key={page}
                 underline='none'
                 onClick={handleCloseNavMenu}
-<<<<<<< HEAD
-                sx={{ 
-                    // my: 2,
-                    // color: 'white',
-                    // display: 'block',
-
-                }}
-                mx={4}
-=======
                 mr={8}
                 className='underline'
->>>>>>> finalDiscover
               >
                 {page}
               </Link>
@@ -172,11 +109,7 @@ const Navbar = (props) => {
                 href='/j-agis'
                 underline='none'
                 ml={4}>
-<<<<<<< HEAD
-                    <Button color='secondary' variant='contained'>
-=======
                     <Button color='primary' variant='contained' disableElevation='true'>
->>>>>>> finalDiscover
                         J'agis
                     </Button>
                 </Link>
