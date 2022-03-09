@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Student from "./screens/student/Student";
 import Insertion from "./screens/insertion/Insertion";
-import Volunteer from "./screens/Volunteer";
-import Act from "./screens/Act";
+import Volunteer from "./screens/benevole/Volunteer";
+import Act from "./screens/discover/Act";
 import Admin from "./screens/Admin";
 import Discover from "./screens/discover/Discover";
 import theme from "./components/Theme";
@@ -15,7 +15,6 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 
 const store = createStore(combineReducers({ admin }));
-
 
 function App() {
   return (

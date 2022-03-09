@@ -21,19 +21,17 @@ function Discover(props) {
 
     const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe"];
     return (
-
-        <ThemeProvider theme={theme}>
-
+        <>
             {/* Navbar */}
-            <Navbar nav={nav} />
+            < Navbar nav={nav} />
 
             {/* Home page */}
-            <div id={nav[0]}>
+            < div id={nav[0]} >
                 <Home />
-            </div>
+            </div >
 
             {/* Section Actions */}
-            <div className='section' id={nav[1]}>
+            < div className='section' id={nav[1]} >
                 <div className='opacity'>
                     <Container maxWidth="lg" sx={{ pt: 2 }} >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}
@@ -63,10 +61,10 @@ function Discover(props) {
 
                     </Container>
                 </div>
-            </div>
+            </div >
 
             {/* Section Histoire*/}
-            <div className='section2' id={nav[2]}>
+            < div className='section2' id={nav[2]} >
                 <div className='opacity'>
                     <Container maxWidth="md" >
                         <Grid container py={10}>
@@ -74,10 +72,10 @@ function Discover(props) {
                         </Grid>
                     </Container>
                 </div>
-            </div>
+            </div >
 
             {/* Section Equipe */}
-            <div className='section' >
+            < div className='section' >
                 <div className='opacity'>
                     <Container maxWidth="md" >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -91,9 +89,9 @@ function Discover(props) {
                         </Grid>
                     </Container>
                 </div>
-            </div>
+            </div >
             <Footer />
-        </ThemeProvider >
+        </>
     );
 }
 

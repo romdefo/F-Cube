@@ -68,21 +68,28 @@ router.post('/add-participant', async function (req, res, next) {
   var result = false
   var error = []
 
-<<<<<<< HEAD
-  const findEvent= await eventModel.findOne({
-    title: req.body.eventTitle,
-  })
-
-=======
   const findEvent = await eventModel.findOne({
     title: req.body.eventTitle,
   })
 
+  if (req.body.name === '' || req.body.surname === '' || req.body.telephone === '' || req.body.email === ''
+  ) { error.push('Certains champs sont vides !') }
+
   if (findEvent) {
-    if (findEvent.maxNumberOfPeople === 0) {
-      error.push("Desolé, le nombre maximum de participants a été atteint !")
+
+    var userAlreadyExist = findEvent.users.filter((user) =>
+      user.name == req.body.name &&
+      user.surname == req.body.surname)
+
+    if (userAlreadyExist.length >= 1) {
+      error.push("Il semble que vous soyez déjà inscrit à cette activité")
     }
-    if (findEvent.maxNumberOfPeople > 0 && findEvent.maxNumberOfPeople <= findEvent.maxNumberOfPeople) {
+
+    else if (findEvent.maxNumberOfPeople === 0) {
+      error.push("Desolé, le nombre maximum de participants pour cette activité a été atteint !")
+    }
+
+    else if (findEvent.maxNumberOfPeople > 0 && findEvent.maxNumberOfPeople <= findEvent.maxNumberOfPeople) {
       findEvent.maxNumberOfPeople--
       findEvent.users.push({
         name: req.body.name,
@@ -91,44 +98,12 @@ router.post('/add-participant', async function (req, res, next) {
         telephone: req.body.telephone,
         status: req.body.status
       })
->>>>>>> romain
 
-  if (req.body.name ===''|| req.body.surname ===''|| req.body.telephone ===''|| req.body.email === ''
-  ) {error.push('Certains champs sont vides !')}
-
-
-
- 
-  if(findEvent) {
-
-  var userAlreadyExist =  findEvent.users.filter( (user) => 
-      user.name == req.body.name&&
-      user.surname == req.body.surname)
-
-
-  if(userAlreadyExist.length>=1){
-    error.push("Il semble que vous soyez déjà inscrit à cette activité")
+      const saveEvent = await findEvent.save()
+      result = true
+    }
   }
 
-  else if(findEvent.maxNumberOfPeople===0){
-    error.push("Desolé, le nombre maximum de participants pour cette activité a été atteint !")
-  }
-
-  else if (findEvent.maxNumberOfPeople>0&&findEvent.maxNumberOfPeople<=findEvent.maxNumberOfPeople) {
-    findEvent.maxNumberOfPeople--
-          findEvent.users.push({
-            name: req.body.name,
-            surname: req.body.surname,
-            email: req.body.email,
-            telephone: req.body.telephone,
-            status:req.body.status
-          })
-
-       const saveEvent= await findEvent.save()
-          result=true
-        }
-      }
-      
   res.json({ result, error })
 })
 

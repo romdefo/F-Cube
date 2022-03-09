@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Grid, Button, Box, Container, Typography } from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
 
-import '../stylesheets/App.css'
-import '../stylesheets/Buttons.css'
-import '../screens/discover/Discover.css'
+import '../../stylesheets/App.css'
+import '../../stylesheets/Buttons.css'
+import './Discover.css'
 
 import AOS from "aos"
 import "aos/dist/aos.css"

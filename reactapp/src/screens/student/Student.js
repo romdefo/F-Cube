@@ -17,8 +17,6 @@ import Calendar from './assets/Calendar'
 import { StudentTabs } from './assets/Tabs'
 import { EventNoteSharp } from '@mui/icons-material';
 
-
-
 const Student = (props) => {
 
   const [events, setEvents] = useState([])
@@ -173,7 +171,7 @@ const Student = (props) => {
             />
 
           </Grid>
-          <Footer />
+
         </div>
 
 
