@@ -69,8 +69,6 @@ router.post('/add-participant', async function (req, res, next) {
   if (req.body.name ===''|| req.body.surname ===''|| req.body.telephone ===''|| req.body.email === ''
   ) {error.push('Certains champs sont vides !')}
 
-
-
  
   if(findEvent) {
 

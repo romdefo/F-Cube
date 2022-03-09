@@ -32,8 +32,6 @@ export default function Calendar({events, setEvents, eventsDay, setEventsDay}) {
      return newDateSelect == dateEvent 
         })
 
-         
-
     eventsFilter.length!==0?setEventsDay(eventsFilter):setEventsDay([])
 
     }
@@ -42,13 +40,6 @@ export default function Calendar({events, setEvents, eventsDay, setEventsDay}) {
 
   },[date])
 
-
-  
-  
-    
-
- 
- 
 
 
   return (
