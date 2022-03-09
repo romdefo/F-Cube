@@ -127,7 +127,7 @@ const Student = (props) => {
               </div>
             </Grid>
 
-            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px'>
+            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{marginBottom:'2rem'}}>
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
               </div>
