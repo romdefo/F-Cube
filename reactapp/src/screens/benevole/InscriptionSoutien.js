@@ -19,7 +19,7 @@ export default function Inscription() {
   const [firstName, setFirstName] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [group, setGroup] = useState('CP au CM1');
+  const [group, setGroup] = useState('');
   const [calendar, setCalendar] = useState([]);
   const [monthCalendar, setMonthCalendar] = useState([]);
   const [dayChoosen, setDayChoosen] = useState([]);
@@ -75,9 +75,9 @@ export default function Inscription() {
         setDayChoosen([...dayChoosen, date])
     };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
 
   return (
     // <Box sx={{ width: '100%' }}>
@@ -122,7 +122,7 @@ export default function Inscription() {
                             {/* <FormLabel id="demo-radio-buttons-group-label">Quel niveau ?</FormLabel> */}
                             <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue='CP au CM1'
+                                // defaultValue='CP au CM1'
                                 name="radio-buttons-group"
                             >
                                 {groups.map(group => {
@@ -147,7 +147,7 @@ export default function Inscription() {
                                 // let day = date.getDay();
                                 // let month = date.getMonth()
                                 return (
-                                    <FormControlLabel control={<Checkbox/>} label={day} date={date} onClick={e => handleClickCalendar(e.target.date)} />
+                                    <FormControlLabel control={<Checkbox/>} label={day} value={date} onClick={e => handleClickCalendar(e.target.value)} />
                                 )
                             })}
                         </FormGroup>

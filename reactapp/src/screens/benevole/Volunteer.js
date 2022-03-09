@@ -35,7 +35,7 @@ export default function Volunteer() {
                 </Container>            
                 </div>
             </div>
-            <div className='section' id={nav[1]}>
+            {/* <div className='section' id={nav[1]}>
                 <div className='opacity'>
                 <Container  maxWidth="md" sx={{ py: 8}}>
                     <Grid container justifyContent="center" alignItems="center" mb={4}>
@@ -48,7 +48,7 @@ export default function Volunteer() {
                     <Inscription/>
                 </Container>            
                 </div>
-            </div>
+            </div> */}
                        
             {/* Section Actions */}
             {/* <div className='section' id={nav[1]}>
