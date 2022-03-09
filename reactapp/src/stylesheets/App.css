@@ -10,23 +10,23 @@ body {
   margin: 0;
   padding: 0;
 }
-
+/*  
 .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,10 +35,6 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-/* .App-link {
-  color: #61dafb;
 } */
 
 @keyframes App-logo-spin {
@@ -48,4 +44,65 @@ body {
   to {
     transform: rotate(360deg);
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+.section {
+    background-image: url('../../public/images/light-yellow.jpg');
+    min-height: 95vh;
+}
+
+.section2 {
+    background-image: url('../../public/images/light-blue.jpg');
+    min-height: 95vh;
+}
+
+.opacity {
+  background-color: rgb(250, 250, 250, 0.5);
+  min-height: 95vh;
+}
+
+/* .MuiCard-root.same-height {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.background-img {
+  background: 'url(./light-blue.jpg)'
+}
+
+.underline {
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+.underline:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -5px;
+  background: #000;
+  height: 4px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.underline:hover:after,
+.underline:focus:after,
+.underline:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+
+
+
+>>>>>>> finalDiscover
