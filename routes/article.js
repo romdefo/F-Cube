@@ -51,6 +51,12 @@ router.get('/see-articles', async function (req, res, next) {
   res.json({ articles })
 })
 
+router.get('/send-article-to-store/:title', async function (req, res, next) {
+  const article = await articleModel.findOne({ title: req.params.title })
+  console.log(article)
+  res.json({ article })
+})
+
 router.delete('/remove-article/:title', async function (req, res, next) {
   await articleModel.deleteOne({ title: req.params.title })
   articleList = await articleModel.find();

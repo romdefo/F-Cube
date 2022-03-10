@@ -21,7 +21,8 @@ const style = {
     width: 400,
     bgcolor: 'background.paper',
     boxShadow: 24,
-    p: 4
+    padding:'2rem',
+    borderRadius:'50px'
   },
   button: {
     background: "primary",
@@ -87,8 +88,8 @@ export default function ModalEvent({ eventTitle, eventDate }) {
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
-        <Box sx={style}>
-          <FontAwesomeIcon sx={{ color: 'primary' }} icon={faRectangleXmark} size='lg' style={{ position: 'absolute', right: '1rem', top: '1rem', cursor: 'pointer' }}
+        <Box sx={style.modalBox}>
+          <FontAwesomeIcon sx={{ color: 'primary' }} icon={faRectangleXmark} size='lg' style={{ position: 'absolute', right: '3rem', top: '2rem', cursor: 'pointer' }}
             onClick={() => { closeModalHandler() }} />
 
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>

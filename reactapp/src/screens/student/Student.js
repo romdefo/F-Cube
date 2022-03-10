@@ -55,15 +55,13 @@ const Student = (props) => {
 
   }, [])
 
-
-
   const eventsData = eventsDay.map(({ title, description, type, date, maxNumberOfPeople }) => {
 
     return (<CardEvents
       key={uuid()}
       title={title}
       desc={description}
-      img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
+      img={`${type.replace(/\s|'/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
       date={date}
       maxPeople={maxNumberOfPeople}
     />)
@@ -75,75 +73,73 @@ const Student = (props) => {
     <>
       <Navbar nav={nav} />
       {/* <div className='Student' style={myStyle.studentContainer} > */}
-        <div div className='section' id={nav[0]} >
-          <div className='opacity'>
-            <CarouselNews
-              news={[
-                {
-                  img: '/images/sportcards/tkwu12.jpg',
-                  title: "Saison 2022-2023 : Inscriptions !",
-                  subtitle: "Ouverture des inscriptions pour le Taekwondo."
-                },
-                {
-                  img: '/student/imgs/asterix.avif',
-                  title: "Sortie au Parc Astérix",
-                  subtitle: "Onze jeunes de l'association EGDO ont eu la chance de passer une journée chez les Gaulois !"
-                }]} />
+      <div div className='section' id={nav[0]} >
+        <div className='opacity'>
+
+          <CarouselNews
+            news={[
+              {
+                img: '/images/sportcards/tkwu12.jpg',
+                title: "Saison 2022-2023 : Inscriptions !",
+                subtitle: "Ouverture des inscriptions pour le Taekwondo."
+              },
+              {
+                img: '/student/imgs/asterix.avif',
+                title: "Sortie au Parc Astérix",
+                subtitle: "Onze jeunes de l'association EGDO ont eu la chance de passer une journée chez les Gaulois !"
+              }]} />
+        </div>
+      </div>
+
+
+      <div div className='section2' id={nav[1]} >
+        <div className='opacity'>
+          <Grid container justifyContent="center" style={{ paddingBottom: '2rem' }}>
+            <Grid item xs={12} style={{ margin: '1rem' }}>
+              <Calendar events={events} setEvents={setEvents} eventsDay={eventsDay} setEventsDay={setEventsDay} />
+              {eventsDay.length === 0 && <h4 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h4>}
+            </Grid>
+            <Grid item xs={12} style={{ margin: '1rem' }}>{eventsDay.length > 0 && <h2 style={{ textAlign: 'center', color: "dark" }}> {eventsDay.length} {eventsDay.length > 1 ? 'Activités disponibles' : 'Activité disponible'}</h2>}</Grid>
+            {eventsData}
+          </Grid>
+        </div>
+      </div>
+
+      {/* Football */}
+      <div div className='section' id={nav[2]} >
+        <div className='opacity'>
+          <Grid container xs={12} height='100vh' className='football' id="Football" >
+            <Grid item xs={11} md={8} className="football-info-container">
+              <div className="sports-name">
+                <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Football</h1>
+              </div>
+              <div className="sports-text">
+                <p style={{ marginBottom: 25 }}>Alliant l'éducatif au sportif, le club de foot d'EGDO est animé avec passion par des coachs du quartier. Il comporte des équipes pour tous les âges.</p>
+                <Button variant="contained" color='primary'
+                // style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}
+                >Je m'inscris</Button>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
+
+      <div div className='section2' >
+        <div className='opacity'>
+          <div className='football-info'>
+            <StudentTabs />
           </div>
         </div>
-
-        {/* <div className='sorties' id="Sorties" >
-          <div style={myStyle.upcomingEvents} > */}
-
-          <div div className='section2' id={nav[1]} >
-            <div className='opacity'>
-              <Grid container>
-                <Grid item xs={12} style={{ margin: '1rem' }}>
-                  <Calendar events={events} setEvents={setEvents} eventsDay={eventsDay} setEventsDay={setEventsDay} />
-                  {eventsDay.length === 0 && <h6 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h6>}
-                </Grid>
-                <Grid item>
-                  {eventsData}
-                </Grid>
-              </Grid>
-            </div>
-          </div>
-
-          {/* Foorball */}
-           <div div className='section' id={nav[2]} >
-            <div className='opacity'>
-              <Grid container xs={12} height='100vh' className='football' id="Football" >
-                <Grid item xs={11} md={8} className="football-info-container">
-                  <div className="sports-name">
-                    <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Football</h1>
-                  </div>
-                  <div className="sports-text">
-                    <p style={{ marginBottom: 25 }}>Alliant l'éducatif au sportif, le club de foot d'EGDO est animé avec passion par des coachs du quartier. Il comporte des équipes pour tous les âges.</p>
-                    <Button variant="contained" color='primary'
-                    // style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}
-                    >Je m'inscris</Button>
-                  </div>
-                </Grid>
-              </Grid>
-            </div>
-          </div>
-          
-          <div div className='section2' >
-            <div className='opacity'>
-              <div className='football-info'>
-                <StudentTabs />
-              </div>
-            </div>
-          </div>
+      </div>
 
 
-          {/* Taekwendo */}
-           <div div className='section' id={nav[3]} >
-            <div className='opacity'>
-          <Grid container xs={12} height='100vh' className='taekwondo' 
+      {/* Taekwendo */}
+      <div div className='section' id={nav[3]} >
+        <div className='opacity'>
+          <Grid container xs={12} className='taekwondo'
           // id="Taekwondo"
           >
-            <Grid item xs={11} md={5} className="taekwondo-info-container">
+            <Grid item xs={11} md={5} className="taekwondo-info-container" height='500px' style={{ margin: '2rem' }}>
               <div className="sports-name">
                 <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
               </div>
@@ -153,7 +149,7 @@ const Student = (props) => {
               </div>
             </Grid>
 
-            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{marginBottom:'2rem'}}>
+            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{ margin: '2rem' }}>
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
               </div>
@@ -164,13 +160,12 @@ const Student = (props) => {
             </Grid>
           </Grid>
 
-          </div>
-          </div>          
+        </div>
+      </div>
 
-
-        <div div className='section2' >
-          <div className='opacity'>
-          <Grid container xs={12} justifyContent='center'>
+      <div div className='section2'  >
+        <div className='opacity'>
+          <Grid container xs={12} justifyContent='center' alignItems='center'>
 
             <SportCard
               terrain="Gymnase de la Goutte d'Or"
@@ -204,15 +199,13 @@ const Student = (props) => {
 
           </Grid>
         </div>
-        </div>
-        {/* </div> */}
+      </div>
 
-        <div id='Contact'>
-          <Footer />
-        </div>
+      <div id='Contact'>
+        <Footer />
+      </div>
     </>
   )
-
 }
 
 const myStyle = {

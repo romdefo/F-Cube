@@ -49,13 +49,13 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople }) {
     const newDate = <DayJS format="D/M/YYYY">{date}</DayJS>
     if (maxPeople !== 0) {
         return (
-            <Grid item xs={12} md={4} style={mystyle.leftPanel}>
+            <Grid item xs={10} md={4} style={mystyle.leftPanel}>
                 <Grid item style={mystyle.opacityBlock} >
                     <span style={mystyle.date}>{newDate}</span>
 
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <h2 style={{ fontWeight: "500" }}>{title}</h2>
-                        <p>{desc}</p>
+                        <p style={{textAlign:'center',padding:'0 2rem'}}>{desc}</p>
 
                         <ModalEvent
                             eventTitle={title}
@@ -76,7 +76,6 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople }) {
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <h2 style={{ fontWeight: "500" }}>{title}</h2>
                         <p>{desc}</p>
-
 
                     </div>
                 </Grid>
