@@ -61,38 +61,48 @@ const Insertion = (props) => {
             button1: "En savoir plus"
         },
     ]
-
+    const nav = ["Evénements", "Sport & Insertion", "Football", "Taekwondo", "Contact"]
     return (
         <>
-            <Navbar nav={["Accueil", "Evénements", "Sport & Insertion", "Football", "Taekwondo", "Contact"]} />
-            <div className='Student' style={myStyle.studentContainer} id="Accueil">
+            <Navbar nav={nav} />
+            {/* <div className='Student' 
+            // style={myStyle.studentContainer} 
+            id="Accueil"> */}
+                 <div div className='section'>
+                     <div className='opacity'>
+                        <CarouselNews news={[
+                            {
+                                img: '/images/insertion/jeux-de-l-emploi.jpg',
+                                title: "JE 2024 : Les Jeux de l'Emploi !",
+                                subtitle: "Un événement festif, sportif et citoyen, qui promeut la pratique du sport comme vectrice d’insertion sociale. A retrouver samedi au Gymnase de la Goutte d'Or !"
+                            },
+                            {
+                                img: '/images/insertion/temoignage-adama.jpg',
+                                title: "Vivre sa vie en musique...",
+                                subtitle: `Adama, jeune de la Goutte d'Or, témoigne sur son parcours de trompettiste dans "La réussite est un long parcours", nouveau documentaire de Valérie Potonniée.`
+                            }]} />
+                        </div>
+                    </div>
+                 <div div className='section2'>
+                     <div className='opacity'>
+                        <div className='sorties' id="Evénements" >
+                            <h1>Prochains événements</h1>
 
-                <CarouselNews news={[
-                    {
-                        img: '/images/insertion/jeux-de-l-emploi.jpg',
-                        title: "JE 2024 : Les Jeux de l'Emploi !",
-                        subtitle: "Un événement festif, sportif et citoyen, qui promeut la pratique du sport comme vectrice d’insertion sociale. A retrouver samedi au Gymnase de la Goutte d'Or !"
-                    },
-                    {
-                        img: '/images/insertion/temoignage-adama.jpg',
-                        title: "Vivre sa vie en musique...",
-                        subtitle: `Adama, jeune de la Goutte d'Or, témoigne sur son parcours de trompettiste dans "La réussite est un long parcours", nouveau documentaire de Valérie Potonniée.`
-                    }]} />
+                            <div style={myStyle.upcomingEvents} >
 
-                <div className='sorties' id="Evénements" >
-                    <h1>Prochains événements</h1>
+                                {eventsData}
 
-                    <div style={myStyle.upcomingEvents} >
+                                <Grid item xs={12} md={4} style={{ margin: '1rem' }}>
+                                    <Calendar />
+                                </Grid>
 
-                        {eventsData}
-
-                        <Grid item xs={12} md={4} style={{ margin: '1rem' }}>
-                            <Calendar />
-                        </Grid>
-
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                 <div div className='section'>
+                     <div className='opacity'>
                 <h1 style={{ textAlign: "center" }}>Nos programmes Sport & Insertion</h1>
                 <Grid container xs={12} height='100vh' className='sport-inclusion' id="Sport & Insertion">
                     {SportInclusion.map((card, index) => {
@@ -109,7 +119,11 @@ const Insertion = (props) => {
                         )
                     })}
                 </Grid>
+                </div>
+                </div>
 
+                <div div className='section2'>
+                     <div className='opacity'>
                 <Grid container xs={12} height='100vh' className='football' id="Football" >
                     <Grid item xs={11} md={8} className="football-info-container">
                         <div className="sports-name">
@@ -121,12 +135,20 @@ const Insertion = (props) => {
                         </div>
                     </Grid>
                 </Grid>
+                </div>
+                </div>
 
+                <div div className='section'>
+                     <div className='opacity'>
                 <div className='football-info'>
                     <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
                     <AdultTabs />
                 </div>
+                </div>
+                </div>
 
+                <div div className='section2'>
+                     <div className='opacity'>
                 <Grid container xs={12} height='100vh' className='taekwondo' id="Taekwondo">
                     <Grid item xs={11} md={5} className="taekwondo-info-container">
                         <div className="sports-name">
@@ -137,6 +159,7 @@ const Insertion = (props) => {
                             <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button></a>
                         </div>
                     </Grid>
+                   
 
                     <Grid item xs={11} md={5} className="bodytae-info-container">
                         <div className="sports-name">
@@ -148,7 +171,11 @@ const Insertion = (props) => {
                         </div>
                     </Grid>
                 </Grid>
+                 </div>
+                    </div>
 
+            <div div className='section'>
+                <div className='opacity'>
                 <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
 
                 <Grid container xs={12} justifyContent="center">
@@ -173,20 +200,22 @@ const Insertion = (props) => {
                     />
 
                 </Grid>
+                </div>
+                </div>
                 <Footer />
-            </div>
+            {/* </div> */}
         </>
     )
 }
 
 const myStyle = {
-    studentContainer: {
-        backgroundImage: `url(./images/insertion/light-yellow.jpg)`,
-        backgroundPosition: 'center',
-        backgroundSize: "cover",
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-    },
+    // studentContainer: {
+    //     backgroundImage: `url(./images/insertion/light-yellow.jpg)`,
+    //     backgroundPosition: 'center',
+    //     backgroundSize: "cover",
+    //     backgroundRepeat: 'no-repeat',
+    //     backgroundAttachment: 'fixed'
+    // },
 
     upcomingEvents: {
         display: 'flex',

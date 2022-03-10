@@ -34,7 +34,9 @@ const handleChange = (event, newValue) => {
                     inkBarStyle={{background: '10px, #295263'}} 
                     onChange={handleChange} 
                     aria-label="lab API tabs example" 
-                    sx={{display: 'flex', justifyContent: 'center', alignItems:'center'}}>
+                    sx={{display: 'flex', justifyContent: 'center', alignItems:'center'}}
+                    fullWidth={true}
+                    centered>
                     <Tab label="Notre Histoire" value="1"
                      //className="tabs"
                      />

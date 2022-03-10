@@ -173,27 +173,30 @@ export default function AdminButton(props) {
     // En fonction du bouton sur lequel on clique, un modal différent va apparaître.
     let modalShown;
 
-    let formToSelectEvent = (<><FormControl className="select-field">
-        <InputLabel id="demo-simple-select-helper-label">Type d'événement</InputLabel>
-        <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={type} label="Type d'événement à modifier" onChange={(e) => setType(e.target.value)}>
-            <MenuItem value=""><em>Aucun type sélectionné</em></MenuItem>
-            {eventTypes.map((type, i) => { return (<MenuItem value={type}>{type}</MenuItem>) })}
-        </Select>
-    </FormControl>
+    let formToSelectEvent = (
+        <>
         <FormControl className="select-field">
-            <InputLabel id="demo-simple-select-helper-label">Nom de l'événement</InputLabel>
-            <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={title} label="Nom de l'événement à modifier" onChange={(e) => setTitle(e.target.value)}>
-                <MenuItem value=""><em>Aucun nom sélectionné</em></MenuItem>
-                {[...allEvents].filter(event => event.type == type).map((event, i) => { return (<MenuItem value={event.title}>{event.title}</MenuItem>) })}
+            <InputLabel id="demo-simple-select-helper-label">Type d'événement</InputLabel>
+            <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={type} label="Type d'événement à modifier" onChange={(e) => setType(e.target.value)}>
+                <MenuItem value=""><em>Aucun type sélectionné</em></MenuItem>
+                {eventTypes.map((type, i) => { return (<MenuItem value={type}>{type}</MenuItem>) })}
             </Select>
         </FormControl>
-        <FormControl className="select-field">
-            <InputLabel id="demo-simple-select-helper-label">Date de l'événement</InputLabel>
-            <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={date} label="Date de l'événement" onChange={(e) => setDate(e.target.value)}>
-                <MenuItem value=""><em>Aucune date sélectionné</em></MenuItem>
-                {[...allEvents].filter(event => event.type == type && event.title == title).map((event, i) => { return (<MenuItem value={event.date}>{event.date}</MenuItem>) })}
-            </Select>
-        </FormControl></>)
+            <FormControl className="select-field">
+                <InputLabel id="demo-simple-select-helper-label">Nom de l'événement</InputLabel>
+                <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={title} label="Nom de l'événement à modifier" onChange={(e) => setTitle(e.target.value)}>
+                    <MenuItem value=""><em>Aucun nom sélectionné</em></MenuItem>
+                    {[...allEvents].filter(event => event.type == type).map((event, i) => { return (<MenuItem value={event.title}>{event.title}</MenuItem>) })}
+                </Select>
+            </FormControl>
+            <FormControl className="select-field">
+                <InputLabel id="demo-simple-select-helper-label">Date de l'événement</InputLabel>
+                <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={date} label="Date de l'événement" onChange={(e) => setDate(e.target.value)}>
+                    <MenuItem value=""><em>Aucune date sélectionné</em></MenuItem>
+                    {[...allEvents].filter(event => event.type == type && event.title == title).map((event, i) => { return (<MenuItem value={event.date}>{event.date}</MenuItem>) })}
+                </Select>
+            </FormControl>
+        </>)
 
     switch (props.title) {
         case "Ajouter un article":
@@ -264,11 +267,16 @@ export default function AdminButton(props) {
         case "Modifier un événement":
             modalShown = (
                 <div className="modal-container">
+
+                    {/* ETape 1 */}
                     <div className="form-input">
                         <h6 style={{ paddingTop: 4 }}>Quel événement souhaitez-vous modifer ?</h6>
                         {formToSelectEvent}
                     </div>
-                    <div className="form-input" style={{ display: date === "" ? "none" : "" }}>
+                    {/* Etape 2 */}
+                    {/* A changer  */}
+
+                    {/* <div className="form-input" style={{ display: date === "" ? "none" : "" }}>
                         <h6 style={{ marginTop: 10 }}>Dans cet événement, que souhaitez-vous changer ?</h6>
                         <FormControl component="fieldset" style={{ display: date === "" ? "none" : "" }}>
                             <FormGroup aria-label="position" column>
@@ -283,7 +291,7 @@ export default function AdminButton(props) {
                                 })}
                             </FormGroup>
                         </FormControl>
-                    </div>
+                    </div> */}
                     <button onClick={() => updateEvent(title, date)} className="button-input">{props.title}</button>
                 </div>)
             break;
