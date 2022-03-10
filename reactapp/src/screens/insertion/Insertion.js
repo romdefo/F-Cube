@@ -206,62 +206,6 @@ const Insertion = (props) => {
                     </div >
                 </div >
 
-                <div div className='section2'>
-                    <div className='opacity'>
-                        <Grid container xs={12} className='taekwondo' id="Taekwondo">
-                            <Grid item xs={11} md={5} height='500px' className="taekwondo-info-container" style={{ margin: '2rem' }}>
-                                <div className="sports-name">
-                                    <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
-                                </div>
-                                <div className="sports-text">
-                                    <p style={{ marginBottom: 25 }}>Au sein d'EGDO, on pratique un art martial olympique depuis un quart de siècle ! Le taekwondo est proposé en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
-                                    <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button></a>
-                                </div>
-                            </Grid>
-
-
-                            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{ margin: '2rem' }} >
-                                <div className="sports-name">
-                                    <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
-                                </div>
-                                <div className="sports-text">
-                                    <p style={{ marginBottom: 25 }}>Le Body Taekwondo féminin est un mélange de fitness et de taekwondo en musique qui développe la coordination, la psychomotricité et la perception du corps dans l'espace.</p>
-                                    <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button></a>
-                                </div>
-                            </Grid>
-                        </Grid>
-                    </div>
-                </div>
-
-                <div div className='section'>
-                    <div className='opacity'>
-                        <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
-
-                        <Grid container xs={12} justifyContent="center">
-                            <SportCard
-                                terrain="Gymnase de la Goutte d'Or"
-                                adress='12 rue de la Goutte d’Or'
-                                city='75018 Paris'
-                                img='u16tkw'
-                                category={[{ gen: "Taekwondo", cat: '17 ans et +', trainingDays: [{ day: 'Mardi', hour: 'de 19h30 à 20h30' }, { day: 'Samedi', hour: 'de 15h45 à 17h' }] }]}
-                                coaches={[]}
-                                sport='tkw'
-                            />
-
-                            <SportCard
-                                terrain="Gymnase de la Goutte d'Or"
-                                adress='12 rue de la Goutte d’Or'
-                                city='75018 Paris'
-                                img='tkwu12'
-                                category={[{ gen: "Body Tae Féminin", cat: '15 ans et +', trainingDays: [{ day: 'Mardi', hour: 'de 20h30 à 21h30' }, { day: 'Samedi', hour: 'de 13h à 14h' }] }]}
-                                coaches={[]}
-                                sport='tkw'
-                            />
-
-                        </Grid>
-                    </div>
-                </div>
-                <Footer />
                 {/* </div> */}
             </>
         )
