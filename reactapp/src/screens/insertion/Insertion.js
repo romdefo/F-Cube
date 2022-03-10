@@ -37,13 +37,13 @@ const Insertion = (props) => {
     useEffect(() => {
 
         const fetchEvents = async () => {
-            const res = await fetch('/event/see-events/insertion')
-            const allEvents = await res.json()
-            await setEvents(allEvents.events)
+            const res = await fetch('/event/see-events/insertion');
+            const insertionEvents = await res.json();
+            await setEvents(insertionEvents.events);
         }
-        fetchEvents();
-        const todayEvents = () => {
+        fetchEvents()
 
+        const todayEvents = () => {
             const eventsTodayFilter = events.filter(event => {
                 const eventDay = dateFormat(event.date)
                 return dateTodayFormat == eventDay
@@ -53,7 +53,8 @@ const Insertion = (props) => {
                 setEventsDay(eventsTodayFilter)
             }
         }
-        todayEvents();
+        todayEvents()
+
         setClicked(false);
     }, [])
 
@@ -121,21 +122,17 @@ const Insertion = (props) => {
                             }]} />
                     </div>
                 </div>
-                <div div className='section2'>
+
+                <div div className='section2' id={nav[1]} >
                     <div className='opacity'>
-                        <div className='sorties' id="Evénements" >
-                            <h1>Prochains événements</h1>
-
-                            <div style={myStyle.upcomingEvents} >
-
-                                {eventsData}
-
-                                <Grid item xs={12} md={4} style={{ margin: '1rem' }}>
-                                    <Calendar />
-                                </Grid>
-
-                            </div>
-                        </div>
+                        <Grid container justifyContent="center" style={{ paddingBottom: '2rem' }}>
+                            <Grid item xs={12} style={{ margin: '1rem' }}>
+                                <Calendar events={events} setEvents={setEvents} eventsDay={eventsDay} setEventsDay={setEventsDay} />
+                                {eventsDay.length === 0 && <h4 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h4>}
+                            </Grid>
+                            <Grid item xs={12} style={{ margin: '1rem' }}>{eventsDay.length > 0 && <h2 style={{ textAlign: 'center', color: "dark" }}> {eventsDay.length} {eventsDay.length > 1 ? 'Activités disponibles' : 'Activité disponible'}</h2>}</Grid>
+                            {eventsData}
+                        </Grid>
                     </div>
                 </div>
 

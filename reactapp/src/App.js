@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Student from "./screens/student/Student";
 import Insertion from "./screens/insertion/Insertion";
 import Volunteer from "./screens/benevole/Volunteer";
-import Act from "./screens/discover/Act";
+import Act from "./screens/Act";
 import Admin from "./screens/admin/Admin";
 import Discover from "./screens/discover/Discover";
 import Blog from "./screens/blog/Blog";

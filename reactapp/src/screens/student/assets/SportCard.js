@@ -43,31 +43,21 @@ export default function SportCard({ img, category, terrain, adress, coaches, cit
   })
 
   return (
-<<<<<<< HEAD
-    <Grid item xs={10} md={6} lg={3} style={{ margin: '2rem '}}>
-      <Card style={{height:'auto' }} >
+    <Grid item xs={10} md={6} lg={3} style={{ margin: '2rem ' }}>
+      <Card style={{ height: 'auto' }} >
         <CardActionArea >
-=======
-    <Grid item xs={12} md={3.5} style={{ margin: '1rem' }}>
-      <Card >
-        <CardActionArea>
->>>>>>> romain
           <CardMedia
-          style={{height:"200px"}}
+            style={{ height: "200px" }}
             component="img"
-<<<<<<< HEAD
             image={`/images/sportcards/${img}.jpg`}
-=======
-            image={`./images/sportcards/${img}.jpg`}
->>>>>>> romain
             alt="équipe"
           />
-          <CardContent style={{height:'auto'}}>
+          <CardContent style={{ height: 'auto' }}>
             <Typography variant="body2" display='flex' justifyContent='center'>
               {hoursContainer}
             </Typography>
 
-            <Typography variant="body" display='flex' justifyContent='center' sx={{ fontWeight: 'regular'}}>
+            <Typography variant="body" display='flex' justifyContent='center' sx={{ fontWeight: 'regular' }}>
               {terrain}
             </Typography>
 

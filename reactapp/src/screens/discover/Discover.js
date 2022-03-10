@@ -18,11 +18,7 @@ import { Container, Grid, Typography, Button } from '@mui/material';
 function Discover(props) {
     console.log(props.admin.token)
 
-<<<<<<< HEAD
-    const nav = [ "Qui-sommes-nous?", "Histoire", "Equipe", "Blog", "Contact"];
-=======
     const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe"];
-
     const cardList = [
         {
             id: "scolarite", img: "../images/discover/scolarite.png", imgDesc: "accompagnement-scolarité",
@@ -44,7 +40,6 @@ function Discover(props) {
         },
     ]
 
->>>>>>> romain
     return (
         <>
             {/* Navbar */}
@@ -115,7 +110,7 @@ function Discover(props) {
                     </Container>
                 </div>
             </div >
-            <Footer id={nav[4]}/>
+            <Footer id={nav[4]} />
         </>
     );
 }

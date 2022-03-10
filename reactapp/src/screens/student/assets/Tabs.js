@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Tab, Tabs, Typography, Box, Grid } from '@mui/material';
 
 import SportCard from './SportCard';
-import { Grid } from '@mui/material';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,11 +66,7 @@ function StudentTabs() {
 
       <TabPanel value={value} index={0}>
 
-<<<<<<< HEAD
-      <Grid container xs={12} justifyContent='center' style={{width:'100%'}}>
-=======
-        <Grid container style={myStyle.trainingCards}>
->>>>>>> romain
+        <Grid container xs={12} justifyContent='center' style={{ width: '100%' }}>
 
           <SportCard
             terrain='Gymnase Doudeauville'
@@ -97,11 +92,7 @@ function StudentTabs() {
 
       <TabPanel value={value} index={1}>
 
-<<<<<<< HEAD
-      <Grid container justifyContent='center'>
-=======
-        <Grid container style={myStyle.trainingCards}>
->>>>>>> romain
+        <Grid container justifyContent='center'>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -115,13 +106,8 @@ function StudentTabs() {
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-<<<<<<< HEAD
-      <Grid container justifyContent='center'>
-            <SportCard
-=======
-        <Grid container style={myStyle.trainingCards}>
+        <Grid container justifyContent='center'>
           <SportCard
->>>>>>> romain
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
             city='75018 Paris'
@@ -129,19 +115,11 @@ function StudentTabs() {
             category={[{ cat: '14 ans', trainingDays: [{ day: 'Lundi', hour: 'de 17h45 à 19h30' }] }, { cat: '15 ans', trainingDays: [{ day: 'Lundi, Jeudi & Vendredi', hour: 'de 17h45 à 19h30' }] }]}
             coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Diawara_Mamadou-U14_U15', 'Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-<<<<<<< HEAD
-        </Grid> 
-      </TabPanel>
+        </Grid >
+      </TabPanel >
 
       <TabPanel value={value} index={3}>
-      <Grid container justifyContent='center'>
-=======
-        </Grid>
-      </TabPanel>
-
-      <TabPanel value={value} index={3}>
-        <Grid container style={myStyle.trainingCards}>
->>>>>>> romain
+        <Grid container justifyContent='center'>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -150,21 +128,13 @@ function StudentTabs() {
             category={[{ cat: '16 ans', trainingDays: [{ day: 'Vendredi', hour: '18h00' }] }, { cat: '17 ans', trainingDays: [{ day: 'Mercredi & Vendredi', hour: 'de 18h30 à 20h30' }] }]}
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-<<<<<<< HEAD
-        </Grid> 
-=======
-        </Grid>
->>>>>>> romain
-      </TabPanel>
+        </Grid >
+      </TabPanel >
 
       <TabPanel value={value} index={4}>
 
-<<<<<<< HEAD
         <Grid container justifyContent='center'>
-          
-=======
-        <Grid container style={myStyle.trainingCards}>
->>>>>>> romain
+
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -188,7 +158,7 @@ function StudentTabs() {
 
         </Grid>
       </TabPanel>
-    </Box>
+    </Box >
   );
 }
 
@@ -203,46 +173,36 @@ function AdultTabs() {
 
     <Grid container sx={12} justifyContent='center' >
 
-      
-        <SportCard
-          terrain='Stade des Fillettes'
-          adress='56, boulevard Ney'
-          city='75018 Paris'
-          img='senior1'
-          category={[{ cat: 'Senior 1', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
-          coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-        />
 
-        <SportCard
-          terrain='Stade des Fillettes'
-          adress='56, boulevard Ney'
-          city='75018 Paris'
-          img='senior2'
-          category={[{ cat: 'Senior 2', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
-          coaches={['Assoumani_Abdou-U2_Senior', 'Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-        />
+      <SportCard
+        terrain='Stade des Fillettes'
+        adress='56, boulevard Ney'
+        city='75018 Paris'
+        img='senior1'
+        category={[{ cat: 'Senior 1', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
+        coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+      />
 
-        <SportCard
-          terrain='Stade Porte de la Chapelle'
-          adress='56, boulevard de Ney'
-          city='75018 Paris'
-          img='senior-f'
-          category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
-          coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
-        />
+      <SportCard
+        terrain='Stade des Fillettes'
+        adress='56, boulevard Ney'
+        city='75018 Paris'
+        img='senior2'
+        category={[{ cat: 'Senior 2', trainingDays: [{ day: 'Mardi & Vendredi', hour: 'de 20h30 à 22h30' }, { day: "Jeudi", hour: 'de 21h à 22h30' }] }]}
+        coaches={['Assoumani_Abdou-U2_Senior', 'Elyte_Agamah-U12...U15_U1_U2', 'Mbounou_Roger-U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+      />
+
+      <SportCard
+        terrain='Stade Porte de la Chapelle'
+        adress='56, boulevard de Ney'
+        city='75018 Paris'
+        img='senior-f'
+        category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
+        coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
+      />
 
     </Grid>
   );
-}
-
-const myStyle = {
-  trainingCards: {
-    width:'auto',
-   display:'flex',
-   width:'100%',
-  
-   justifyContent:'center'
-  },
 }
 
 export { StudentTabs, AdultTabs }
