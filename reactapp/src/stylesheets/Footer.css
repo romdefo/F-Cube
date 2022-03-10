@@ -18,19 +18,18 @@
 
 .footer-banner {
     width: 100%;
-    margin-top: 45px;
+    margin-top: 25px;
     background-color: rgba(0, 0, 0, 0.4);
-    padding-top:20px;
-    padding-bottom: 20px;
-    font-size: 28px;
+    padding: 12px 0 12px 0;
+    font-size: 23px;
     font-weight: 600;
     text-align:center
 }
 
 .footer-content {
     width: 100%;
-    padding-top: 30px;
-    min-height: 50vh;
+    padding-top: 10px;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +48,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    white-space: nowrap
+    white-space: nowrap;
+    height:100%;
+}
+
+.sub-panel {
+    font-weight: 300;
+    font-size: 17px
 }
 
 /* Style du petit footer tout en bas avec le logo et les mentions légales */
@@ -91,8 +96,8 @@
 /* Style de la carte */
 
 .map-container {
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
     border-radius: 250px;
     border: 5px solid white;
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25)
@@ -121,7 +126,6 @@
         height: 300px;
         width: 300px;
         margin:40px;
-       
     }
     .lowest-footer-panel-content,
     .EGDO-credentials {
@@ -133,13 +137,11 @@
     }
     .egdo-logo {
         padding-top: 20px;
-    }    
+    }
 }
 
 @media screen and (max-width: 1200px){
     .map-container {
-        height: 350px;
-        width: 350px;
         margin:40px;
     }
 }

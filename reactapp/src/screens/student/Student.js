@@ -55,21 +55,16 @@ const Student = (props) => {
 
   }, [])
 
-
-
   const eventsData = eventsDay.map(({ title, description, type, date, maxNumberOfPeople }) => {
 
-    return (
-
-      <CardEvents
-        key={uuid()}
-        title={title}
-        desc={description}
-        img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
-        date={date}
-        maxPeople={maxNumberOfPeople}
-      />
-    )
+    return (<CardEvents
+      key={uuid()}
+      title={title}
+      desc={description}
+      img={`${type.replace(/\s|'/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
+      date={date}
+      maxPeople={maxNumberOfPeople}
+    />)
   })
 
   let nav = ["Actualités", "Sorties", "Football", "Taekwondo", "Contact"];
@@ -211,7 +206,6 @@ const Student = (props) => {
       </div>
     </>
   )
-
 }
 
 const myStyle = {

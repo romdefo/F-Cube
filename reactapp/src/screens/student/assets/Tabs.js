@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+
+import { Tab, Tabs, Typography, Box, Grid } from '@mui/material';
+
 import SportCard from './SportCard';
 import { Grid } from '@mui/material';
 
@@ -49,7 +48,7 @@ function StudentTabs() {
 
   return (
 
-    <Box sx={{ width: '100%', diplay: 'block' }}  >
+    <Box sx={{ width: '100%' }}  >
       <Box sx={{ maxWidth: 610, bgcolor: 'background.paper', display: "flex", justifyContent: "center", marginLeft: 'auto', marginRight: 'auto' }} >
         <Tabs
           value={value}
@@ -68,7 +67,11 @@ function StudentTabs() {
 
       <TabPanel value={value} index={0}>
 
+<<<<<<< HEAD
       <Grid container xs={12} justifyContent='center' style={{width:'100%'}}>
+=======
+        <Grid container style={myStyle.trainingCards}>
+>>>>>>> romain
 
           <SportCard
             terrain='Gymnase Doudeauville'
@@ -94,7 +97,11 @@ function StudentTabs() {
 
       <TabPanel value={value} index={1}>
 
+<<<<<<< HEAD
       <Grid container justifyContent='center'>
+=======
+        <Grid container style={myStyle.trainingCards}>
+>>>>>>> romain
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -108,8 +115,13 @@ function StudentTabs() {
       </TabPanel>
 
       <TabPanel value={value} index={2}>
+<<<<<<< HEAD
       <Grid container justifyContent='center'>
             <SportCard
+=======
+        <Grid container style={myStyle.trainingCards}>
+          <SportCard
+>>>>>>> romain
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
             city='75018 Paris'
@@ -117,11 +129,19 @@ function StudentTabs() {
             category={[{ cat: '14 ans', trainingDays: [{ day: 'Lundi', hour: 'de 17h45 à 19h30' }] }, { cat: '15 ans', trainingDays: [{ day: 'Lundi, Jeudi & Vendredi', hour: 'de 17h45 à 19h30' }] }]}
             coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Diawara_Mamadou-U14_U15', 'Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
+<<<<<<< HEAD
         </Grid> 
       </TabPanel>
 
       <TabPanel value={value} index={3}>
       <Grid container justifyContent='center'>
+=======
+        </Grid>
+      </TabPanel>
+
+      <TabPanel value={value} index={3}>
+        <Grid container style={myStyle.trainingCards}>
+>>>>>>> romain
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -130,13 +150,21 @@ function StudentTabs() {
             category={[{ cat: '16 ans', trainingDays: [{ day: 'Vendredi', hour: '18h00' }] }, { cat: '17 ans', trainingDays: [{ day: 'Mercredi & Vendredi', hour: 'de 18h30 à 20h30' }] }]}
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
+<<<<<<< HEAD
         </Grid> 
+=======
+        </Grid>
+>>>>>>> romain
       </TabPanel>
 
       <TabPanel value={value} index={4}>
 
+<<<<<<< HEAD
         <Grid container justifyContent='center'>
           
+=======
+        <Grid container style={myStyle.trainingCards}>
+>>>>>>> romain
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'

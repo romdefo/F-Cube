@@ -70,7 +70,7 @@ function Footer(props) {
         return (<Redirect to='/admin' />);
     } else {
         return (
-            <>
+            <div>
                 {/* Le premier footer avec les infos et la carte */}
                 <div className="footer-background">
                     <div className="footer-opacity-block">
@@ -80,16 +80,15 @@ function Footer(props) {
                             {/* Panel de gauche du premier footer */}
                             <Grid item xs={12} md={6} className="footer-panel">
                                 <div className="footer-panel-content">
-                                    <h4>CONTACTS</h4>
                                     <div>
-                                        <div style={{ paddingTop: 30, paddingBottom: 30, fontWeight: 300 }}>
+                                        <div className="sub-panel" style={{ paddingTop: 30, paddingBottom: 30 }}>
                                             <p style={{ fontWeight: 600 }}>Le Local (Siège social)</p>
                                             <a href={"mailto:contact@egdo.fr"} className="email"><p>contact@egdo.fr</p></a>
                                             <p>01 42 52 69 48</p>
                                             <p>25 rue de Chartres</p>
                                             <p>75018 Paris</p>
                                         </div>
-                                        <div style={{ paddingTop: 40, fontWeight: 300, borderTop: "2px solid white" }}>
+                                        <div className="sub-panel" style={{ paddingTop: 40, borderTop: "2px solid white" }}>
                                             <p style={{ fontWeight: 600 }}>Le club de foot</p>
                                             <a href={"mailto:footclub@egdo.fr"} className="email"><p>footclub@egdo.fr</p></a>
                                             <p>09 53 45 13 08</p>
@@ -224,7 +223,7 @@ function Footer(props) {
                         </div>
                     </Grid>
                 </Grid>
-            </>
+            </div>
         )
     }
 }

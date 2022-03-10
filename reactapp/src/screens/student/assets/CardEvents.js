@@ -77,7 +77,6 @@ function CardEvents({ img, title, desc, date, selectEvent, maxPeople }) {
                         <h2 style={{ fontWeight: "500" }}>{title}</h2>
                         <p>{desc}</p>
 
-
                     </div>
                 </Grid>
             </Grid>

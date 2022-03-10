@@ -18,7 +18,33 @@ import { Container, Grid, Typography, Button } from '@mui/material';
 function Discover(props) {
     console.log(props.admin.token)
 
+<<<<<<< HEAD
     const nav = [ "Qui-sommes-nous?", "Histoire", "Equipe", "Blog", "Contact"];
+=======
+    const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe"];
+
+    const cardList = [
+        {
+            id: "scolarite", img: "../images/discover/scolarite.png", imgDesc: "accompagnement-scolarité",
+            title: "Accompagnement à la scolarité",
+            content: "Amener les enfants et les jeunes, à (re)construire une relation positive à l’école et au savoir",
+            button1: "En savoir plus"
+        },
+        {
+            id: "prevention", img: "../images/discover/prevention.jpeg", imgDesc: "prevention",
+            title: "Prévention",
+            content: "EGDO s'engage aux côté des famille pour la prévention des conduites à risque et de la promotion de la santé",
+            button1: "En savoir plus"
+        },
+        {
+            id: "insertion", img: "../images/discover/insertion.png", imgDesc: "insertion-professionnelle",
+            title: "Insertion Professionnelle",
+            content: "Depuis sa création, EGDO a mis l’orientation et l’accompagnement vers la formation et l’emploi des jeunes et des parents au centre de ses préoccupations.",
+            button1: "En savoir plus"
+        },
+    ]
+
+>>>>>>> romain
     return (
         <>
             {/* Navbar */}
@@ -42,7 +68,7 @@ function Discover(props) {
                         </Grid>
 
                         <Grid container spacing={8}>
-                            <Action />
+                            <Action cards={cardList} />
                         </Grid>
 
                         <Grid container justifyContent="center" alignItems="center" mt={5}
