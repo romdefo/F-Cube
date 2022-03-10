@@ -59,65 +59,92 @@ const Student = (props) => {
 
   const eventsData = eventsDay.map(({ title, description, type, date, maxNumberOfPeople }) => {
 
-    return (<CardEvents
-      key={uuid()}
-      title={title}
-      desc={description}
-      img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
-      date={date}
-      maxPeople={maxNumberOfPeople}
-    />)
+    return (
+
+      <CardEvents
+        key={uuid()}
+        title={title}
+        desc={description}
+        img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
+        date={date}
+        maxPeople={maxNumberOfPeople}
+      />
+    )
   })
+
+  let nav = ["Actualités", "Sorties", "Football", "Taekwondo", "Contact"];
 
   return (
     <>
-      <Navbar nav={["Actualités", "Sorties", "Football", "Taekwondo", "Contact"]} />
-      <div className='Student' style={myStyle.studentContainer} >
+      <Navbar nav={nav} />
+      {/* <div className='Student' style={myStyle.studentContainer} > */}
+      <div div className='section' id={nav[0]} >
+        <div className='opacity'>
 
-        <CarouselNews
-          news={[
-            {
-              img: '/images/sportcards/tkwu12.jpg',
-              title: "Saison 2022-2023 : Inscriptions !",
-              subtitle: "Ouverture des inscriptions pour le Taekwondo."
-            },
-            {
-              img: '/student/imgs/asterix.avif',
-              title: "Sortie au Parc Astérix",
-              subtitle: "Onze jeunes de l'association EGDO ont eu la chance de passer une journée chez les Gaulois !"
-            }]} />
+          <CarouselNews
+            news={[
+              {
+                img: '/images/sportcards/tkwu12.jpg',
+                title: "Saison 2022-2023 : Inscriptions !",
+                subtitle: "Ouverture des inscriptions pour le Taekwondo."
+              },
+              {
+                img: '/student/imgs/asterix.avif',
+                title: "Sortie au Parc Astérix",
+                subtitle: "Onze jeunes de l'association EGDO ont eu la chance de passer une journée chez les Gaulois !"
+              }]} />
+        </div>
+      </div>
 
-        <div className='sorties' id="Sorties" >
 
-
-          <div style={myStyle.upcomingEvents} >
-
+      <div div className='section2' id={nav[1]} >
+        <div className='opacity'>
+          <Grid container justifyContent="center" style={{ paddingBottom: '2rem' }}>
             <Grid item xs={12} style={{ margin: '1rem' }}>
               <Calendar events={events} setEvents={setEvents} eventsDay={eventsDay} setEventsDay={setEventsDay} />
-              {eventsDay.length === 0 && <h6 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h6>}
+              {eventsDay.length === 0 && <h4 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h4>}
             </Grid>
+            <Grid item xs={12} style={{ margin: '1rem' }}>{eventsDay.length > 0 && <h2 style={{ textAlign: 'center', color: "dark" }}> {eventsDay.length} {eventsDay.length > 1 ? 'Activités disponibles' : 'Activité disponible'}</h2>}</Grid>
             {eventsData}
+          </Grid>
+        </div>
+      </div>
 
-          </div>
-
-          <Grid container xs={12} className='football' id="Football" >
-            <Grid item xs={11} md={8} height="500px" className="football-info-container">
+      {/* Football */}
+      <div div className='section' id={nav[2]} >
+        <div className='opacity'>
+          <Grid container xs={12} height='100vh' className='football' id="Football" >
+            <Grid item xs={11} md={8} className="football-info-container">
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Football</h1>
               </div>
               <div className="sports-text">
                 <p style={{ marginBottom: 25 }}>Alliant l'éducatif au sportif, le club de foot d'EGDO est animé avec passion par des coachs du quartier. Il comporte des équipes pour tous les âges.</p>
-                <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}>Je m'inscris</Button>
+                <Button variant="contained" color='primary'
+                // style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }}
+                >Je m'inscris</Button>
               </div>
             </Grid>
           </Grid>
+        </div>
+      </div>
 
+      <div div className='section2' >
+        <div className='opacity'>
           <div className='football-info'>
             <StudentTabs />
           </div>
+        </div>
+      </div>
 
-          <Grid container xs={12} className='taekwondo' id="Taekwondo">
-            <Grid item xs={11} md={5} className="taekwondo-info-container" height='500px' style={{ marginBottom: '2rem' }}>
+
+      {/* Taekwendo */}
+      <div div className='section' id={nav[3]} >
+        <div className='opacity'>
+          <Grid container xs={12} className='taekwondo'
+          // id="Taekwondo"
+          >
+            <Grid item xs={11} md={5} className="taekwondo-info-container" height='500px' style={{ margin: '2rem' }}>
               <div className="sports-name">
                 <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
               </div>
@@ -127,7 +154,7 @@ const Student = (props) => {
               </div>
             </Grid>
 
-            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{ marginBottom: '2rem' }}>
+            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{ margin: '2rem' }}>
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
               </div>
@@ -138,7 +165,12 @@ const Student = (props) => {
             </Grid>
           </Grid>
 
-          <Grid container xs={12} justifyContent='center'>
+        </div>
+      </div>
+
+      <div div className='section2'  >
+        <div className='opacity'>
+          <Grid container xs={12} justifyContent='center' alignItems='center'>
 
             <SportCard
               terrain="Gymnase de la Goutte d'Or"
@@ -171,128 +203,12 @@ const Student = (props) => {
             />
 
           </Grid>
-
-        </div>
-
-        {/* <Grid container xs={12} height='100vh' className='football' >
-  
-        <Grid 
-        item xs={11} md={8}
-
-        style={myStyle.footballInfoContainer}>
-          <div
-           id="Football"
-            style={myStyle.footballInfoContainer.textContainer}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '80%' }}>Football</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>Le club de football "les Enfants de la Goutte D’Or" est une activité historique de l'association. Ce sont les habitants du quartier qui sont à l’origine de cette idée. Les Enfants de la Goutte D'Or est un Club de football alliant l'éducatif au sportif et ne pratiquant aucune détection préalable. </p>
-              <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px', alignSelf: 'center' }}>Je m'inscris</Button>
-
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-
-      <div className='football-info'>
-        <BasicTabs />
-      </div>
-
-      
-
-      <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
-        <Grid container xs={12}>
-        
-          </Grid>
-
-
-        <Grid item xs={11} md={5} style={{
-          backgroundImage: "url('./student/imgs/taekwondo.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
-          height: '500px',
-          margin: '1rem'
-        }}>
-          <div
-            style={{
-              height: "100%",
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-            }}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Taekwondo</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>L’activité est affiliée FFTDA n° 750978 et proposée depuis 1999-2000 en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
-              <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-
-            </div>
-          </div>
-        </Grid>
-
-        <Grid item xs={11} md={5} style={{
-          backgroundImage: "url('./student/imgs/taekwondoF.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
-          height: '500px'
-        }}>
-          <div
-            style={{
-              height: "100%",
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-            }}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Body Tae Feminin</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>Le Body Taekwondo féminin est un mélange de fitness et de Taekwondo en musique.</p>
-              <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-
-      <Grid container xs={12} justifyContent='center'>
-
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='tkw-6a'
-          category={[{ cat: '6-8 ans', trainingDays: [{ day: 'Mardi', hour: 'De 17h45 à 18h30' }, { day: 'Samedi', hour: 'De 14h00 à 14h45' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='tkwu12'
-          category={[{ cat: '9-11 ans', trainingDays: [{ day: 'Mardi', hour: 'De 18h30 à 19h30' }, { day: 'Samedi', hour: 'De 14h45 à 15h45' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='u16tkw'
-          category={[{ cat: '12-17 ans', trainingDays: [{ day: 'Mardi', hour: 'De 19h30 à 20h30' }, { day: 'Samedi', hour: 'De 15h45 à 17h00' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-      </Grid> */}
-        <div id='Contact'>
-          <Footer />
         </div>
       </div>
 
+      <div id='Contact'>
+        <Footer />
+      </div>
     </>
   )
 

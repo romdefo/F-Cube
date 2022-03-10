@@ -40,7 +40,7 @@
 .taekwondo {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     min-height:100vh;
  
@@ -93,9 +93,6 @@
     .sports-text {
         padding:0 15px
     }
-
-
-  
 }
 
 .football-info-container:hover .sports-text{

@@ -3,35 +3,34 @@ import { connect } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import theme from "../../components/Theme";
+// //import theme from "../../components/Theme";
 
 import Action from './Action';
 import Histoire from './Histoire';
 import Home from './Home';
 
-// import './Discover.css'
 import '../../stylesheets/App.css'
 
 import { Container, Grid, Typography, Button } from '@mui/material';
 
-const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe", "Blog"];
+// const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe", "Blog"];
 
 function Discover(props) {
     console.log(props.admin.token)
 
-    const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe"];
+    const nav = [ "Qui-sommes-nous?", "Histoire", "Equipe", "Blog", "Contact"];
     return (
         <>
             {/* Navbar */}
             < Navbar nav={nav} />
 
             {/* Home page */}
-            < div id={nav[0]} >
+            < div  >
                 <Home />
             </div >
 
             {/* Section Actions */}
-            < div className='section' id={nav[1]} >
+            < div className='section' id={nav[0]} >
                 <div className='opacity'>
                     <Container maxWidth="lg" sx={{ pt: 2 }} >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}
@@ -64,7 +63,7 @@ function Discover(props) {
             </div >
 
             {/* Section Histoire*/}
-            < div className='section2' id={nav[2]} >
+            < div className='section2' id={nav[1]} >
                 <div className='opacity'>
                     <Container maxWidth="md" >
                         <Grid container py={10}>
@@ -75,7 +74,7 @@ function Discover(props) {
             </div >
 
             {/* Section Equipe */}
-            < div className='section' >
+            < div className='section' id={nav[2]}>
                 <div className='opacity'>
                     <Container maxWidth="md" >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -90,7 +89,7 @@ function Discover(props) {
                     </Container>
                 </div>
             </div >
-            <Footer />
+            <Footer id={nav[4]}/>
         </>
     );
 }

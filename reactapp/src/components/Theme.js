@@ -47,12 +47,14 @@ theme.components = {
             },
             h4: {
               color: theme.palette.primary.main,
-              textAlign: 'center'
+              textAlign: 'center',
+              // fontSize: 'large'
             },
             h5 : {
               color: theme.palette.primary.dark,
               textAlign: 'center',
               fontWeight: 800,
+              fontSize: 'large'
             },
             body1: {
               color: theme.palette.primary.dark,
@@ -103,20 +105,20 @@ theme.components = {
         },
         },
         containedPrimary: {
-          backgroundColor: theme.palette.primary.dark,
-          color: theme.palette.secondary.light,
+          backgroundColor: theme.palette.secondary.main,
+          color: theme.palette.primary.dark,
           underline: 'none',
           borderRadius: '20px',
           fontWeight: 600,
           '&:hover': {
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.primary.dark,
+              backgroundColor: theme.palette.secondary.dark,
+              color: theme.palette.primary.light,
         },
         },
         containedSecondary: {
           fontWeight: 700,
-          backgroundColor: theme.palette.secondary.main,
-          color: theme.palette.primary.dark,
+          backgroundColor: theme.palette.primary.dark,
+          color: theme.palette.secondary.light,
           underline: 'none',
           borderRadius: '20px',
           '&:hover': {

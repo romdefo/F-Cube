@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import SportCard from './SportCard';
+import { Grid } from '@mui/material';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,9 +65,10 @@ function StudentTabs() {
           <Tab label="Féminines" {...a11yProps(4)} />
         </Tabs>
       </Box>
+
       <TabPanel value={value} index={0}>
 
-        <div style={myStyle.trainingCards}>
+      <Grid container xs={12} justifyContent='center' style={{width:'100%'}}>
 
           <SportCard
             terrain='Gymnase Doudeauville'
@@ -86,13 +88,13 @@ function StudentTabs() {
             coaches={['Bangaly_Souare-U10_U11', 'Diabi_Kone-U10_U11', 'Ozdemir_Kaan-U8_U9_U10']}
           />
 
-        </div>
+        </Grid>
 
       </TabPanel>
 
       <TabPanel value={value} index={1}>
 
-        <div style={myStyle.trainingCards}>
+      <Grid container justifyContent='center'>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -101,13 +103,13 @@ function StudentTabs() {
             category={[{ cat: '12 ans', trainingDays: [{ day: 'Mardi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }, { cat: '13 ans', trainingDays: [{ day: 'Mardi & Jeudi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }]}
             coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
           />
-        </div>
+        </Grid>
 
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-        <div style={myStyle.trainingCards}>
-          <SportCard
+      <Grid container justifyContent='center'>
+            <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
             city='75018 Paris'
@@ -115,11 +117,11 @@ function StudentTabs() {
             category={[{ cat: '14 ans', trainingDays: [{ day: 'Lundi', hour: 'de 17h45 à 19h30' }] }, { cat: '15 ans', trainingDays: [{ day: 'Lundi, Jeudi & Vendredi', hour: 'de 17h45 à 19h30' }] }]}
             coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Diawara_Mamadou-U14_U15', 'Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-        </div>
+        </Grid> 
       </TabPanel>
 
       <TabPanel value={value} index={3}>
-        <div style={myStyle.trainingCards}>
+      <Grid container justifyContent='center'>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -128,12 +130,13 @@ function StudentTabs() {
             category={[{ cat: '16 ans', trainingDays: [{ day: 'Vendredi', hour: '18h00' }] }, { cat: '17 ans', trainingDays: [{ day: 'Mercredi & Vendredi', hour: 'de 18h30 à 20h30' }] }]}
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-        </div>
+        </Grid> 
       </TabPanel>
 
       <TabPanel value={value} index={4}>
 
-        <div style={myStyle.trainingCards}>
+        <Grid container justifyContent='center'>
+          
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -155,7 +158,7 @@ function StudentTabs() {
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
 
-        </div>
+        </Grid>
       </TabPanel>
     </Box>
   );
@@ -170,9 +173,9 @@ function AdultTabs() {
 
   return (
 
-    <Box sx={{ width: '100%', diplay: 'block' }}  >
+    <Grid container sx={12} justifyContent='center' >
 
-      <div style={myStyle.trainingCards}>
+      
         <SportCard
           terrain='Stade des Fillettes'
           adress='56, boulevard Ney'
@@ -199,16 +202,18 @@ function AdultTabs() {
           category={[{ cat: 'Senior F', trainingDays: [{ day: 'Lundi', hour: 'de 19h30 à 21h30' }, { day: 'Jeudi', hour: 'de 19h30 à 21h' }] }]}
           coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
         />
-      </div>
-    </Box>
+
+    </Grid>
   );
 }
 
 const myStyle = {
   trainingCards: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
+    width:'auto',
+   display:'flex',
+   width:'100%',
+  
+   justifyContent:'center'
   },
 }
 

@@ -50,11 +50,16 @@ body {
 .section {
     background-image: url('../../public/images/light-yellow.jpg');
     min-height: 95vh;
+    background-repeat:no-repeat;
+    background-size: cover;
 }
 
 .section2 {
     background-image: url('../../public/images/light-blue.jpg');
     min-height: 95vh;
+    background-repeat:no-repeat;
+    background-size: cover;
+
 }
 
 .opacity {

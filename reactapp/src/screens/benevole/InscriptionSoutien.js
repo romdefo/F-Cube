@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Stepper, Step, StepLabel, Button, Typography, Grid, Input, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Checkbox, FormGroup} from '@mui/material';
 import { Group } from '@mui/icons-material';
+import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 
 const steps = ['Nom', 'Niveaux', 'Jours'];
 const groups = [
@@ -23,6 +24,7 @@ export default function Inscription() {
   const [calendar, setCalendar] = useState([]);
   const [monthCalendar, setMonthCalendar] = useState([]);
   const [dayChoosen, setDayChoosen] = useState([]);
+  const [endForm, setEndForm] = useState(false)
 
     useEffect(() => {
         async function getCalendar() {
@@ -52,7 +54,9 @@ export default function Inscription() {
         } else {
             setFilled(false)
         } 
-        if (activeStep ==steps.length-1){
+        if (activeStep == steps.length-1){
+            setEndForm(true)
+
             const newVolunteer = {
                 name: name,
                 firstName: firstName,
@@ -79,9 +83,8 @@ export default function Inscription() {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-  return (
-    // <Box sx={{ width: '100%' }}>
-        <Grid container direction='column' justifyContent="center" alignItems="center" spacing={4} mt="6">
+    if(!endForm) {
+        return(  <Grid container direction='column' justifyContent="center" alignItems="center" spacing={4} mt="6">
             <Grid item>
                 <Stepper activeStep={activeStep}>
                     {steps.map((label, index) => {
@@ -169,6 +172,17 @@ export default function Inscription() {
                 </Button>
             </Grid>
            
+        </Grid>)
+    } else {return(
+        <Grid container>
+            <Grid item>
+                <Typography>
+                    Le calendrier pour le mois de Mars : 
+                </Typography>
+            </Grid>
+            <Grid item>
+                
+            </Grid>
         </Grid>
-  );
+    )}
 }
