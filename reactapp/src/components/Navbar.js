@@ -24,12 +24,16 @@ const Navbar = (props) => {
           <LinkRouter
             to='/'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            style={{ textDecoration: 'none' }}
           >
-            <img
-              src="./images/egdo_logo.png"
-              className="img-fluid"
-              alt="Logo."
-            />
+            <Link sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+              <img
+                src="./images/egdo_logo.png"
+                className="img-fluid"
+                alt="Logo."
+                style={{display: {xs:'none'}}}
+              />
+            </Link>
           </LinkRouter>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -82,7 +86,8 @@ const Navbar = (props) => {
           >
             <LinkRouter
               to="/"
-              ml={2}>
+              ml={2}
+              style={{ textDecoration: 'none' }}>
               <img
                 src="./images/egdo_logo.png"
                 className="img-fluid"
@@ -107,6 +112,7 @@ const Navbar = (props) => {
               key='act'
               to='/j-agis'
               underline='none'
+              style={{ textDecoration: 'none' }}
               ml={4}>
               <Button color='secondary' variant='contained'>
                 J'agis

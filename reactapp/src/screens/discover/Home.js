@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Grid, Button, Box, Container, Typography } from '@mui/material';
+import { Grid, Button, Box, Container, Typography , Link} from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
 
 import '../../stylesheets/App.css'
 import '../../stylesheets/Buttons.css'
-import './Discover.css'
+// import './Discover.css'
 
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -53,8 +53,9 @@ export default function Home() {
                                 to='/espace-eleve'
                                 variant="body2"
                                 underline='none'
+                                style={{ textDecoration: 'none' }}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
                             </LinkRouter>
                         </Grid>
                         <Grid item data-aos="fade-left" data-aos-duration="2000">
@@ -62,8 +63,9 @@ export default function Home() {
                                 to='/espace-insertion'
                                 variant="body2"
                                 underline='none'
+                                style={{ textDecoration: 'none' }}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
                             </LinkRouter>
                         </Grid>
                         <Grid item data-aos="fade-left" data-aos-duration="3000">
@@ -71,8 +73,10 @@ export default function Home() {
                                 to='/espace-benevole'
                                 variant="body2"
                                 underline='none'
+                                style={{ textDecoration: 'none' }}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
+
                             </LinkRouter>
                         </Grid>
                     </Grid>
@@ -108,8 +112,9 @@ export default function Home() {
                                 to='/espace-eleve'
                                 variant="body2"
                                 underline='none'
+                                style={{textDecoration:'none'}}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
                             </LinkRouter>
                         </Grid>
                         <Grid item>
@@ -117,8 +122,9 @@ export default function Home() {
                                 to='/espace-insertion'
                                 variant="body2"
                                 underline='none'
+                                style={{textDecoration:'none'}}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
                             </LinkRouter>
                         </Grid>
                         <Grid item>
@@ -126,8 +132,9 @@ export default function Home() {
                                 to='/espace-benevole'
                                 variant="body2"
                                 underline='none'
+                                style={{textDecoration:'none'}}
                             >
-                                <Button size='large' variant='contained' color='secondary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
+                                <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
                             </LinkRouter>
                         </Grid>
                     </Grid>
