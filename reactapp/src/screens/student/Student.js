@@ -100,8 +100,8 @@ const Student = (props) => {
 
           </div>
 
-          <Grid container xs={12} height='100vh' className='football' id="Football" >
-            <Grid item xs={11} md={8} className="football-info-container">
+          <Grid container xs={12} className='football' id="Football" >
+            <Grid item xs={11} md={8} height='500px' className="football-info-container">
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Football</h1>
               </div>
@@ -116,8 +116,8 @@ const Student = (props) => {
             <StudentTabs />
           </div>
 
-          <Grid container xs={12} height='100vh' className='taekwondo' id="Taekwondo">
-            <Grid item xs={11} md={5} className="taekwondo-info-container">
+          <Grid container xs={12}  className='taekwondo' id="Taekwondo">
+            <Grid item xs={11} md={5} className="taekwondo-info-container" height='500px' style={{marginBottom:'2rem'}}>
               <div className="sports-name">
                 <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
               </div>
@@ -127,7 +127,7 @@ const Student = (props) => {
               </div>
             </Grid>
 
-            <Grid item xs={11} md={5} className="bodytae-info-container">
+            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{marginBottom:'2rem'}}>
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
               </div>

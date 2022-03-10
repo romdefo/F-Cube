@@ -28,7 +28,7 @@
 }
 
 .football-info-container {
-    position:relative;
+   
     background-image: url('./../../../public/student/imgs/soccer-field.jpg');
     background-size: cover;
     background-position:30%;
@@ -43,21 +43,20 @@
     justify-content: space-around;
     align-items: center;
     min-height:100vh;
-    margin-bottom: 5rem;
+ 
 }
 
 .taekwondo-info-container {
-    position:relative;
     background-image: url('./../../../public/student/imgs/taekwondo.jpg');
     background-size: cover;
     background-position:30%;
     height:60%;
     box-shadow: "5px 4px 6px rgba(0, 0, 0, 0.48)";
     border-radius:15px;
+   
 }
 
 .bodytae-info-container {
-    position:relative;
     background-image: url('./../../../public/student/imgs/taekwondoF.jpg');
     background-size: cover;
     background-position:30%;
@@ -67,7 +66,6 @@
 }
 
 .sports-name {
-    position:relative;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -77,8 +75,7 @@
 }
 
 .sports-text {
-    position:relative;
-    padding:100px;
+    padding:0 100px ;
     color:white;
     font-size: 23px;
     font-weight:500;
@@ -90,6 +87,15 @@
     align-items:center;
     text-align:center;
     border-radius:15px;
+}
+
+@media screen and (max-width: 600px) {
+    .sports-text {
+        padding:0 15px
+    }
+
+
+  
 }
 
 .football-info-container:hover .sports-text{
@@ -116,6 +122,7 @@
     opacity: 1;
     height: 100%;
     width:100%;
+    overflow: hidden;
 }
 
 .bodytae-info-container:hover .sports-name{
