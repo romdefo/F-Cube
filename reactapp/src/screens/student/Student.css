@@ -92,10 +92,7 @@
 @media screen and (max-width: 600px) {
     .sports-text {
         padding:0 15px
-    }
-
-
-  
+    }  
 }
 
 .football-info-container:hover .sports-text{

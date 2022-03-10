@@ -55,15 +55,13 @@ const Student = (props) => {
 
   }, [])
 
-
-
   const eventsData = eventsDay.map(({ title, description, type, date, maxNumberOfPeople }) => {
 
     return (<CardEvents
       key={uuid()}
       title={title}
       desc={description}
-      img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
+      img={`${type.replace(/\s|'/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
       date={date}
       maxPeople={maxNumberOfPeople}
     />)
@@ -174,128 +172,12 @@ const Student = (props) => {
 
         </div>
 
-        {/* <Grid container xs={12} height='100vh' className='football' >
-  
-        <Grid 
-        item xs={11} md={8}
-
-        style={myStyle.footballInfoContainer}>
-          <div
-           id="Football"
-            style={myStyle.footballInfoContainer.textContainer}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '80%' }}>Football</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>Le club de football "les Enfants de la Goutte D’Or" est une activité historique de l'association. Ce sont les habitants du quartier qui sont à l’origine de cette idée. Les Enfants de la Goutte D'Or est un Club de football alliant l'éducatif au sportif et ne pratiquant aucune détection préalable. </p>
-              <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px', alignSelf: 'center' }}>Je m'inscris</Button>
-
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-
-      <div className='football-info'>
-        <BasicTabs />
-      </div>
-
-      
-
-      <Grid container xs={12} minHeight='100vh' className='taekwondo' id="Taekwondo">
-        <Grid container xs={12}>
-        
-          </Grid>
-
-
-        <Grid item xs={11} md={5} style={{
-          backgroundImage: "url('./student/imgs/taekwondo.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.60)",
-          height: '500px',
-          margin: '1rem'
-        }}>
-          <div
-            style={{
-              height: "100%",
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-            }}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Taekwondo</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>L’activité est affiliée FFTDA n° 750978 et proposée depuis 1999-2000 en mixte dans la salle Cap-Dadi du gymnase de la Goutte d’Or.</p>
-              <a href="/student/files/inscription-tkw.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-
-            </div>
-          </div>
-        </Grid>
-
-        <Grid item xs={11} md={5} style={{
-          backgroundImage: "url('./student/imgs/taekwondoF.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.7)",
-          height: '500px'
-        }}>
-          <div
-            style={{
-              height: "100%",
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-            }}>
-            <h1 style={{ color: 'white', borderBottom: '2px solid white', width: '100%' }} >Body Tae Feminin</h1>
-            <div style={{ display: 'flex', flexDirection: 'column', padding: '1rem' }}>
-              <p style={{ color: 'white', alignSelf: 'center' }}>Le Body Taekwondo féminin est un mélange de fitness et de Taekwondo en musique.</p>
-              <a href="/student/files/inscription-tkw-f.pdf" download style={{ textDecoration: 'none', alignSelf: 'center' }}> <Button variant="contained" style={{ backgroundColor: '#3FA2B0', width: '300px' }}>Je m'inscris</Button></a>
-            </div>
-          </div>
-        </Grid>
-      </Grid>
-
-      <Grid container xs={12} justifyContent='center'>
-
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='tkw-6a'
-          category={[{ cat: '6-8 ans', trainingDays: [{ day: 'Mardi', hour: 'De 17h45 à 18h30' }, { day: 'Samedi', hour: 'De 14h00 à 14h45' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='tkwu12'
-          category={[{ cat: '9-11 ans', trainingDays: [{ day: 'Mardi', hour: 'De 18h30 à 19h30' }, { day: 'Samedi', hour: 'De 14h45 à 15h45' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-        <SportCard
-          terrain="Gymnase de la Goutte d'Or"
-          adress='12 rue de la Goutte d’Or'
-          city='75018 Paris'
-          img='u16tkw'
-          category={[{ cat: '12-17 ans', trainingDays: [{ day: 'Mardi', hour: 'De 19h30 à 20h30' }, { day: 'Samedi', hour: 'De 15h45 à 17h00' }] }]}
-          coachs={[]}
-          sport='tkw'
-        />
-
-      </Grid> */}
         <div id='Contact'>
           <Footer />
         </div>
       </div>
-
     </>
   )
-
 }
 
 const myStyle = {

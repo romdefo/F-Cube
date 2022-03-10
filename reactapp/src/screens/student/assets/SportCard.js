@@ -43,12 +43,11 @@ export default function SportCard({ img, category, terrain, adress, coaches, cit
   })
 
   return (
-    <Grid item xs={12} md={3} style={{ margin: '1rem' }}>
+    <Grid item xs={12} md={3.5} style={{ margin: '1rem' }}>
       <Card >
         <CardActionArea>
           <CardMedia
             component="img"
-            height="200"
             image={`./images/sportcards/${img}.jpg`}
             alt="équipe"
           />

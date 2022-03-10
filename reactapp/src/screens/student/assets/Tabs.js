@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+
+import { Tab, Tabs, Typography, Box, Grid } from '@mui/material';
+
 import SportCard from './SportCard';
 
 function TabPanel(props) {
@@ -48,7 +47,7 @@ function StudentTabs() {
 
   return (
 
-    <Box sx={{ width: '100%', diplay: 'block' }}  >
+    <Box sx={{ width: '100%' }}  >
       <Box sx={{ maxWidth: 610, bgcolor: 'background.paper', display: "flex", justifyContent: "center", marginLeft: 'auto', marginRight: 'auto' }} >
         <Tabs
           value={value}
@@ -66,7 +65,7 @@ function StudentTabs() {
       </Box>
       <TabPanel value={value} index={0}>
 
-        <div style={myStyle.trainingCards}>
+        <Grid container style={myStyle.trainingCards}>
 
           <SportCard
             terrain='Gymnase Doudeauville'
@@ -86,13 +85,13 @@ function StudentTabs() {
             coaches={['Bangaly_Souare-U10_U11', 'Diabi_Kone-U10_U11', 'Ozdemir_Kaan-U8_U9_U10']}
           />
 
-        </div>
+        </Grid>
 
       </TabPanel>
 
       <TabPanel value={value} index={1}>
 
-        <div style={myStyle.trainingCards}>
+        <Grid container style={myStyle.trainingCards}>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -101,12 +100,12 @@ function StudentTabs() {
             category={[{ cat: '12 ans', trainingDays: [{ day: 'Mardi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }, { cat: '13 ans', trainingDays: [{ day: 'Mardi & Jeudi', hour: 'de 17h45 à 19h15' }, { day: 'Mercredi', hour: 'de 17h30 à 19h15' }] }]}
             coaches={['Elyte_Agamah-U12...U15_U1_U2', 'Mendy_Jacques-U9...U13_U1_U2']}
           />
-        </div>
+        </Grid>
 
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-        <div style={myStyle.trainingCards}>
+        <Grid container style={myStyle.trainingCards}>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -115,11 +114,11 @@ function StudentTabs() {
             category={[{ cat: '14 ans', trainingDays: [{ day: 'Lundi', hour: 'de 17h45 à 19h30' }] }, { cat: '15 ans', trainingDays: [{ day: 'Lundi, Jeudi & Vendredi', hour: 'de 17h45 à 19h30' }] }]}
             coaches={['Chafai_Aitsaid-U7_U8_U14_U15', 'Diawara_Mamadou-U14_U15', 'Elyte_Agamah-U12...U15_U1_U2', 'Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-        </div>
+        </Grid>
       </TabPanel>
 
       <TabPanel value={value} index={3}>
-        <div style={myStyle.trainingCards}>
+        <Grid container style={myStyle.trainingCards}>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -128,12 +127,12 @@ function StudentTabs() {
             category={[{ cat: '16 ans', trainingDays: [{ day: 'Vendredi', hour: '18h00' }] }, { cat: '17 ans', trainingDays: [{ day: 'Mercredi & Vendredi', hour: 'de 18h30 à 20h30' }] }]}
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
-        </div>
+        </Grid>
       </TabPanel>
 
       <TabPanel value={value} index={4}>
 
-        <div style={myStyle.trainingCards}>
+        <Grid container style={myStyle.trainingCards}>
           <SportCard
             terrain='Stade Porte de la Chapelle'
             adress='56, boulevard de Ney'
@@ -155,7 +154,7 @@ function StudentTabs() {
             coaches={['Nasser_Hamici-U8_U9_U12f_U13f_U14...U17f']}
           />
 
-        </div>
+        </Grid>
       </TabPanel>
     </Box>
   );
