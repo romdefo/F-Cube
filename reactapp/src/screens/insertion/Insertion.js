@@ -98,7 +98,7 @@ const Insertion = (props) => {
                <Grid item xs={12}> <h1 style={{ textAlign: "center" }}>Nos programmes Sport & Insertion</h1></Grid>
                     {SportInclusion.map((card, index) => {
                         return (
-                            <Grid key={index}  height='300px'item xs={11} md={3.5} className={`${card.id}-info-container`} >
+                            <Grid key={index}  height='300px'item xs={11} md={3.5} className={`${card.id}-info-container`} style={{margin:'1rem'}}>
                                 <div className="adult-sports-name">
                                     <h1 style={{ color: "white", fontSize: 45, textShadow: "black 2px 3px", textWrap: "wrap" }}>{card.title}</h1>
                                 </div>
