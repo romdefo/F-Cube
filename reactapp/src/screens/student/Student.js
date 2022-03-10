@@ -59,14 +59,17 @@ const Student = (props) => {
 
   const eventsData = eventsDay.map(({ title, description, type, date, maxNumberOfPeople }) => {
 
-    return (<CardEvents
-      key={uuid()}
-      title={title}
-      desc={description}
-      img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
-      date={date}
-      maxPeople={maxNumberOfPeople}
-    />)
+    return (
+    
+      <CardEvents
+        key={uuid()}
+        title={title}
+        desc={description}
+        img={`${type.replace(/\s/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`}
+        date={date}
+        maxPeople={maxNumberOfPeople}
+      />
+   )
   })
 
   let nav = ["Actualités", "Sorties", "Football", "Taekwondo", "Contact"];
@@ -77,6 +80,7 @@ const Student = (props) => {
       {/* <div className='Student' style={myStyle.studentContainer} > */}
         <div div className='section' id={nav[0]} >
           <div className='opacity'>
+            
             <CarouselNews
               news={[
                 {
@@ -92,19 +96,16 @@ const Student = (props) => {
           </div>
         </div>
 
-        {/* <div className='sorties' id="Sorties" >
-          <div style={myStyle.upcomingEvents} > */}
 
           <div div className='section2' id={nav[1]} >
             <div className='opacity'>
-              <Grid container>
+              <Grid container justifyContent="center"  style={{paddingBottom:'2rem'}}>
                 <Grid item xs={12} style={{ margin: '1rem' }}>
                   <Calendar events={events} setEvents={setEvents} eventsDay={eventsDay} setEventsDay={setEventsDay} />
-                  {eventsDay.length === 0 && <h6 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h6>}
+                   {eventsDay.length === 0 && <h4 style={{ textAlign: 'center' }}> Aucune activité n'est disponible pour ce jour, merci de sélectionner une autre date</h4>}
                 </Grid>
-                <Grid item>
-                  {eventsData}
-                </Grid>
+                <Grid item xs={12}  style={{ margin: '1rem' }}>{eventsDay.length > 0 && <h2 style={{ textAlign: 'center', color:"dark" }}> {eventsDay.length} {eventsDay.length>1?'Activités disponibles':'Activité disponible'}</h2>}</Grid> 
+                  {eventsData} 
               </Grid>
             </div>
           </div>
@@ -140,10 +141,10 @@ const Student = (props) => {
           {/* Taekwendo */}
            <div div className='section' id={nav[3]} >
             <div className='opacity'>
-          <Grid container xs={12} height='100vh' className='taekwondo' 
+          <Grid container xs={12}  className='taekwondo' 
           // id="Taekwondo"
           >
-            <Grid item xs={11} md={5} className="taekwondo-info-container">
+            <Grid item xs={11} md={5} className="taekwondo-info-container" height='500px' style={{margin:'2rem'}}>
               <div className="sports-name">
                 <h1 style={{ color: "#4c83bc", fontSize: 75, textShadow: "white 2px 3px" }}>Taekwondo</h1>
               </div>
@@ -153,7 +154,7 @@ const Student = (props) => {
               </div>
             </Grid>
 
-            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{marginBottom:'2rem'}}>
+            <Grid item xs={11} md={5} className="bodytae-info-container" height='500px' style={{margin:'2rem'}}>
               <div className="sports-name">
                 <h1 style={{ color: "white", fontSize: 75, textShadow: "black 2px 3px" }}>Body Tae Féminin</h1>
               </div>
@@ -168,9 +169,9 @@ const Student = (props) => {
           </div>          
 
 
-        <div div className='section2' >
+        <div div className='section2'  >
           <div className='opacity'>
-          <Grid container xs={12} justifyContent='center'>
+          <Grid container xs={12} justifyContent='center' alignItems='center'>
 
             <SportCard
               terrain="Gymnase de la Goutte d'Or"
@@ -205,7 +206,6 @@ const Student = (props) => {
           </Grid>
         </div>
         </div>
-        {/* </div> */}
 
         <div id='Contact'>
           <Footer />
