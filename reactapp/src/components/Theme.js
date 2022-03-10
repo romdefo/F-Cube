@@ -45,6 +45,11 @@ theme.components = {
                 fontWeight: 700,
                 textAlign: 'center'
             },
+            h3: {
+                color:'#003D55',
+                fontWeight: 500,
+                textAlign: 'center'
+            },
             h4: {
               color: theme.palette.primary.main,
               textAlign: 'center',

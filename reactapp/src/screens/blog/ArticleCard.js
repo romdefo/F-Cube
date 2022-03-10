@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
+import {  Link } from '@mui/material'
 
 import '../../stylesheets/Modal.css';
 
@@ -24,8 +25,11 @@ function ArticleCard(props) {
                     </Typography>
                     <CardActions>
                         <Button variant="contained" color="primary" onClick={() => props.onChooseArticle(props.articleFromBDD)}>
-                            <LinkRouter to="/article">
-                                Lire la suite...
+                            <LinkRouter to="/article" style={{ textDecoration: 'none' }}>
+                                <Link underline='none'>
+                                    Lire la suite...
+                                </Link>
+                                
                             </LinkRouter>
                         </Button>
                     </CardActions>

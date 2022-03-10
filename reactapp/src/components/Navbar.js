@@ -110,6 +110,17 @@ const Navbar = (props) => {
             ))}
             <LinkRouter
               key='act'
+              to='/blog'
+              underline='none'
+              style={{ textDecoration: 'none' }}
+              //ml={5}
+              >
+              <Link underline='none' mr={6}>
+                Blog
+              </Link>
+            </LinkRouter>
+            <LinkRouter
+              key='act'
               to='/j-agis'
               underline='none'
               style={{ textDecoration: 'none' }}

@@ -8,7 +8,7 @@ import CarouselNews from '../student/assets/CarouselNews';
 import Footer from ".//../../components/Footer";
 import Navbar from "../../components/Navbar";
 
-import { Grid, Button } from '@mui/material'
+import { Grid, Button, Typography} from '@mui/material'
 
 // Unique key
 import uuid from 'react-uuid'
@@ -139,8 +139,14 @@ const Insertion = (props) => {
                 <div div className='section'>
                     <div className='opacity'>
 
-                        <Grid container xs={12} minHeight='100vh' justifyContent='center' className='sport-inclusion' id="Sport & Insertion">
-                            <Grid item xs={12}> <h1 style={{ textAlign: "center" }}>Nos programmes Sport & Insertion</h1></Grid>
+                        <Grid container xs={12} 
+                        minHeight='100vh' justifyContent='center' className='sport-inclusion' 
+                        id="Sport & Insertion">
+                            <Grid item xs={12} mt={5}> 
+                                <Typography variant='h3'>
+                                    Nos programmes Sport & Insertion
+                                </Typography>
+                            </Grid>
                             {SportInclusion.map((card, index) => {
                                 return (
                                     <Grid key={index} height='300px' item xs={11} md={3.5} className={`${card.id}-info-container`} style={{ margin: ' 1rem ' }}>
@@ -149,7 +155,9 @@ const Insertion = (props) => {
                                         </div>
                                         <div className="adult-sports-text">
                                             <p style={{ marginBottom: 25 }}>{card.content}</p>
-                                            <Button variant="contained" style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }} onClick={() => sendArticleToStore(card.title)}>En savoir plus</Button>
+                                            <Button variant="contained" 
+                                            // style={{ backgroundColor: '#003D55', width: '180px', alignSelf: 'center', borderRadius: 15 }} 
+                                            onClick={() => sendArticleToStore(card.title)}>En savoir plus</Button>
                                         </div>
                                     </Grid>
                                 )
@@ -177,9 +185,10 @@ const Insertion = (props) => {
                 <div div className='section'>
                     <div className='opacity'>
                         <div className='football-info'>
-                            <h1 style={{ textAlign: "center" }}>Les entraînements</h1>
-
-                            <Grid container xs={12} justifyContent="center">
+                            
+                             <Typography variant='h3' pt={3}>Les entraînements</Typography>
+                            <Grid container xs={12} justifyContent="center" >
+                               
                                 <SportCard
                                     terrain="Gymnase de la Goutte d'Or"
                                     adress='12 rue de la Goutte d’Or'

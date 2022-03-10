@@ -34,7 +34,7 @@ function Blog(props) {
                             pb={4}
                         >
                             <Grid item >
-                                <Typography variant='h3'>Tous nos articles</Typography>
+                                <Typography variant='h2'>Tous nos articles</Typography>
                             </Grid>
                         </Grid>
 

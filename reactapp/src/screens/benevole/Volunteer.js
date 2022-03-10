@@ -14,7 +14,7 @@ import {Container, Grid, Typography} from '@mui/material';
 
 export default function Volunteer() {
 
-    const nav = ["Actualités", "Soutien Scolaire","Sorties", "Blog"];
+    const nav = ["Actualités", "Soutien Scolaire","Sorties"];
     return ( 
         <>     
             {/* Navbar */}
