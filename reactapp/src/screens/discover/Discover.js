@@ -45,7 +45,7 @@ function Discover(props) {
                             <Action />
                         </Grid>
 
-                        <Grid container justifyContent="center" alignItems="center" mt={5}
+                        <Grid container justifyContent="center" alignItems="center" mt={1} mb={3}
                             // pb={10}
                             spacing={4} >
                             <Grid item>
@@ -74,7 +74,7 @@ function Discover(props) {
             </div >
 
             {/* Section Equipe */}
-            < div className='section' id={nav[2]}>
+            < div className='section' id={nav[3]}>
                 <div className='opacity'>
                     <Container maxWidth="md" >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>

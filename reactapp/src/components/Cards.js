@@ -7,7 +7,7 @@ export default function Cards(props) {
         <Card id={props.cardID}>
             <CardMedia
                 component="img"
-                height="140"
+                height="120"
                 image={props.img}
                 alt={props.imgDesc}
             />          

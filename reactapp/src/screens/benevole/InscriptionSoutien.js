@@ -40,7 +40,6 @@ export default function Inscription() {
         async function calendarChoices() {
             // console.log(calendar[0].date.getMonth())
             let choices = calendar.filter(choice => choice.group===group )
-            // && choice.date.getMonth()===2
             console.log(choices)
             setMonthCalendar(choices)
         }       
@@ -84,7 +83,13 @@ export default function Inscription() {
     };
 
     if(!endForm) {
-        return(  <Grid container direction='column' justifyContent="center" alignItems="center" spacing={4} mt="6">
+        return(  
+        <Grid container direction='column' justifyContent="center" alignItems="center" spacing={4}>
+            <Grid item>
+                <Typography variant='h5'>
+                    Inscription soutien scolaire mois de Mars
+                </Typography>
+            </Grid>
             <Grid item>
                 <Stepper activeStep={activeStep}>
                     {steps.map((label, index) => {
@@ -174,10 +179,10 @@ export default function Inscription() {
            
         </Grid>)
     } else {return(
-        <Grid container>
+        <Grid container justifyContent='center' alignItems='center' >
             <Grid item>
                 <Typography>
-                    Le calendrier pour le mois de Mars : 
+                    Vos choix ont bien été enregistrés, votre calendrier pour le mois de mars vous a été envoyé sur votre boîte mail. 
                 </Typography>
             </Grid>
             <Grid item>
