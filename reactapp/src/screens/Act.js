@@ -21,11 +21,11 @@ export default function Act() {
                         sx={{ display: 'flex', justifyContent: 'center', alignItems: 'space-between', p: '50px' }}>
                         <Grid
                             container
-                            sx={{ height: '50vh' }}
+                            sx={{ minHeight: '50vh' }}
                             spacing={8}
                             justifyContent='center'
                         >
-                            <Grid item md={5} sx={{ display: "flex", flexDirection: "column", justifyContent: " space-between", alignItems: "flex-start", minHeight: "100%" }}>
+                            <Grid item md={5} sx={{ display: "flex", flexDirection: "column", justifyContent: " space-between", alignItems: "center" }}>
                                 <img src="../images/act/image-act-2.jpg" alt="pourquoi donner" className='img-fluid act-img' />
                                 <div>
                                     <Typography variant="body1" style={{ fontWeight: "700", margin: "1rem 0" }}>
@@ -37,7 +37,7 @@ export default function Act() {
                                 </div>
                             </Grid>
 
-                            <Grid item md={5} sx={{ display: "flex", flexDirection: "column-reverse", justifyContent: " space-between", alignItems: "flex-start", minHeight: "100%" }} className="act-panel-right">
+                            <Grid item md={5} sx={{ display: "flex", flexDirection: "column-reverse", justifyContent: " space-between", alignItems: "center" }} className="act-panel-right">
                                 <img src="../images/act/image-act-1.jpg" alt="pourquoi devenir bénévole" className='img-fluid act-img' />
                                 <div>
                                     <Typography variant="body1" style={{ fontWeight: "700", marginBottom: "1rem" }}>
