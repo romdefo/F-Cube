@@ -198,7 +198,7 @@ function Footer(props) {
                         <div className="lowest-footer-panel-content">
                             <p>PRESSE</p>
                             <p>NEWSLETTER</p>
-                            <p>RAPPORT D'ACTIVITES</p>
+                            <p><a href="https://egdo.fr/images/EGDO/2020-egdo-rapport-activite.pdf" target="_blank">RAPPORT D'ACTIVITES</a></p>
                             <p>MENTIONS LEGALES</p>
                             <p onClick={() => handleLogin()} className="contact-link">ESPACE ADMIN</p>
 

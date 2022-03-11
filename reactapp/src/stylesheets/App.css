@@ -10,32 +10,10 @@ body {
   margin: 0;
   padding: 0;
 }
-/*  
-.App {
-  text-align: center;
-} */
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+a:link {
+  text-decoration: none;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -45,7 +23,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 
 .section {
     background-image: url('../../public/images/light-yellow.jpg');
@@ -59,7 +36,6 @@ body {
     min-height: 95vh;
     background-repeat:no-repeat;
     background-size: cover;
-
 }
 
 .opacity {
@@ -67,15 +43,14 @@ body {
   min-height: 95vh;
 }
 
-/* .MuiCard-root.same-height {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
 .background-img {
   background: 'url(./light-blue.jpg)'
+}
+
+.act-img {
+  border-radius: 20px;
+  height: 70%;
+  width: auto
 }
 
 .underline {
@@ -83,6 +58,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .underline:after {
   content: "";
   position: absolute;
@@ -96,6 +72,7 @@ body {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
+
 .underline:hover:after,
 .underline:focus:after,
 .underline:active:after {

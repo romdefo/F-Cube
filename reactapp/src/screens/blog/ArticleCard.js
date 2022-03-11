@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
-import {  Link } from '@mui/material'
+import { Link } from '@mui/material'
 
 import '../../stylesheets/Modal.css';
 
@@ -13,7 +13,7 @@ function ArticleCard(props) {
         <Grid item xs={12} sm={6} md={4} >
             <Card>
                 <CardMedia style={{ height: "250px" }}>
-                    <img src={`/images/articles/${props.articleFromBDD.title.replace(/\s|'/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`} alt={props.articleFromBDD.title} style={{ height: "100%", width: "auto" }}>
+                    <img src={`/images/articles/${props.articleFromBDD.title.replace(/\s|'/g, '-').replace(/é|è/g, 'e').replace(/à|â/g, "a")}.jpg`} alt={props.articleFromBDD.title} style={{ height: "100%" }}>
                     </img>
                 </CardMedia>
                 <CardContent className='background-img' style={styles.container}>
@@ -29,27 +29,12 @@ function ArticleCard(props) {
                                 <Link underline='none'>
                                     Lire la suite...
                                 </Link>
-                                
+
                             </LinkRouter>
                         </Button>
                     </CardActions>
                 </CardContent>
             </Card>
-            {/* <Modal
-                open={articleModalOpen}
-                onClose={() => setArticleModalOpen(false)}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box className="custom-modal">
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {article.title}
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2, maxHeight: "65vh", overflowY: "auto" }}>
-                        {article.content}
-                    </Typography>
-                </Box>
-            </Modal> */}
         </Grid>
     )
 }

@@ -3,7 +3,7 @@ import { Modal, Box, TextField, FormControl, FormGroup, FormControlLabel, FormLa
 import '../../stylesheets/Modal.css';
 
 export default function AdminButton(props) {
-    let eventTypes = ["Atelier C.V.", "Coaching à l'embauche", "Sortie cinéma", "Sortie théâtre", "Atelier création", "Balade à vélo", "Evénement sportif", "Séance de natation", "Autre"];
+    let eventTypes = ["Atelier C.V.", "Coaching à l'embauche", "Sortie cinéma", "Sortie théâtre", "Atelier création", "Balade à vélo", "Evénement sportif", "Séance de natation", "Sortie au musée", "Autre"];
     let eventDetails = [{ label: "Le nom", mongoDB: "title" }, { label: "Le type d'événement", mongoDB: "type" }, { label: "La date", mongoDB: "date" }, { label: "Le lieu", mongoDB: "address" }, { label: "Le nombre maximal de participants", mongoDB: "maxNumberOfPeople" }, { label: "La description", mongoDB: "description" }]
     let audienceArray = ["Les enfants ou les élèves", "Les personnes en insertion", "Tout le monde"]
 
@@ -175,13 +175,13 @@ export default function AdminButton(props) {
 
     let formToSelectEvent = (
         <>
-        <FormControl className="select-field">
-            <InputLabel id="demo-simple-select-helper-label">Type d'événement</InputLabel>
-            <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={type} label="Type d'événement à modifier" onChange={(e) => setType(e.target.value)}>
-                <MenuItem value=""><em>Aucun type sélectionné</em></MenuItem>
-                {eventTypes.map((type, i) => { return (<MenuItem value={type}>{type}</MenuItem>) })}
-            </Select>
-        </FormControl>
+            <FormControl className="select-field">
+                <InputLabel id="demo-simple-select-helper-label">Type d'événement</InputLabel>
+                <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={type} label="Type d'événement à modifier" onChange={(e) => setType(e.target.value)}>
+                    <MenuItem value=""><em>Aucun type sélectionné</em></MenuItem>
+                    {eventTypes.map((type, i) => { return (<MenuItem value={type}>{type}</MenuItem>) })}
+                </Select>
+            </FormControl>
             <FormControl className="select-field">
                 <InputLabel id="demo-simple-select-helper-label">Nom de l'événement</InputLabel>
                 <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={title} label="Nom de l'événement à modifier" onChange={(e) => setTitle(e.target.value)}>
