@@ -18,7 +18,7 @@ import { Container, Grid, Typography, Button } from '@mui/material';
 function Discover(props) {
     console.log(props.admin.token)
 
-    const nav = [ "Qui-sommes-nous?", "Histoire", "Equipe", "Contact"];
+    const nav = ["Qui-sommes-nous?", "Histoire", "Equipe", "Contact"];
     const cardList = [
         {
             id: "scolarite", img: "../images/discover/scolarite.png", imgDesc: "accompagnement-scolarité",
@@ -62,7 +62,7 @@ function Discover(props) {
                             </Grid>
                         </Grid>
 
-                        <Grid container spacing={8}>
+                        <Grid container spacing={8} justifyContent="center">
                             <Action cards={cardList} />
                         </Grid>
 
@@ -84,9 +84,9 @@ function Discover(props) {
             </div >
 
             {/* Section Histoire*/}
-            < div className='section2' id={nav[1]} >
+            < div className='section2' id={nav[1]}>
                 <div className='opacity'>
-                    <Container maxWidth="md" >
+                    <Container maxWidth="md" sx={{ paddingTop: "3rem" }}>
                         <Grid container py={10}>
                             <Histoire />
                         </Grid>
@@ -100,7 +100,7 @@ function Discover(props) {
                     <Container maxWidth="md" >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Grid item mb={5}>
-                                <Typography variant='h2' id={nav[3]}>Notre équipe</Typography>
+                                <Typography variant='h2' id={nav[3]} sx={{ marginTop: "1.5rem" }}>Notre équipe</Typography>
                             </Grid>
 
                             <Grid item >
@@ -113,7 +113,7 @@ function Discover(props) {
 
             <div id={nav[4]}>
 
-                <Footer  />
+                <Footer />
             </div>
         </>
     );
