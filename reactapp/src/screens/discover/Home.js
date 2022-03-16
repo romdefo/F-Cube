@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, Button, Box, Container, Typography , Link} from '@mui/material';
+import { Grid, Button, Box, Container, Typography, Link } from '@mui/material';
 import { Link as LinkRouter } from 'react-router-dom';
 
 import '../../stylesheets/App.css'
@@ -37,12 +37,12 @@ export default function Home() {
                         spacing={4}>
                         <Grid item sx={{ width: '100%' }}>
                             <Typography variant='h2' sx={{ color: '#FFF' }}>
-                                EGDO
+                                F3
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant='h4' sx={{ color: '#FFF' }}>
-                                L'association des Enfants de la Goutte d'or accompagne dans la durée les enfants, les jeunes mais aussi les adultes afin qu’ils prennnent leur place de citoyens.
+                                Une Fédération pour toute la Francophonie
                             </Typography>
                         </Grid>
                     </Grid>
@@ -112,7 +112,7 @@ export default function Home() {
                                 to='/espace-eleve'
                                 variant="body2"
                                 underline='none'
-                                style={{textDecoration:'none'}}
+                                style={{ textDecoration: 'none' }}
                             >
                                 <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Elève</Button>
                             </LinkRouter>
@@ -122,7 +122,7 @@ export default function Home() {
                                 to='/espace-insertion'
                                 variant="body2"
                                 underline='none'
-                                style={{textDecoration:'none'}}
+                                style={{ textDecoration: 'none' }}
                             >
                                 <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Insertion</Button>
                             </LinkRouter>
@@ -132,7 +132,7 @@ export default function Home() {
                                 to='/espace-benevole'
                                 variant="body2"
                                 underline='none'
-                                style={{textDecoration:'none'}}
+                                style={{ textDecoration: 'none' }}
                             >
                                 <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
                             </LinkRouter>
@@ -147,13 +147,13 @@ export default function Home() {
 
 const mystyle = {
     img: {
-        backgroundImage: `url("../images/bgi.jpg")`,
+        backgroundImage: `url("../images/AdobeStock_433721437.jpeg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "95vh"
     },
     imgMobile: {
-        backgroundImage: `url("../images/bgi.jpg")`,
+        backgroundImage: `url("../images/AdobeStock_433721437.jpeg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "95vh",

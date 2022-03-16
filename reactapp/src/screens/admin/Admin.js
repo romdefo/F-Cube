@@ -42,9 +42,10 @@ function Admin(props) {
                                     sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                                 >
                                     <img
-                                        src="./images/egdo_logo.png"
+                                        src="./images/F3-logo.png"
                                         className="img-fluid"
                                         alt="Logo."
+                                        style={{ height: "50px" }}
                                     />
                                 </LinkRouter>
                                 <Typography id="bienvenue">Bienvenue {props.admin.firstName} !</Typography>

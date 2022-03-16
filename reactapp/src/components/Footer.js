@@ -16,7 +16,7 @@ import "../stylesheets/Modal.css"
 function Footer(props) {
     // Icone EGDO sur la Map
     let EGDOIcon = L.icon({
-        iconUrl: "../images/egdo-logo.png",
+        iconUrl: "../images/F3-logo.png",
         iconAnchor: [5, 55],
         popupAnchor: [10, -44],
         iconSize: [43, 55],
@@ -133,12 +133,12 @@ function Footer(props) {
                     <Grid item xs={12} md={4} className="footer-panel">
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
                             <div>
-                                <img src="../images/egdo-logo.png" alt="logo de l'association" className="egdo-logo" />
+                                <img src="../images/F3-logo.png" alt="logo de l'association" className="egdo-logo" />
                             </div>
                             <div className="EGDO-credentials">
-                                <p style={{ fontWeight: 600 }}>Les Enfants de la Goutte d'or</p>
+                                <p style={{ fontWeight: 600 }}>Fédération Francophone du Futur</p>
                                 <p>Association loi 1901</p>
-                                <p>Paris 18</p>
+                                <p>Paris 15</p>
                                 <p>FRANCE</p>
                             </div>
                         </div>
@@ -186,8 +186,8 @@ function Footer(props) {
                             <p style={{ fontWeight: 500, textAlign: "center" }}>NOUS SUIVRE</p>
 
                             <div style={{ display: "flex", justifyContent: "center" }}>
-                                <a href="https://www.facebook.com/egdo75" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><Facebook /></a>
-                                <a href="https://vimeo.com/egdo" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><img src="../images/vimeo-logo.png" alt="logo de Vimeo" style={{ width: 50 }} /></a>
+                                <a href="https://www.facebook.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><Facebook /></a>
+                                {/* <a href="https://vimeo.com/egdo" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><img src="../images/vimeo-logo.png" alt="logo de Vimeo" style={{ width: 50 }} /></a> */}
                             </div>
 
                         </div>
@@ -214,7 +214,7 @@ function Footer(props) {
                                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
                                         <div className="form-input">
                                             <TextField id="outlined-basic" label="Votre email" variant="outlined" className="input-field" onChange={(e) => setEmail(e.target.value)} value={email} />
-                                            <TextField id="outlined-basic" label="Votre mot de passe" variant="outlined" className="input-field" onChange={(e) => setPassword(e.target.value)} value={password} />
+                                            <TextField id="outlined-basic" label="Votre mot de passe" variant="outlined" type="password" className="input-field" onChange={(e) => setPassword(e.target.value)} value={password} />
                                         </div>
                                         <button className="button-input" onClick={closeAdminModal}>Accéder à l'espace admin</button>
                                     </div>

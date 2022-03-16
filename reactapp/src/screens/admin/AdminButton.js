@@ -313,7 +313,7 @@ export default function AdminButton(props) {
                         <TextField id="outlined-basic" label="Nom" variant="outlined" className="input-field" onChange={(e) => setLastName(e.target.value)} value={lastName} />
                         <TextField id="outlined-basic" label="Prénom" variant="outlined" className="input-field" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
                         <TextField id="outlined-basic" label="Email" variant="outlined" className="input-field" onChange={(e) => setEmail(e.target.value)} value={email} />
-                        <TextField id="outlined-basic" label="Mot de passe" variant="outlined" className="input-field" onChange={(e) => setPassword(e.target.value)} value={password} />
+                        <TextField id="outlined-basic" label="Mot de passe" variant="outlined" className="input-field" type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                         <TextField id="outlined-basic" label="N° de téléphone" variant="outlined" className="input-field" onChange={(e) => setTelephone(e.target.value)} value={telephone} />
                     </div>
                     <button onClick={() => adminSignUp(lastName, firstName, email, password, telephone)} className="button-input">{props.title}</button>

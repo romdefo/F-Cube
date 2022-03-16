@@ -77,10 +77,12 @@ router.post('/sign-in', async function (req, res, next) {
     admin = await adminModel.findOne({
       email: req.body.email,
     })
+    console.log(admin)
 
     if (admin) {
       if (bcrypt.compareSync(req.body.password, admin.password)) {
         result = true
+        console.log(result)
         token = uid2(32)
         await adminModel.updateOne({ token: admin.token }, { token: token })
       } else {

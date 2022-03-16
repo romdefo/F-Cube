@@ -28,10 +28,10 @@ const Navbar = (props) => {
           >
             <Link sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
               <img
-                src="./images/egdo_logo.png"
+                src="./images/F3-logo.png"
                 className="img-fluid"
                 alt="Logo."
-                style={{display: {xs:'none'}}}
+                style={{ display: { xs: 'none' }, height: "50px" }}
               />
             </Link>
           </LinkRouter>
@@ -89,9 +89,10 @@ const Navbar = (props) => {
               ml={2}
               style={{ textDecoration: 'none' }}>
               <img
-                src="./images/egdo_logo.png"
+                src="./images/F3-logo.png"
                 className="img-fluid"
                 alt="Logo."
+                style={{ height: "50px" }}
               />
             </LinkRouter>
           </Typography>
@@ -113,8 +114,8 @@ const Navbar = (props) => {
               to='/blog'
               underline='none'
               style={{ textDecoration: 'none' }}
-              //ml={5}
-              >
+            //ml={5}
+            >
               <Link underline='none' mr={6}>
                 Blog
               </Link>
