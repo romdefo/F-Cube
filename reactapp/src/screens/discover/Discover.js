@@ -2,43 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
+import FCubeMap from '../../components/FCubeMap';
 import Footer from '../../components/Footer';
-// //import theme from "../../components/Theme";
 
-import Action from './Action';
-import Histoire from './Histoire';
+import MemberSwiper from '../../components/MemberSwiper';
 import Home from './Home';
 
 import '../../stylesheets/App.css'
+import '../../stylesheets/Card.css'
 
-import { Container, Grid, Typography, Button } from '@mui/material';
-
-// const nav = ["Accueil", "Qui-sommes-nous?", "Histoire", "Equipe", "Blog"];
+import { Container, Grid, Typography } from '@mui/material';
 
 function Discover(props) {
     console.log(props.admin.token)
 
-    const nav = ["Qui-sommes-nous?", "Histoire", "Equipe", "Contact"];
-    const cardList = [
-        {
-            id: "scolarite", img: "../images/discover/scolarite.png", imgDesc: "accompagnement-scolarité",
-            title: "Accompagnement à la scolarité",
-            content: "Amener les enfants et les jeunes, à (re)construire une relation positive à l’école et au savoir",
-            button1: "En savoir plus"
-        },
-        {
-            id: "prevention", img: "../images/discover/prevention.jpeg", imgDesc: "prevention",
-            title: "Prévention",
-            content: "EGDO s'engage aux côté des famille pour la prévention des conduites à risque et de la promotion de la santé",
-            button1: "En savoir plus"
-        },
-        {
-            id: "insertion", img: "../images/discover/insertion.png", imgDesc: "insertion-professionnelle",
-            title: "Insertion Professionnelle",
-            content: "Depuis sa création, EGDO a mis l’orientation et l’accompagnement vers la formation et l’emploi des jeunes et des parents au centre de ses préoccupations.",
-            button1: "En savoir plus"
-        },
-    ]
+    const nav = ["Qui-sommes-nous?", "Nos valeurs", "Les cubeurs", "Contact"];
 
     return (
         <>
@@ -50,40 +28,39 @@ function Discover(props) {
                 <Home />
             </div >
 
-            {/* Section Actions */}
-            < div className='section' id={nav[0]} >
-                <div className='opacity'>
+            {/* Section Equipe */}
+            < div className='section' id={nav[2]} >
+                <div className='opacity2'>
                     <Container maxWidth="lg" sx={{ pt: 2 }} >
                         <Grid container sx={{ display: 'flex', justifyContent: 'center' }}
                             pb={4}
                         >
                             <Grid item >
-                                <Typography variant='h2'>Nos actions</Typography>
+                                <Typography variant='h2'>Les cubeurs</Typography>
+                                <p className="team-subtitle">Des membres fondateurs...</p>
                             </Grid>
                         </Grid>
 
-                        <Grid container spacing={8} justifyContent="center">
-                            <Action cards={cardList} />
+                        <Grid container justifyContent="center" sx={{ marginBottom: 8 }}>
+                            <MemberSwiper />
                         </Grid>
 
-                        <Grid container justifyContent="center" alignItems="center" mt={1} mb={3}
-                            // pb={10}
-                            spacing={4} >
-                            <Grid item>
-                                <Typography variant='h5'>
-                                    Pour en savoir plus, visiter notre
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Button variant='contained' color='infos'> Blog </Button>
+                        <Grid container sx={{ display: 'flex', justifyContent: 'center' }}
+                            pb={4}
+                        >
+                            <Grid item >
+                                <p className="team-subtitle">... répartis aux quatre coins du monde</p>
                             </Grid>
                         </Grid>
 
+                        <Grid container justifyContent="center">
+                            <FCubeMap />
+                        </Grid>
                     </Container>
                 </div>
             </div >
 
-            {/* Section Histoire*/}
+            {/* Section Histoire
             < div className='section2' id={nav[1]}>
                 <div className='opacity'>
                     <Container maxWidth="md" sx={{ paddingTop: "3rem" }}>
@@ -92,24 +69,7 @@ function Discover(props) {
                         </Grid>
                     </Container>
                 </div>
-            </div >
-
-            {/* Section Equipe */}
-            < div className='section' id={nav[3]}>
-                <div className='opacity'>
-                    <Container maxWidth="md" >
-                        <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Grid item mb={5}>
-                                <Typography variant='h2' id={nav[3]} sx={{ marginTop: "1.5rem" }}>Notre équipe</Typography>
-                            </Grid>
-
-                            <Grid item >
-                                <img alt="equipe egdo" src="../images/discover/team.png" className='img-fluid' />
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </div>
-            </div >
+            </div > */}
 
             <div id={nav[4]}>
 

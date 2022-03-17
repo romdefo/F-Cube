@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Link as LinkRouter } from 'react-router-dom';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, Link } from '@mui/material'
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, MenuItem, Link } from '@mui/material'
 
 import MenuIcon from '@mui/icons-material/Menu';
+import '../stylesheets/App.css';
 
 const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -29,7 +30,7 @@ const Navbar = (props) => {
             <Link sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
               <img
                 src="./images/F3-logo.png"
-                className="img-fluid"
+                className="img-fluid F3-logo"
                 alt="Logo."
                 style={{ display: { xs: 'none' }, height: "50px" }}
               />
@@ -109,7 +110,7 @@ const Navbar = (props) => {
                 {page}
               </Link>
             ))}
-            <LinkRouter
+            {/* <LinkRouter
               key='act'
               to='/blog'
               underline='none'
@@ -119,17 +120,17 @@ const Navbar = (props) => {
               <Link underline='none' mr={6}>
                 Blog
               </Link>
-            </LinkRouter>
-            <LinkRouter
+            </LinkRouter> */}
+            {/* <LinkRouter
               key='act'
               to='/j-agis'
               underline='none'
               style={{ textDecoration: 'none' }}
               ml={4}>
-              <Button color='secondary' variant='contained'>
+              <Button variant='contained' color='infos'>
                 J'agis
               </Button>
-            </LinkRouter>
+            </LinkRouter> */}
           </Box>
         </Toolbar>
       </Container>

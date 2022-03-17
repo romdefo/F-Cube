@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, Button, Box, Container, Typography, Link } from '@mui/material';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Grid, Box, Container, Typography } from '@mui/material';
 
 import '../../stylesheets/App.css'
 import '../../stylesheets/Buttons.css'
@@ -29,25 +28,21 @@ export default function Home() {
                 <Container maxWidth='lg' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
                     <Grid container
-                        xs={12}
-                        md={6}
-                        mx={3}
-                        // my={0}
-                        sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '50%' }}
+                        xs={12} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '50%' }}
                         spacing={4}>
                         <Grid item sx={{ width: '100%' }}>
-                            <Typography variant='h2' sx={{ color: '#FFF' }}>
-                                F3
+                            <Typography variant='h2' sx={{ color: '#FFF', fontSize: 100, textShadow: "4px 4px 4px black" }}>
+                                F<sup style={{ fontSize: 75, fontFamily: "Josefin Sans, sans serif" }}>3</sup>
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant='h4' sx={{ color: '#FFF' }}>
-                                Une Fédération pour toute la Francophonie
+                            <Typography variant='h3' sx={{ color: '#FFF', fontSize: 35, fontWeight: 600, textShadow: "4px 4px 4px black" }} data-aos="fade-up" data-aos-duration="2000">
+                                Fédération Francophone du Futur
                             </Typography>
                         </Grid>
                     </Grid>
 
-                    <Grid container xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} spacing={8}>
+                    {/* <Grid container xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} spacing={8}>
                         <Grid item data-aos="fade-left" data-aos-duration="1000">
                             <LinkRouter
                                 to='/espace-eleve'
@@ -78,8 +73,8 @@ export default function Home() {
                                 <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
 
                             </LinkRouter>
-                        </Grid>
-                    </Grid>
+                        </Grid> */}
+                    {/* </Grid> */}
                 </Container>
             </Box>
 
@@ -90,18 +85,18 @@ export default function Home() {
 
                     <Grid container xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }} spacing={4}>
                         <Grid item>
-                            <Typography variant='h2' sx={{ color: '#FFF' }}>
-                                EGDO
+                            <Typography variant='h2' sx={{ color: '#FFF', fontFamily: "Josefin Sans, sans-serif", fontSize: 80, textShadow: "4px 4px 4px black" }}>
+                                F<sup style={{ fontSize: 53 }}>3</sup>
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant='h4' sx={{ color: '#FFF' }}>
-                                L'association des Enfants de la Goutte d'or accompagne dans la durée les enfants, les jeunes mais aussi les adultes afin qu’ils prennnent leur place de citoyens.
+                            <Typography variant='h4' px={12} sx={{ color: '#FFF', fontSize: 35, fontWeight: 600, textShadow: "4px 4px 4px black" }} data-aos="fade-up" data-aos-duration="2000">
+                                Fédération Francophone du Futur
                             </Typography>
                         </Grid>
                     </Grid>
 
-                    <Grid
+                    {/* <Grid
                         container
                         xs={12}
                         md={6}
@@ -137,30 +132,25 @@ export default function Home() {
                                 <Button size='large' variant='contained' color='primary' sx={{ minWidth: '200px' }}> Espace Bénévole</Button>
                             </LinkRouter>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Container>
             </Box>
-        </div>
+        </div >
 
     )
 }
 
 const mystyle = {
     img: {
-        backgroundImage: `url("../images/AdobeStock_433721437.jpeg")`,
+        backgroundImage: `url("../images/background-img.jpg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        minHeight: "95vh"
-    },
-    imgMobile: {
-        backgroundImage: `url("../images/AdobeStock_433721437.jpeg")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
         minHeight: "95vh",
-        transform: 'rotate(-90deg)'
+        zIndex: -1
     },
     opacity: {
-        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        backgroundColor: "rgba(0, 0, 0, 0.2)",
         minHeight: "95vh"
     },
 }

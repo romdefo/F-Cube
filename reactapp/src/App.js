@@ -1,13 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Student from "./screens/student/Student";
-import Insertion from "./screens/insertion/Insertion";
-import Volunteer from "./screens/benevole/Volunteer";
 import Act from "./screens/Act";
 import Admin from "./screens/admin/Admin";
 import Discover from "./screens/discover/Discover";
-import Blog from "./screens/blog/Blog";
-import ArticleScreen from './screens/blog/ArticleScreen';
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material";
 
@@ -27,11 +22,6 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Discover} />
-            <Route path="/espace-eleve" component={Student} />
-            <Route path="/espace-insertion" component={Insertion} />
-            <Route path="/espace-benevole" component={Volunteer} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/article" component={ArticleScreen} />
             <Route path="/j-agis" component={Act} />
             <Route path="/admin" component={Admin} />
           </Switch>

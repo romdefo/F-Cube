@@ -1,6 +1,6 @@
 /* Style du gros footer avec Contact */
 .footer-background {
-    background-image: url("../../public/images/blue-pencils.jpg");
+    background-image: url("../../public/images/starry-night.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -66,7 +66,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    line-height: 0.5;
+    line-height: 1.5;
     color: black
 }
 
@@ -80,7 +80,7 @@
     font-size: 13px;
 }
 
-.EGDO-credentials {
+.F3-credentials {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,26 +96,29 @@
 /* Style de la carte */
 
 .map-container {
-    height: 350px;
-    width: 350px;
-    border-radius: 250px;
-    border: 5px solid white;
-    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25)
+    height: 500px;
+    width: 800px;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
 }
 
 .map-PopUp-title {
-    font-size:18px;
+    font-size:15px;
     font-weight: 600;
     line-height: 1
 }
 
-.map-PopUp-subtitle {
+/* .map-PopUp-subtitle {
     font-size:18px;
     font-weight: 400;
     line-height: 1
+} */
+
+.map-tiles {
+    filter: brightness(0.6) invert(1) contrast(8) hue-rotate(200deg) saturate(0.1) brightness(0.7);
 }
 
-.egdo-logo {
+.F3-logo-footer {
     width: 70px;
 }
 
@@ -128,15 +131,15 @@
         margin:40px;
     }
     .lowest-footer-panel-content,
-    .EGDO-credentials {
+    .F3-credentials {
         padding-top: 30px;
         padding-bottom: 30px;
     }
     .lowest-footer-panel-middle {
-        background-color:rgb(220, 242, 255)
+        background-color: rgb(10, 121, 146, 0.3)
     }
-    .egdo-logo {
-        padding-top: 20px;
+    .F3-logo-footer {
+        padding-top: 30px;
     }
 }
 

@@ -4,16 +4,16 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#000000', // black
-      light: '#A4D3E8', // light-blue
-      dark: '#295263', // dark-blue
+      light: '#FFFFFF', // white
+      dark: '#000000', // black
     },
     secondary: {
-      main: '#FEE271', // yellow
+      main: '#0a7992', // blue of the logo
       dark: '#756612', // dark-brown
       light: '#FAF5E2' // beige
     },
     infos: {
-      main: '#80CCEA' // light-blue
+      main: '#0a7992' // light-blue
     }
   },
   typography: {
@@ -23,7 +23,7 @@ const theme = createTheme({
 
 theme.props = {
   MuiButton: {
-    //disableElevation: true,
+    disableElevation: true,
   },
   MuiInputLabel: {
     shrink: true,
@@ -40,20 +40,22 @@ theme.components = {
   //Typography
   MuiTypography: {
     styleOverrides: {
+      h1: {
+        textAlign: 'center'
+      },
       h2: {
-        color: '#003D55',
+        color: 'white',
         fontWeight: 700,
         textAlign: 'center'
       },
       h3: {
-        color: '#003D55',
+        color: 'white',
         fontWeight: 500,
         textAlign: 'center'
       },
       h4: {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.light,
         textAlign: 'center',
-        // fontSize: 'large'
       },
       h5: {
         color: theme.palette.primary.dark,
@@ -95,11 +97,11 @@ theme.components = {
       root: {
         borderRadius: 0,
         textTransform: 'none',
-        color: theme.palette.primary.dark,
+        color: theme.palette.primary.main,
         fontWeight: 700,
       },
       contained: {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.secondary.main,
         color: theme.palette.primary.dark,
         underline: 'none',
         borderRadius: '20px',
@@ -141,8 +143,8 @@ theme.components = {
         display: 'block',
       },
       underlineNone: {
-        fontWeight: '600',
-        color: theme.palette.primary.dark,
+        fontWeight: '500',
+        color: theme.palette.primary.light,
         '&:hover': {
           color: theme.palette.secondary.main,
         }
