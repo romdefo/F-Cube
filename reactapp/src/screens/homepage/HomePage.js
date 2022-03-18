@@ -5,22 +5,24 @@ import Navbar from '../../components/Navbar';
 import FCubeMap from '../../components/FCubeMap';
 import Footer from '../../components/Footer';
 
-import Home from './Home';
+import LandingScreen from './LandingScreen';
 import Francophonie from './Francophonie';
 import MemberSwiper from '../../components/MemberSwiper';
 import QuoteSection from './QuoteSection';
+import StarWarsEffect from './StarWarsEffect'
 
 import '../../stylesheets/App.css'
 import '../../stylesheets/Card.css'
+import '../../stylesheets/StarWarsEffect.css'
 
 import { Container, Grid, Typography } from '@mui/material';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function Discover(props) {
+function HomePage(props) {
     console.log(props.admin.token)
 
-    const nav = ["Qui-sommes-nous ?", "Pourquoi la Francophonie ?", "Les cubeurs", "Rejoignez-nous"];
+    const nav = ["Qui-sommes-nous ?", "Pourquoi la Francophonie ?", "Les cubeurs", "Contactez-nous"];
 
     useEffect(() => {
 
@@ -46,9 +48,9 @@ function Discover(props) {
             {/* Navbar */}
             < Navbar nav={nav} />
 
-            {/* Home page */}
+            {/* Landing Screen */}
             < div  >
-                <Home />
+                <LandingScreen />
             </div >
 
             <a className="back-to-top" onClick={scroll}>
@@ -67,13 +69,18 @@ function Discover(props) {
                             </Grid>
                         </Grid>
 
-                        <Grid container sx={{ display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "26px", fontWeight: 500, textAlign: "center" }}>
+                        <div className="text-to-roll">
+                            <StarWarsEffect />
+                        </div>
+
+                        {/* <Grid container sx={{ display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "26px", fontWeight: 500, textAlign: "center" }}>
                             <Grid item xs={11} md={3}>Une O.N.G. francophone et francophile...</Grid>
                             <Grid item xs={11} md={1}>*</Grid>
                             <Grid item xs={11} md={3}>... prenant la forme d'un espace d'échange et de collaboration...</Grid>
                             <Grid item xs={11} md={1}>*</Grid>
                             <Grid item xs={11} md={3}>... pour fédérer les énergies du monde francophone autour des enjeux de demain.</Grid>
-                        </Grid>
+                        </Grid> */}
+
                     </Container>
                 </div>
             </div >
@@ -86,7 +93,8 @@ function Discover(props) {
                             pb={4}
                         >
                             <Grid item >
-                                <Typography variant='h2'>La Francophonie en chiffres</Typography>
+                                <Typography variant='h2'>Pourquoi la Francophonie ?</Typography>
+                                <p className="team-subtitle">Quelques chiffres parlants</p>
                             </Grid>
                         </Grid>
 
@@ -122,7 +130,7 @@ function Discover(props) {
                             pb={4}
                         >
                             <Grid item >
-                                <p className="team-subtitle">... aux quatre coins de la Francophonie</p>
+                                <p className="team-subtitle">... aux quatre coins de la Francophonie, et ce n'est que le début</p>
                             </Grid>
                         </Grid>
 
@@ -152,4 +160,4 @@ function mapStateToProps(state) {
     return { admin: state.admin }
 }
 
-export default connect(mapStateToProps, null)(Discover);
+export default connect(mapStateToProps, null)(HomePage);

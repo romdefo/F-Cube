@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Grid, TextField, Modal, Box } from '@mui/material';
 
 import "../stylesheets/Buttons.css"
-import "../stylesheets/Footer.css"
+import "../stylesheets/MapAndFooter.css"
 import "../stylesheets/Modal.css"
 
 function Footer(props) {
@@ -89,8 +89,7 @@ function Footer(props) {
                         </div>
                         <div className="F3-credentials">
                             <p style={{ fontWeight: 600 }}>Fédération Francophone du Futur</p>
-                            <p>Association loi 1901</p>
-                            <p>fondée à Paris - 2022</p>
+                            <p>O.N.G. loi 1901</p>
                             <a href="mailto:contact@fcube.org" className="email">contact@fcube.org</a>
                         </div>
                     </div>
@@ -130,10 +129,10 @@ function Footer(props) {
                         <p style={{ fontWeight: 500, textAlign: "center", paddingBottom: 10 }}>NOUS SUIVRE</p>
 
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                            <a href="https://www.linkedin.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/linkedin.png" style={{ height: "30px" }} /></a>
-                            <a href="https://www.facebook.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/fb.png" style={{ height: "30px" }} /></a>
+                            <a href="https://www.linkedin.com/company/f%C3%A9d%C3%A9ration-francophone-du-futur-f3/" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/linkedin.png" style={{ height: "30px" }} /></a>
+                            {/* <a href="https://www.facebook.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/fb.png" style={{ height: "30px" }} /></a> */}
                             <a href="https://www.twitter.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/twitter.png" style={{ height: "30px" }} /></a>
-                            <a href="https://www.instagram.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/ig.png" style={{ height: "30px" }} /></a>
+                            {/* <a href="https://www.instagram.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/ig.png" style={{ height: "30px" }} /></a> */}
                         </div>
 
                     </div>

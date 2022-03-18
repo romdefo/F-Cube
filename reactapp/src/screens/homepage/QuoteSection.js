@@ -37,8 +37,8 @@ export default function QuoteSection() {
             <Grid container className="quote-block">
                 <i className="quote" data-aos="fade-up" data-aos-duration="2000">Le meilleur moyen de prévoir le futur, c'est de le <b>créer</b>.</i>
                 <p className="quote" data-aos="fade-up" data-aos-duration="2000">-- Peter Drucker</p>
-                <p className="quote together" data-aos="fade-up" data-aos-duration="2000">Créons ce futur <b>ensemble</b>.</p>
-                <a onClick={() => setContactModalOpen(true)} className="become-cuber">Je deviens cubeur</a>
+                <p className="quote together" data-aos="fade-up" data-aos-duration="2000">Vous souhaitez façonner ce futur avec nous ?</p>
+                <a onClick={() => setContactModalOpen(true)} className="become-cuber">Contactez-nous</a>
 
                 <Modal
                     open={contactModalOpen}

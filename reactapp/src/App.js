@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Act from "./screens/Act";
 import Admin from "./screens/admin/Admin";
-import Discover from "./screens/discover/Discover";
+import HomePage from "./screens/homepage/HomePage";
 import theme from "./components/Theme";
 import { ThemeProvider } from "@mui/material";
 
@@ -21,8 +20,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Discover} />
-            <Route path="/j-agis" component={Act} />
+            <Route exact path="/" component={HomePage} />
             <Route path="/admin" component={Admin} />
           </Switch>
         </Router>

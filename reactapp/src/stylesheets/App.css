@@ -105,13 +105,14 @@ a:link {
 }
 
 .quote {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   color: white !important;
 }
 
 .together {
   margin-top: 20px;
+  font-size: 25px !important;
 }
 
 .quote-block {
@@ -123,14 +124,19 @@ a:link {
 }
 
 .become-cuber {
+  color: white;
   margin-top: 60px; 
-  font-size: 25px; 
+  font-size: 20px; 
   font-weight: 700;
-  box-shadow: 5px 5px 5px black;
-  background: rgb(206, 206, 206);
+  box-shadow: 5px 5px 5px white;
+  border: 1px solid white;
   cursor: pointer;
   padding: 10px 20px 10px 20px;
   border-radius: 10px;
+}
+
+.become-cuber:hover {
+  background: black;
 }
 
 .back-to-top {

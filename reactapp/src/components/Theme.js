@@ -10,7 +10,7 @@ const theme = createTheme({
     secondary: {
       main: '#0a7992', // blue of the logo
       dark: '#756612', // dark-brown
-      light: '#FAF5E2' // beige
+      light: '#D4AF37' // beige
     },
     infos: {
       main: '#0a7992' // light-blue
@@ -147,7 +147,7 @@ theme.components = {
         fontWeight: '500',
         color: theme.palette.primary.light,
         '&:hover': {
-          color: theme.palette.secondary.main,
+          color: theme.palette.secondary.light,
         }
       }
 

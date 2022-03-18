@@ -119,9 +119,23 @@
     }
 }
 
+@media screen and (max-width: 600px){
+    .map-container {
+        max-width: 430px;
+    }
+    .lowest-footer-panel-content,
+    .F3-credentials {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .F3-logo-footer {
+        padding-top: 30px;
+    }
+}
+
 @media screen and (max-width: 700px){
     .map-container {
-        width: 450px;
+        width: 500px;
     }
     .lowest-footer-panel-content,
     .F3-credentials {
@@ -135,7 +149,7 @@
 
 @media screen and (max-width: 900px){
     .map-container {
-        width: 500px;
+        width: 550px;
     }
     .lowest-footer-panel-content,
     .F3-credentials {

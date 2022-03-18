@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { Grid, Box, Container, Typography } from '@mui/material';
 
 import '../../stylesheets/App.css'
-import '../../stylesheets/Buttons.css'
 
 import AOS from "aos"
 import "aos/dist/aos.css"
 
-export default function Home() {
+export default function LandingScreen() {
 
     useEffect(() => {
 
