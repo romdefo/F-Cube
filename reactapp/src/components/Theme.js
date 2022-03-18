@@ -44,6 +44,7 @@ theme.components = {
         textAlign: 'center'
       },
       h2: {
+        fontSize: 50,
         color: 'white',
         fontWeight: 700,
         textAlign: 'center'

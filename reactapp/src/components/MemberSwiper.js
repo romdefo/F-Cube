@@ -22,12 +22,14 @@ export default function MemberSwiper() {
             id: "p.a.", img: "../images/members/Pierre-Alain-Raphan.jpg", imgDesc: "pierre-alain-raphan",
             name: "Pierre-Alain Raphan",
             role: "Co-Président",
+            condensed: true,
             linkedIn: "https://www.linkedin.com/in/pierre-alain-raphan-7aab223b/"
         },
         {
             id: "leila", img: "../images/members/Leila-Morch.jpg", imgDesc: "leila-morch",
             name: "Leïla Mörch Pinchinat",
             role: "Déléguée générale",
+            condensed: true,
             linkedIn: "https://www.linkedin.com/in/le%C3%AFla-m%C3%B6rch-pinchinat-897319b3/"
         },
         {
@@ -40,6 +42,7 @@ export default function MemberSwiper() {
             id: "romain", img: "../images/members/Romain-Defouilhoux.jpg", imgDesc: "romain-defouilhoux",
             name: "Romain Defouilhoux",
             role: "Trésorier",
+            condensed: true,
             linkedIn: "https://www.linkedin.com/in/romain-defouilhoux-72368813b/"
         },
         {
@@ -52,6 +55,7 @@ export default function MemberSwiper() {
             id: "anne-charlotte", img: "../images/members/Anne-Charlotte-Monneret.jpg", imgDesc: "anne-charlotte-monneret",
             name: "Anne-Charlotte Monneret",
             role: "Membre fondatrice",
+            condensed: true,
             linkedIn: "https://www.linkedin.com/in/anne-charlotte-monneret-154aa6124/"
         },
         {
@@ -64,6 +68,7 @@ export default function MemberSwiper() {
             id: "gnagna", img: "../images/members/Gnagna-Mariann-Konate.jpg", imgDesc: "gnagna-marianne-konate",
             name: "Gnagna Mariann Konate",
             role: "Membre fondatrice",
+            condensed: true,
             linkedIn: "https://www.linkedin.com/in/gnagnamariannkonate/"
         },
         {
@@ -85,10 +90,16 @@ export default function MemberSwiper() {
             linkedIn: "https://www.linkedin.com/in/sabine-habibian-b6712b5a/"
         },
         {
-            id: "nicolas", img: "../images/members/Nicolas-Pasquier.jpg", imgDesc: "nicolas-pasquier",
-            name: "Nicolas Pasquier",
+            id: "bruno", img: "../images/members/Bruno-Sola.jpg", imgDesc: "bruno-sola",
+            name: "Bruno Sola",
             role: "Membre fondateur",
-            linkedIn: "https://www.linkedin.com/in/npasquier/"
+            linkedIn: "https://www.linkedin.com/in/bruno-sola-95111411/"
+        },
+        {
+            id: "shani", img: "../images/members/Shani-Benoualid.jpg", imgDesc: "shani-benoualid",
+            name: "Shani Benoualid",
+            role: "Membre fondatrice",
+            linkedIn: "https://www.linkedin.com/in/shani-benoualid-108665b1/"
         },
         {
             id: "reza", img: "../images/members/Reza-Malekzadeh.jpg", imgDesc: "reza-malekzadeh",
@@ -109,7 +120,7 @@ export default function MemberSwiper() {
             modules={[Navigation, Pagination, A11y]}
             spaceBetween={50}
             slidesPerView={3}
-            breakpoints={{ "300": { slidesPerView: 2, spaceBetween: 10 }, "600": { slidesPerView: 2, spaceBetween: 30 }, "900": { slidesPerView: 3, spaceBetween: 40 } }}
+            breakpoints={{ "300": { slidesPerView: 1, spaceBetween: 10 }, "370": { slidesPerView: 2, spaceBetween: 10 }, "600": { slidesPerView: 2, spaceBetween: 30 }, "900": { slidesPerView: 3, spaceBetween: 40 } }}
             navigation
             pagination={{ clickable: true }}
         >
@@ -117,7 +128,7 @@ export default function MemberSwiper() {
                 {membersList.map(member => {
                     return (
                         <SwiperSlide>
-                            <CardItem cardID={member.id} img={member.img} imgDesc={member.imgDesc} name={member.name} role={member.role} linkedIn={member.linkedIn} />
+                            <CardItem cardID={member.id} img={member.img} imgDesc={member.imgDesc} name={member.name} role={member.role} linkedIn={member.linkedIn} condensed={member.condensed} />
                         </SwiperSlide>
                     )
                 })}

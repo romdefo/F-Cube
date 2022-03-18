@@ -1,0 +1,61 @@
+.even-stats-container {
+    position: relative;
+    background: #0a7992;
+    height:60%;
+    box-shadow: "5px 4px 6px rgb(0, 0, 0)";
+    border-radius:15px;
+}
+
+.odd-stats-container {
+    position: relative;
+    background: rgb(216, 220, 255);
+    height:60%;
+    box-shadow: "5px 4px 6px rgb(0, 0, 0)";
+    border-radius:15px;
+}
+
+.stats-name {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    height:100%;
+    width:100%
+}
+
+.stats-text {
+    position:relative;
+    color:white;
+    font-size: 23px;
+    font-weight:500;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    border-radius:15px;
+    white-space: wrap;
+}
+
+.even-stats-container:hover .stats-text{
+    opacity: 1;
+    height: 100%;
+    width:100%;
+}
+
+.even-stats-container:hover .stats-name{
+    display:none
+}
+
+.odd-stats-container:hover .stats-text{
+    opacity: 1;
+    height: 100%;
+    width:100%;
+}
+
+.odd-stats-container:hover .stats-name{
+    display:none
+}

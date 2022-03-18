@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Grid, TextField, Modal, Box } from '@mui/material';
-import { Facebook } from "@mui/icons-material";
 
 import "../stylesheets/Buttons.css"
 import "../stylesheets/Footer.css"
@@ -20,6 +19,7 @@ function Footer(props) {
     // Récupérer tous les champs de saisie
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [country, setCountry] = useState("");
     const [object, setObject] = useState("");
     const [content, setContent] = useState("");
     const [password, setPassword] = useState("");
@@ -33,6 +33,7 @@ function Footer(props) {
             date: new Date(),
             name: name,
             email: email,
+            country: country,
             object: object,
             content: content
         };
@@ -89,8 +90,8 @@ function Footer(props) {
                         <div className="F3-credentials">
                             <p style={{ fontWeight: 600 }}>Fédération Francophone du Futur</p>
                             <p>Association loi 1901</p>
-                            <p>Paris 15</p>
-                            <p>FRANCE</p>
+                            <p>fondée à Paris - 2022</p>
+                            <a href="mailto:contact@fcube.org" className="email">contact@fcube.org</a>
                         </div>
                     </div>
                 </Grid>
@@ -108,13 +109,14 @@ function Footer(props) {
                             aria-describedby="modal-modal-description"
                         >
                             <Box className="custom-modal">
-                                <h4>Remplissez le formulaire ci-dessous.</h4>
+                                <h4>Veuillez remplir le formulaire ci-dessous.</h4>
                                 <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
                                     <div style={{ display: "flex", flexWrap: "wrap" }}>
                                         <div className="form-input">
                                             <TextField id="outlined-basic" label="Votre nom" variant="outlined" className="input-field" onChange={(e) => setName(e.target.value)} value={name} />
                                             <TextField id="outlined-basic" label="Votre email" variant="outlined" className="input-field" onChange={(e) => setEmail(e.target.value)} value={email} />
-                                            <TextField id="outlined-basic" label="Objet du message" variant="outlined" className="input-field" onChange={(e) => setObject(e.target.value)} value={object} />
+                                            <TextField id="outlined-basic" label="Votre/vos pays" variant="outlined" className="input-field" onChange={(e) => setCountry(e.target.value)} value={country} />
+                                            <TextField id="outlined-basic" label="Objet de votre message" variant="outlined" className="input-field" onChange={(e) => setObject(e.target.value)} value={object} />
                                             <TextField id="outlined-basic" label="Contenu" variant="outlined" multiline rows={9} className="input-field" onChange={(e) => setContent(e.target.value)} value={content} />
                                         </div>
                                     </div>
@@ -125,11 +127,13 @@ function Footer(props) {
 
                         {/* Partie "Nous suivre" */}
                         <p style={{ fontWeight: 300, textAlign: "center" }}>ou</p>
-                        <p style={{ fontWeight: 500, textAlign: "center" }}>NOUS SUIVRE</p>
+                        <p style={{ fontWeight: 500, textAlign: "center", paddingBottom: 10 }}>NOUS SUIVRE</p>
 
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                            <a href="https://www.facebook.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><Facebook /></a>
-                            {/* <a href="https://vimeo.com/egdo" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5 }}><img src="../images/vimeo-logo.png" alt="logo de Vimeo" style={{ width: 50 }} /></a> */}
+                            <a href="https://www.linkedin.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/linkedin.png" style={{ height: "30px" }} /></a>
+                            <a href="https://www.facebook.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/fb.png" style={{ height: "30px" }} /></a>
+                            <a href="https://www.twitter.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/twitter.png" style={{ height: "30px" }} /></a>
+                            <a href="https://www.instagram.com/F-Cube" target="_blank" rel="noreferrer" style={{ marginLeft: 5, marginRight: 5, marginTop: 7 }}><img src="./images/ig.png" style={{ height: "30px" }} /></a>
                         </div>
 
                     </div>
@@ -138,9 +142,7 @@ function Footer(props) {
                 {/* Dernier panel du footer avec divers liens utiles (pas encore actifs) */}
                 <Grid item xs={12} md={4} className="footer-panel">
                     <div className="lowest-footer-panel-content">
-                        <p>PRESSE</p>
-                        <p>NEWSLETTER</p>
-                        <p>MENTIONS LEGALES</p>
+                        <a className="email" href="/files/deck" download>DECK DE PRESENTATION</a>
                         <p onClick={() => handleLogin()} className="contact-link">ESPACE ADMIN</p>
 
                         {/* Modal pour se connecter, qui redirige vers la page Admin */}

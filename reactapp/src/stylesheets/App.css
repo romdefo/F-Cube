@@ -43,8 +43,9 @@ a:link {
 }
 
 .section2 {
-    background: #ffffff;
-    min-height: 100vh;
+  background-image: url('../../public/images/tubes.jpg');
+  background-size: cover;
+  min-height: 70vh;
 }
 
 .opacity {
@@ -55,7 +56,10 @@ a:link {
 
 .opacity2 {
   min-height: 100vh;
-  padding-top: 10vh
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
 }
 
 .act-img {
@@ -90,4 +94,57 @@ a:link {
   left: 0;
   right: auto;
   width: 100%;
+}
+
+.opacity3 {
+  min-height: 70vh;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote {
+  font-size: 30px;
+  font-weight: 500;
+  color: white !important;
+}
+
+.together {
+  margin-top: 20px;
+}
+
+.quote-block {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 20px 0 20px !important;
+}
+
+.become-cuber {
+  margin-top: 60px; 
+  font-size: 25px; 
+  font-weight: 700;
+  box-shadow: 5px 5px 5px black;
+  background: rgb(206, 206, 206);
+  cursor: pointer;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.back-to-top {
+  cursor: pointer;
+  position: sticky;
+  top: 90%;
+  left: 90%;
+  text-align: center;
+  background: #0a7992;
+  padding: 10px 20px 10px 20px;
+  border: 2px solid white !important;
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 10
 }

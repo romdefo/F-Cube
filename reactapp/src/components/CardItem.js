@@ -9,8 +9,8 @@ export default function CardItem(props) {
         <Card id={props.cardID} className="member-card">
             <img className="avatar" src={props.img} alt={props.name}>
             </img>
-            <CardContent className='background-img' style={styles.container}>
-                <Typography variant="h5" component="div" className="member-name">
+            <CardContent>
+                <Typography variant="h5" component="div" className="member-name" sx={{ letterSpacing: props.condensed ? "-1.2px" : "0px" }}>
                     {props.name}
                 </Typography>
                 <Typography>
@@ -23,8 +23,3 @@ export default function CardItem(props) {
         </Card>
     )
 }
-const styles = {
-    container: {
-        background: `radial-gradient(circle, rgba(250,250,250,0.7) 0%, rgba(250,250,250,0.9) 81%)`,
-    }
-};

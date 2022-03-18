@@ -1,15 +1,13 @@
 .member-card {
     height: 380px !important;
-    border-radius: 0 !important;
-    background: linear-gradient(#0a7992,white 47%) !important;
+    border-radius: 20px !important;
+    background: linear-gradient(#075668,white 47%) !important;
 }
 
 .member-name {
     height: 30px;
     border-bottom: 1px solid black;
-    background: none !important;
     white-space: nowrap;
-    letter-spacing: -0.7px;
 }
 
 .avatar {
@@ -22,6 +20,19 @@
 .team-subtitle {
     color: white;
     font-size: 20px;
-    margin: 30px;
+    text-align: center;
+    margin: 30px 0 30px 0;
     font-weight: 600;
+}
+
+.reverse-card {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    margin-bottom: 8 !important;
+}
+
+@media screen and (max-width: 600px){
+    .reverse-card {
+        flex-direction: row !important;
+    }
 }

@@ -18,21 +18,29 @@ const Navbar = (props) => {
 
   const pages = props.nav;
 
+  function scroll() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   return (
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LinkRouter
             to='/'
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ display: { xs: 'none', md: 'flex' } }}
             style={{ textDecoration: 'none' }}
           >
-            <Link sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+            <Link sx={{ display: { xs: 'none', md: 'flex' } }}>
               <img
                 src="./images/F3-logo.png"
                 className="img-fluid F3-logo"
                 alt="Logo."
                 style={{ display: { xs: 'none' }, height: "50px" }}
+                onClick={scroll}
               />
             </Link>
           </LinkRouter>
@@ -83,17 +91,17 @@ const Navbar = (props) => {
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-            mr={7}
+            pr={5} pt={1}
           >
             <LinkRouter
               to="/"
-              ml={2}
               style={{ textDecoration: 'none' }}>
               <img
                 src="./images/F3-logo.png"
                 className="img-fluid"
                 alt="Logo."
                 style={{ height: "50px" }}
+                onClick={scroll}
               />
             </LinkRouter>
           </Typography>
@@ -104,33 +112,12 @@ const Navbar = (props) => {
                 key={page}
                 underline='none'
                 onClick={handleCloseNavMenu}
-                mr={8}
+                pr={8}
                 className='underline'
               >
                 {page}
               </Link>
             ))}
-            {/* <LinkRouter
-              key='act'
-              to='/blog'
-              underline='none'
-              style={{ textDecoration: 'none' }}
-            //ml={5}
-            >
-              <Link underline='none' mr={6}>
-                Blog
-              </Link>
-            </LinkRouter> */}
-            {/* <LinkRouter
-              key='act'
-              to='/j-agis'
-              underline='none'
-              style={{ textDecoration: 'none' }}
-              ml={4}>
-              <Button variant='contained' color='infos'>
-                J'agis
-              </Button>
-            </LinkRouter> */}
           </Box>
         </Toolbar>
       </Container>

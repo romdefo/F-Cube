@@ -1,7 +1,12 @@
 .custom-modal {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 50vw !important;
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 15px;
@@ -9,24 +14,18 @@
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.4)
 }
 
-/* @media screen and (max-width: 900px){
-    .custon-modal {
-        
-    }
-} */
-
 .form-input {
     display: flex;
     flex-direction:column;
     align-content: stretch !important;
-    width: 100% !important;
+    min-width: 48vw !important;
 }
 
 .input-field {
     margin-top: 10px !important;
     border-radius: 8px;
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
-    min-width:"100%";
+    min-width:100% !important;
 }
 
 .select-field {

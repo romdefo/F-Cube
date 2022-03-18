@@ -21,7 +21,7 @@ export default function FCubeMap() {
             {/* Panel de droite du premier footer, avec la map dedans */}
             <Grid item xs={12} className="footer-panel">
                 <div className="footer-panel-content">
-                    <MapContainer className="map-container" center={[48.887270, 2.354730]} zoom={1.5}>
+                    <MapContainer className="map-container" center={[14.716677, -17.467686]} zoom={1.5}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='map-tiles'
