@@ -3,12 +3,28 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../../stylesheets/StarWarsEffect.css'
 
 export default function StarWarsEffect() {
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
     const containerRef = useRef(null);
+
+    const callbackFunction = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) setIsVisible(true);
+            if (!entry.isIntersecting) setIsVisible(false);
+        });
+    }
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(callbackFunction);
+        if (containerRef.current) observer.observe(containerRef.current);
+
+        return () => {
+            if (containerRef.current) observer.unobserve(containerRef.current);
+        }
+    }, [containerRef])
 
     const content = []
     let i = 0
-    while (i < 30) {
+    while (i < 10) {
         content.push(<>
             <div class="title">
                 <p style={{ paddingTop: "50vh" }}>Episode I</p>
@@ -21,28 +37,6 @@ export default function StarWarsEffect() {
         </>);
         i++;
     }
-
-    const callbackFunction = (entries) => {
-        entries.forEach(entry => {
-            // If the element is visible
-            if (entry.isIntersecting) {
-                // Add the animation class
-                setIsVisible(true);
-            }
-            if (!entry.isIntersecting) {
-                setIsVisible(false);
-            }
-        });
-    }
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(callbackFunction);
-        if (containerRef.current) observer.observe(containerRef.current);
-
-        return () => {
-            if (containerRef.current) observer.unobserve(containerRef.current);
-        }
-    }, [containerRef])
 
     return (
         <>
